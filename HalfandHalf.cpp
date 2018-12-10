@@ -5,23 +5,17 @@ int main(int argc, char *argv[])
     int A, B, C, X, Y;
     std::cin >> A >> B >> C >> X >> Y;
 
-    int ans = 0;
-    if ((A + B) / 2 > C) {
-        if (X >= Y) {
-            if (X % 2 == 0) {
-                ans = X * 2 * C;
-            } else {
-                ans = (X + 1) * 2 * C;
-            }
-        } else {
-            if (Y % 2 == 0) {
-                ans = Y * 2 * C;
-            } else {
-                ans = (Y + 1) * 2 * C;
-            }
+    int value[C];
+
+    for (int i = 0; i < C; i++) {
+        value[i] = i * 2 * C + std::max(0, X - i) * A + std::max(0, Y - i) * B;
+    }
+
+    int ans = 1000000000;
+    for (int i = 0; i < C; i++) {
+        if (ans > value[i]) {
+            ans = value[i];
         }
-    } else {
-        ans = A * X + B * Y;
     }
 
     std::cout << ans << std::endl;
