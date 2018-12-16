@@ -12,23 +12,20 @@ int main(int argc, char *argv[])
     std::cin >> s;
 
     int max = 0;
+    int count = 0;
+    bool flag = false;
     for (int i = 0; i < s.size(); i++) {
-        std::string str;
-
-        if (s[i] == 'A') {
-            int num = i;
-            while(s[num] != 'Z') {
-                str += s[num];
-                num++;
-            }
-            max = str.size();
+        if (s[i] == 'A' && flag == false) {
+            flag = true;
+            count = i;
         }
-
-        if (max < str.size()) {
-            max = str.size();
+        if (s[i] == 'Z' && flag == true) {
+            int ans = i - count;
+            max = ans;
         }
     }
 
     std::cout << max + 1 << std::endl;
+
     return 0;
 }
