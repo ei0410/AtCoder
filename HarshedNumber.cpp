@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
 
-using namespace std;
-
 int main(int argc, char *argv[]) {
-    int n;
-    string s;
-    cin >> n;
+    int N;
+    std::string s;
+    std::cin >> N;
 
-    s = to_string(n);
-
-    cout << s;
-
-    /*
-    if (sum % n == 0) {
-        cout << "Yes";
-    } else {
-        cout << "No";
+    int sum = 0;
+    int dummy = N;
+    while(dummy > 0) {
+        sum += dummy % 10;
+        dummy /= 10;
     }
-    */
+
+    if (N % sum == 0) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No"  << std::endl;
+    }
+
     return 0;
 }
