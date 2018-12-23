@@ -8,16 +8,14 @@ using ull = unsigned long long;
  
 int main(int argc, char *argv[])
 {
-    ull a, b, x;
-    std::cin >> a >> b >> x;
-    ull adiv, bdiv = b/x;
+    int N;
+    std::cin >> N;
 
-    if (a) {
-        adiv = (a-1) / x; 
-    } else {
-        adiv = -1;
+    ull ans = 1;
+    for (int i = 1; i <= N; i++) {
+        ans *= i;
+        ans %= MOD;
     }
-    ull ans = bdiv - adiv;
 
     std::cout << ans << std::endl;
     return 0;
