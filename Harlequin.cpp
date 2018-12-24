@@ -16,9 +16,17 @@ int main(int argc, char *argv[])
         std::cin >> a[i];
     }
 
-    int XOR = 0;
+    bool flag = false;
     for (int i = 0; i < N; i++) {
-        XOR = 
+        if (a[i] % 2 != 0) {
+            flag = true;
+        }
+    }
+
+    if (flag) {
+        std::cout << "first" << std::endl;
+    } else {
+        std::cout << "second" << std::endl;
     }
     return 0;
 }
