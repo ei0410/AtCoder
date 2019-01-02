@@ -1,38 +1,41 @@
-#include <bits/stdc++.h>
-
+#include <bits/stdc++.h> 
+ 
+#define INF (1<<31)//INT_MAX/2
+#define MOD 1000000007
+ 
+using ll  = long long;
+using ull = unsigned long long;
+ 
 int main(int argc, char *argv[])
 {
     int N;
-    std::string S;
-
     std::cin >> N;
+
+    std::string S;
     std::cin >> S;
 
-    std::set<std::string> xvalue;
-    std::set<std::string> yvalue;
+    int max = 0;
+    for (int i = 0; i < N-1; i++) {
+        int count = 0;
+        std::vector<int> vx(26, 0);
+        std::vector<int> vy(26, 0);
 
-    int ans = -1;
-
-    for (int i = 1; i < N; i++) {
-        std::string X, Y;
-
-        X = S.substr(0, i);
-        for (int j = 0; j < i - 1; j++) {
-            xvalue.insert(X[j]);
+        for (int x = 0; x < i+1; x++) {
+            vx[S[x] - 'a']++;
+        }
+        for (int y = i+1; y < N; y++) {
+            vy[S[y] - 'a']++;
         }
 
-        Y = S.substr(i, N - i);
-        for (int j = i; j < N - i - 1; j++) {
-            yvalue.insert(Y[j]);
+        for (int j = 0; j < 26; j++) {
+            if (vx[j] * vy[j] != 0) {
+                count++;
+            }
         }
 
-        int result = xvalue.size() + yvalue.size();
-        if (ans < result) {
-            ans = result;
-        }
+        max = std::max(max, count);
     }
 
-    std::cout << ans << std::endl;
-
+    std::cout << max << std::endl;
     return 0;
 }
