@@ -8,9 +8,13 @@ using ull = unsigned long long;
  
 int main(int argc, char *argv[])
 {
-    std::string s0, s1, s2;
-    std::cin >> s0 >> s1 >> s2;
+    int x;
+    std::cin >> x;
 
-    std::cout << s0[0] << s1[0] << s2[0] << std::endl;
+    if (x < 1200) {
+        std::cout << "ABC" << std::endl;
+    } else {
+        std::cout << "ARC" << std::endl;
+    }
     return 0;
 }

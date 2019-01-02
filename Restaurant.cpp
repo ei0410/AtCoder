@@ -8,9 +8,9 @@ using ull = unsigned long long;
  
 int main(int argc, char *argv[])
 {
-    std::string s0, s1, s2;
-    std::cin >> s0 >> s1 >> s2;
+    int N;
+    std::cin >> N;
 
-    std::cout << s0[0] << s1[0] << s2[0] << std::endl;
+    std::cout << 800 * N - (N / 15) * 200 << std::endl;
     return 0;
 }
