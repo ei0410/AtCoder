@@ -9,9 +9,7 @@ using ull = unsigned long long;
  
 int main(int argc, char *argv[])
 {
-    int N;
-    std::cin >> N;
-
+    int N = 10;
     std::set<int> s;
 
     for (int i = 0; i < N; i++) {

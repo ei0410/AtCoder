@@ -8,11 +8,16 @@ using ull = unsigned long long;
 
 int main(int argc, char *argv[])
 {
-    int N;
-    std::cin >> N;
+    int N = 24;
 
     int left = 20;
     int right = 36; 
+
+    // check
+    if (N < left || right < N) {
+        std::cout << "error" << std::endl;
+        return 1;
+    }
 
     int count = 0;
     while (right - left > 1) {

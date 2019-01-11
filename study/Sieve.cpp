@@ -20,7 +20,17 @@ void sieve(size_t max) {
 
 int main(int argc, char *argv[]) 
 {
-    int N;
-    std::cin >> N;
+    int N = 10;
+    sieve(N);
+
+    for (int i = 0; i < IsPrime.size(); i++) {
+        std::cout << IsPrime[i] << std::endl;
+    }
+
+    for (int i = 0; i < IsPrime.size(); i++) {
+        if (IsPrime[i]) {
+            std::cout << i << std::endl;
+        }
+    }
     return 0;
 }
