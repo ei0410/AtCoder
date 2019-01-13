@@ -9,9 +9,9 @@ using ull = unsigned long long;
 
 int main(int argc, char *argv[])
 {
-    std::string s;
-    std::cin >> s;
+    int N, H, W;
+    std::cin >> N >> H >> W;
 
-    std::cout << "2018" + s.erase(0, 4);
+    std::cout << (N-W + 1) * (N-H + 1) << std::endl;
     return 0;
 }
