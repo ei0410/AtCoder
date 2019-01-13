@@ -29,9 +29,6 @@ int main(int argc, char *argv[])
     int ans = 0;
     for (int i = 1; i <= H; i++) {
         for (int j = 1; j <= W; j++) {
-            if (S[i][j] == '#') {
-                ;
-            }
         }
     }
 
