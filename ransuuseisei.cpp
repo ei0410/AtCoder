@@ -12,8 +12,6 @@ int main(int argc, char *argv[])
     double N, K;
     std::cin >> N >> K;
 
-    double ans = 0;
-
-    std::cout << ans << std::endl;
+    std::cout << std::setprecision(20) << double(((N-K)*(K-1)*6 + (N-1)*3 + 1)) / double(N*N*N) << std::endl;
     return 0;
 }
