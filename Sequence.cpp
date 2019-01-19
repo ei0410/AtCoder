@@ -22,6 +22,5 @@ int main(int argc, char *argv[])
     for (int i = 1; i < n+1; i++) {
         sum[i] += sum[i-1] + a[i-1];
     }
-
     return 0;
 }
