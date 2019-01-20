@@ -16,6 +16,5 @@ int main(int argc, char *argv[])
     for (int i = 0; i < N; i++) {
         std::cin >> t[i] >> d[i];
     }
-
     return 0;
 }
