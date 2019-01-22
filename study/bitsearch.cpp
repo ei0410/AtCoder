@@ -6,15 +6,16 @@
  
 using ll  = long long;
 using ull = unsigned long long;
-
+ 
 int main(int argc, char *argv[])
 {
-    std::string S;
-    std::cin >> S;
+    int n = 5;
 
-    ll sum = 0;
-    for (int bit = 0; bit < (1<<(S.size()-1)); bit++) {
-        for (int i = 0; i < S.size(); i++) {
+    for (int bit = 0; bit < (1<<n); bit++) {
+        for (int i = 0; i < n; i++) {
+            if (bit & (1<<i)) {
+                std::cout << bit << " " << i << std::endl;
+            }
         }
     }
     return 0;
