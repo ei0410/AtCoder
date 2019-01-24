@@ -7,52 +7,57 @@
 using ll  = long long;
 using ull = unsigned long long;
 
-#define C_MAX 50
 #define R_MAX 50
+#define C_MAX 50
 
 typedef std::pair<int, int> P;
-char c[C_MAX][R_MAX];
+char c[R_MAX][C_MAX];
+int  d[R_MAX][C_MAX];
 
-int dx[4] = {1, 0, -1, 0};
 int dy[4] = {0, 1, 0, -1};
+int dx[4] = {1, 0, -1, 0};
+
 int R, C;
 int sy, sx;
 int gy, gx;
 
-int d[C_MAX][R_MAX];
-
 int bfs() {
     std::queue<P> que;
 
-    for (int i = 0; i < C; i++) {
-        for (int j = 0; j < R; j++) {
-            d[i][j] = INF;
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C; j++) {
+            d[i][j] = -1;
         }
     }
 
-    que.push(P(sx, sy));
-    d[sx][sy] = 0;
+    sy -= 1;
+    sx -= 1;
+    gy -= 1;
+    gx -= 1;
+
+    que.push(P(sy, sx));
+    d[sy][sx] = 0;
 
     while (que.size()) {
         P p = que.front();
         que.pop();
 
-        if (p.first == gx && p.second == gy) {
+        if (p.first == gy && p.second == gx) {
             break;
         }
 
         for (int i = 0; i < 4; i++) {
-            int nx = p.first  + dx[i];
-            int ny = p.second + dy[i];
+            int ny = p.first  + dy[i];
+            int nx = p.second + dx[i];
 
-            if (0 <= nx && nx < C && 0 <= ny && ny <= R && c[nx][ny] != '#' && d[nx][ny] == INF) {
-                que.push(P(nx, ny));
-                d[nx][ny] = d[p.first][p.second] + 1;
+            if (0 <= nx && nx < C && 0 <= ny && ny <= R && c[ny][nx] != '#' && d[ny][nx] == -1) {
+                que.push(P(ny, nx));
+                d[ny][nx] = d[p.first][p.second] + 1;
             }
         }
     }
 
-    return d[gx][gy];
+    return d[gy][gx];
 }
  
 int main(int argc, char *argv[])
@@ -61,8 +66,8 @@ int main(int argc, char *argv[])
     std::cin >> sy >> sx;
     std::cin >> gy >> gx;
 
-    for (int i = 0; i < C; i++) {
-        for (int j = 0; j < R; j++) {
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C; j++) {
             std::cin >> c[i][j];
         }
     }
