@@ -10,5 +10,13 @@ typedef std::pair<int, int> P;
 
 int main(int argc, char *argv[])
 {
+    std::string A;
+    std::cin >> A;
+
+    if (A == "a") {
+        std::cout << -1 << std::endl;
+    } else {
+        std::cout << "a" << std::endl;
+    }
     return 0;
 }
