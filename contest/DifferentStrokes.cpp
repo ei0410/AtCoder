@@ -6,28 +6,33 @@
  
 using ll  = long long;
 using ull = unsigned long long;
+using P = std::pair<int, int>;
  
 int main(int argc, char *argv[])
 {
     int N;
     std::cin >> N;
 
-    std::vector<int> a(N);
+    std::vector<int> A(N), B(N);
     for (int i = 0; i < N; i++) {
-        std::cin >> a[i];
+        std::cin >> A[i] >> B[i];
     }
 
-    int max = 0;
+    std::vector<int> C(N);
     for (int i = 0; i < N; i++) {
-        if (max < std::abs(a[i])) {
-            max = a[i];
+        C[i] = A[i] + B[i];
+    }
+
+    std::sort(C.rbegin(), C.rend());
+
+    ll sum = 0;
+    for (int i = 0; i < N; i++) {
+        if (i % 2 == 0) {
+            sum += C[i];
         }
+        sum -= B[i];
     }
 
-    int count = 0;
-    for (int i = 0; i < N; i++) {
-        a[i] += max;
-    }
-
+    std::cout << sum << std::endl;
     return 0;
 }
