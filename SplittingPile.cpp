@@ -17,8 +17,21 @@ int main(int argc, char *argv[])
     for (int i = 0; i < N; i++) {
         std::cin >> a[i];
     }
+    
+    ll sum = 0;
+    for (int i = 0; i < N; i++) {
+        sum += a[i];
+    }
 
-    ll score = 0;
+    ll ans = INF;
+    ll temp = 0;
+    for (int i = 0; i < N; i++) {
+        temp += a[i];
+        if (i+1 < N) {
+            ans = std::min(ans, std::abs(sum - 2*temp));
+        }
+    }
 
+    std::cout << ans << std::endl;
     return 0;
 }
