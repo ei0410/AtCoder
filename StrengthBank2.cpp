@@ -38,16 +38,36 @@ int main(int argc, char *argv[])
     }
 
     // init condition
-    dp[0] = 0;
+    dp[1] = 1;
+    dp[2] = 2;
+    dp[3] = 3;
+    dp[4] = 4;
+    dp[5] = 5;
+    dp[6] = 1;
+    dp[7] = 2;
+    dp[8] = 3;
+    dp[9] = 1;
 
     // loop
-    for (int i = 0; i <= N; i++) {
-        chmin(dp[i+1], dp[i]+1);
+    for (int i = 10; i <= N; i++) {
+        chmin(dp[i], dp[i-1]+1);
         for (int pow6 = 6; pow6 <= N; pow6*=6) {
-            chmin(dp[i+pow6], dp[i]+1);
+            if (i - pow6 < 0) {
+                break;
+            } else if (i - pow6 == 0) {
+                dp[i] = 1;
+            } else {
+                chmin(dp[i], dp[i-pow6]+1);
+            }
         }
         for (int pow9 = 9; pow9 <= N; pow9*=9) {
-            chmin(dp[i+pow9], dp[i]+1);
+            if (i - pow9 < 0) {
+                break;
+            } else if (i - pow9 == 0) {
+                dp[i] = 1;
+            } else {
+                chmin(dp[i], dp[i-pow9]+1);
+            }
         }
     }
 
