@@ -23,33 +23,36 @@ template<class T> inline bool chmax(T& a, T b) {
     return false;
 }
 
-#define N_MAX 100100
-
 int main(int argc, char *argv[])
 {
     // input values
-    int N, K;
-    std::cin >> N >> K;
+    int N;
+    std::cin >> N;
 
-    std::vector<int> h(N);
+    std::vector<std::vector<int>> a(N, std::vector<int>(3, 0));
     for (int i = 0; i < N; i++) {
-        std::cin >> h[i];
+        for (int j = 0; j < 3; j++) {
+            std::cin >> a[i][j];
+        }
     }
 
     // dp table
-    std::vector<int> dp(N_MAX, INF);
-
+    std::vector<std::vector<int>> dp(N, std::vector<int>(3, 0));
+    
     // init dp table
     // ok
 
     // init condition
-    dp[0] = 0;
+    // ok
 
     // loop
     for (int i = 0; i < N; i++) {
-        for (int j = 1; j <= K; j++) {
-            chmin(dp[i+j], dp[i] + std::abs(h[i+j] - h[i]));
-        }
+        chmax(dp[i+1][1], dp[i][0] + a[i][0]);
+        chmax(dp[i+1][2], dp[i][0] + a[i][0]);
+        chmax(dp[i+1][0], dp[i][1] + a[i][0]);
+        chmax(dp[i+1][2], dp[i][1] + a[i][0]);
+        chmax(dp[i+1][2], dp[i][2] + a[i][0]);
+        chmax(dp[i+1][2], dp[i][2] + a[i][0]);
     }
 
     std::cout << dp[N-1] << std::endl;

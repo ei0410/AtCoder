@@ -23,6 +23,8 @@ template<class T> inline bool chmax(T& a, T b) {
     return false;
 }
 
+#define N_MAX 100010
+
 int main(int argc, char *argv[])
 {
     // input values
@@ -35,12 +37,10 @@ int main(int argc, char *argv[])
     }
 
     // dp table
-    ll dp[100010];
+    std::vector<ll> dp(N_MAX, INF);
 
     // init dp table
-    for (int i = 0; i < 100010; i++) {
-        dp[i] = INF;
-    }
+    // ok
 
     // init condition
     dp[0] = 0;
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     // loop
     for (int i = 0; i < N; i++) {
         for (int j = 1; j <= K; j++) {
-            chmin(dp[i+j], dp[i] + std::abs(h[i] - h[i+j]));
+            chmin(dp[i], dp[i+j] + std::abs(h[i] - h[i+j]));
         }
     }
 

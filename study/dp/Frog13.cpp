@@ -42,7 +42,9 @@ ll rec(int i) {
 
     ll res = INF;
     chmin(res, rec(i-1) + std::abs(h[i] - h[i-1]));
-    chmin(res, rec(i-2) + std::abs(h[i] - h[i-2]));
+    if (i > 1) {
+        chmin(res, rec(i-2) + std::abs(h[i] - h[i-2]));
+    }
 
     return dp[i] = res;
 }
