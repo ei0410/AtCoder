@@ -13,19 +13,21 @@ int main(int argc, char *argv[])
     ll K, A, B;
     std::cin >> K >> A >> B;
 
-    ll N = 1;
     ll ans = 0;
-    if (A+1 < B) {
-        if (K <= A) {
-            ans = K+1;
+    if (B > A+2) {
+        if (A-1 > K) {
+            ans = 1+K;
         } else {
-            K -= A+1;
-            ans += B;
-            ans += (K / (A+2)) * B;
-            ans += K % (A+2);
+            K -= (A-1);
+            ans += A;
+            if (K % 2 == 0) {
+                ans += (K/2) * (B-A); 
+            } else {
+                ans += (K/2) * (B-A) + 1;
+            }
         }
     } else {
-        ans = K+1;
+        ans = 1+K;
     }
 
     std::cout << ans << std::endl;
