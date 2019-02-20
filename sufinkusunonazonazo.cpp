@@ -13,21 +13,21 @@ int main(int argc, char *argv[])
     int N, M;
     std::cin >> N >> M;
 
-    int res0 = -1;
-    int res1 = -1;
-    int res2 = -1;
+    int adult = -1;
+    int old   = -1;
+    int baby  = -1;
     for (int i = 0; i <= N; i++) {
         for (int j = 0; j <= N-i; j++) {
             int k = N-i-j;
             int total = i*2 + j*3 + k*4;
             if (total == M) {
-                res0 = i;
-                res1 = j;
-                res2 = k;
+                adult = i;
+                old   = j;
+                baby  = k;
             }
         }
     }
 
-    std::cout << res0 << " " << res1 << " " << res2 << std::endl;
+    std::cout << adult << " " << old << " " << baby << std::endl;
     return 0;
 }
