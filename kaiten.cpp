@@ -10,23 +10,19 @@ using P = std::pair<int, int>;
  
 int main(int argc, char *argv[])
 {
-    char c[4][4];
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            std::cin >> c[i][j];
+    int N;
+    std::cin >> N;
+
+    char s[N][N];
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            std::cin >> s[i][j];
         }
     }
 
-    char ans[4][4];
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            ans[i][j] = c[3-i][3-j];
-        }
-    }
-
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            std::cout << ans[i][j] << " ";
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            std::cout << s[N-1-j][i];
         }
         std::cout << std::endl;
     }
