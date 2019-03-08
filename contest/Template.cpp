@@ -6,7 +6,7 @@
  
 using ll  = long long;
 using ull = unsigned long long;
-using P = std::pair<int, int>;
+using Pii = std::pair<int, int>;
  
 int main(int argc, char *argv[])
 {

@@ -6,6 +6,7 @@
  
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = std::pair<int, int>;
 
 template<class T> inline bool chmin(T& a, T b) {
     if (a > b) {
