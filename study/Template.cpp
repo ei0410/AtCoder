@@ -1,6 +1,6 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31) - 1 //INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
  

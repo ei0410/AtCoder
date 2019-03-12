@@ -1,49 +1,75 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31)//INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
  
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = std::pair<int, int>;
  
 int main(int argc, char *argv[])
 {
     std::list<int> lst;
 
-    int N = 10;
-    for (int i = 0; i < N; i++) {
-        lst.push_back(i);
-    }
+    std::cout << lst.size() << std::endl;
 
-    lst.sort();
-    //lst.sort(greater<int>());
-    lst.unique();
+    lst.push_front(1);
+    lst.push_back(1);
 
-    std::list<int>::iterator pos = lst.end();
-    lst.insert(pos, 100);
-    lst.insert(pos, 101);
-    //lst.erase(pos);
-
-    lst.push_back(0);
-    lst.back();
+    lst.pop_front();
     lst.pop_back();
 
-    lst.push_front(0);
-    lst.front();
-    lst.pop_front();
+    lst.clear();
+    std::cout << lst.size() << std::endl;
+    std::cout << std::boolalpha << lst.empty() << std::endl;
+
+    lst.resize(1, -1);
+    lst.resize(3, -2);
+    lst.resize(2);
 
     for (std::list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
         std::cout << *it << std::endl;
     }
 
-    std::list<int> fromlst;
-    std::list<int> tolst;
-    tolst.splice(tolst.end(), lst);
-    tolst.splice(tolst.end(), fromlst);
+    std::cout << lst.front() << std::endl;
+    std::cout << lst.back() << std::endl;
 
-    lst.size();
-    lst.clear();
+    std::list<int>::iterator pos = lst.begin();
+    lst.insert(pos, -3);
+    for (std::list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+        std::cout << *it << std::endl;
+    }
 
+    std::cout << *pos << std::endl;
+    lst.erase(pos);
+    for (std::list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+        std::cout << *it << std::endl;
+    }
+
+    lst.push_back(0);
+    lst.erase(++lst.begin(), lst.end());
+    for (std::list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+        std::cout << *it << std::endl;
+    }
+
+    std::list<int> other(5, 1);
+    lst.splice(lst.begin(), other, other.begin(), other.end());
+    for (std::list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+        std::cout << *it << std::endl;
+    }
+    for (std::list<int>::iterator it = other.begin(), end = other.end(); it != end; it++) {
+        std::cout << *it << std::endl;
+    }
+
+    lst.push_front(-2);
+    lst.sort();
+    //lst.sort(greater<int>());
+
+    lst.unique();
+    for (std::list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+        std::cout << *it << std::endl;
+    }
+    
     return 0;
 }
