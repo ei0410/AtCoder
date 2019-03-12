@@ -6,26 +6,39 @@
  
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = std::pair<int, int>;
  
 int main(int argc, char *argv[])
 {
-    int N = 10;
     std::set<int> s;
 
-    for (int i = 0; i < N; i++) {
-        s.insert(i+1);
-    }
-
-    for (auto itr = s.begin(); itr != s.end(); itr++) {
-        std::cout << *itr << std::endl;
-    }
-
+    // add elements
+    // s.insert("key");
+    s.insert(0);
+    s.insert(std::set<int>::value_type(0));
+    s.insert(1);
     std::cout << s.size() << std::endl;
 
-    std::cout << s.count(0) << std::endl; // check an element
+    // output value
+    for (std::set<int>::iterator it = s.begin(), end = s.end(); it != end; it++) {
+        std::cout << *it << std::endl;
+    }
 
-    s.erase(0); // erase an element
+    std::cout << s.count(0) << std::endl; // number of elements in a key
+
+    // search for value
+    std::set<int>::iterator it = s.find(0);
+    if (it != s.end()) {
+        std::cout << "found:" << *it << std::endl;
+    }
+
+    // erase 
+    std::cout << s.erase(0) << std::endl; // erased number of elements
+    std::cout << s.erase(-1) << std::endl; // if you pick no exist key, return value 0
+    std::cout << s.size() << std::endl;
+
+    // clear
     s.clear();
-
+    std::cout << std::boolalpha << s.empty() << std::endl;
     return 0;
 }

@@ -29,11 +29,15 @@ int main(int argc, char *argv[])
     std::cout << q.size() << std::endl;
 
     std::cout << q.front() << std::endl;
+    std::cout << q.back() << std::endl;
     q.pop();
     std::cout << q.front() << std::endl;
+    std::cout << q.back() << std::endl;
     q.pop();
     std::cout << q.front() << std::endl;
+    std::cout << q.back() << std::endl;
     q.pop();
 
+    std::cout << std::boolalpha << q.empty() << std::endl;
     return 0;
 }

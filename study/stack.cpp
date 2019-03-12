@@ -31,5 +31,6 @@ int main(int argc, char *argv[])
     std::cout << s.top() << std::endl;
     s.pop();
 
+    std::cout << std::boolalpha << s.empty() << std::endl;
     return 0;
 }
