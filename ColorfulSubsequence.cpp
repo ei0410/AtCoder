@@ -21,17 +21,23 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int N, K;
-    cin >> N >> K;
-    
-    int ans = 0;
-    N -= K;
-    ans = 1;
-    while(N > 0) {
-        N -= (K-1);
-        ans++;
+    ll N;
+    cin >> N;
+
+    string S;
+    cin >> S;
+
+    map<char, ll> m;
+    for (ll i = 0; i < N; i++) {
+        m[S[i]]++;
     }
 
-    cout << ans << endl;
+    ll ans = 1;
+    for (map<char, ll>::iterator it = m.begin(), end = m.end(); it != end; it++) {
+        ans *= (it->second + 1);
+        ans %= MOD;
+    }
+
+    cout << ans - 1 << endl;
     return 0;
 }

@@ -21,17 +21,25 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int N, K;
-    cin >> N >> K;
-    
-    int ans = 0;
-    N -= K;
-    ans = 1;
-    while(N > 0) {
-        N -= (K-1);
-        ans++;
+    int N;
+    cin >> N;
+
+    vector<int> a(N);
+    for (int i = 0; i < N; i++) {
+        cin >> a[i];
     }
 
-    cout << ans << endl;
+    ll ans = 0;
+    ll count = 0;
+    for (int i = 0; i < N-1; i++) {
+        if (a[i] < a[i+1]) {
+            count++;
+            ans += count;
+        } else {
+            count = 0;
+        }
+    }
+
+    cout << ans + N << endl;
     return 0;
 }
