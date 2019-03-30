@@ -1,10 +1,20 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31)//INT_MAX/2
-#define MOD 1000000007
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
+#define INF INT_MAX
+#define MOD 1000000007
+#define PI  acos(-1)
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
 
 int main(int argc, char *argv[])
 {
@@ -15,7 +25,7 @@ int main(int argc, char *argv[])
 
     // check
     if (N < left || right < N) {
-        std::cout << "error" << std::endl;
+        cout << "error" << endl;
         return 1;
     }
 
@@ -37,6 +47,6 @@ int main(int argc, char *argv[])
         }
     }
     
-    std::cout << count << std::endl;
+    cout << count << endl;
     return 0;
 }

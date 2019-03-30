@@ -1,43 +1,51 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31) - 1 //INT_MAX/2
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
-using Pii = std::pair<int, int>;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    std::deque<int> dq;
+    deque<int> dq;
 
     dq.push_back(0);
     dq.push_back(1);
-    std::cout << dq.size() << std::endl;
-    std::cout << dq.at(0) << std::endl;
-    std::cout << dq[1] << std::endl;
-    std::cout << dq.front() << std::endl;
-    std::cout << dq.back() << std::endl;
+    cout << dq.size() << endl;
+    cout << dq.at(0) << endl;
+    cout << dq[1] << endl;
+    cout << dq.front() << endl;
+    cout << dq.back() << endl;
     
     dq.push_front(-1);
     dq.pop_back();
-    std::cout << dq.size() << std::endl;
-    std::cout << dq.at(0) << std::endl;
-    std::cout << dq[1] << std::endl;
-    std::cout << dq.front() << std::endl;
-    std::cout << dq.back() << std::endl;
+    cout << dq.size() << endl;
+    cout << dq.at(0) << endl;
+    cout << dq[1] << endl;
+    cout << dq.front() << endl;
+    cout << dq.back() << endl;
 
     dq.push_back(1);
     dq.pop_front();
-    std::cout << dq.size() << std::endl;
-    std::cout << dq.at(0) << std::endl;
-    std::cout << dq[1] << std::endl;
-    std::cout << dq.front() << std::endl;
-    std::cout << dq.back() << std::endl;
+    cout << dq.size() << endl;
+    cout << dq.at(0) << endl;
+    cout << dq[1] << endl;
+    cout << dq.front() << endl;
+    cout << dq.back() << endl;
 
     dq.clear();
-    std::cout << dq.size() << std::endl;
-    std::cout << std::boolalpha << dq.empty() << std::endl;
+    cout << dq.size() << endl;
+    cout << boolalpha << dq.empty() << endl;
     return 0;
 }

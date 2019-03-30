@@ -1,19 +1,27 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
 #define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
-using Pii = std::pair<int, int>;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    std::vector<std::vector<int>> vv(5, std::vector<int>(4, 0));
+    vector<vector<int>> vv(5, vector<int>(4, 0));
 
     /*
-    std::vector<std::vector<int>> vv;
+    vector<vector<int>> vv;
     vv.resize(5);
     for (int i = 0; i < vv.size(); i++) {
         vv[i].resize(4);
@@ -27,7 +35,7 @@ int main(int argc, char *argv[])
     */
 
     /*
-    std::vector<std::vector<int>> vv;
+    vector<vector<int>> vv;
     vv.resize(5);
     for (int i = 0; i < vv.size(); i++) {
         vv.push_back(i);
@@ -36,9 +44,9 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < vv.size(); i++) {
         for (int j = 0; j < vv[i].size(); j++) {
-            std::cout << vv[i][j] << " ";
+            cout << vv[i][j] << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
     return 0;
 }

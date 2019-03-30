@@ -1,6 +1,22 @@
 #include <bits/stdc++.h>
 
-std::vector<bool> IsPrime;
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
+#define MOD 1000000007
+#define PI  acos(-1)
+
+using ll  = long long;
+using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+vector<bool> IsPrime;
 
 void sieve(size_t max) {
     if (max+1 > IsPrime.size()) {
@@ -24,12 +40,12 @@ int main(int argc, char *argv[])
     sieve(N);
 
     for (int i = 0; i < IsPrime.size(); i++) {
-        std::cout << IsPrime[i] << std::endl;
+        cout << IsPrime[i] << endl;
     }
 
     for (int i = 0; i < IsPrime.size(); i++) {
         if (IsPrime[i]) {
-            std::cout << i << std::endl;
+            cout << i << endl;
         }
     }
     return 0;

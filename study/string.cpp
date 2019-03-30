@@ -1,24 +1,32 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
 #define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
-using Pii = std::pair<int, int>;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    std::string str = "abcdefghijklmnopqrstuvwxyz";
-    std::string str2("my string");
+    string str = "abcdefghijklmnopqrstuvwxyz";
+    string str2("my string");
 
     str2 += " extended";
 
-    std::cout << str.size() << std::endl;
+    cout << str.size() << endl;
 
-    std::cout << str[0] << std::endl;
-    std::cout << str.at(0) << std::endl;
+    cout << str[0] << endl;
+    cout << str.at(0) << endl;
 
     int pos = str.find("abc");
 
@@ -31,8 +39,8 @@ int main(int argc, char *argv[])
     str.substr(pos, len);
     str.substr(pos); // to last
 
-    std::string s1 = str;
-    std::string s2 = str;
+    string s1 = str;
+    string s2 = str;
 
     str.replace(pos, len, "...");
     str.insert(pos, "INSERT");

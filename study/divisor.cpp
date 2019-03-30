@@ -1,15 +1,24 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31) - 1 //INT_MAX/2
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
 
-std::vector<int> enum_div(int n)
+vector<int> enum_div(int n)
 {
-    std::vector<int> ret;
+    vector<int> ret;
     for (int i = 1; i*i <= n; i++) {
         if (n % i == 0) {
             ret.push_back(i);
@@ -17,17 +26,17 @@ std::vector<int> enum_div(int n)
         }
     }
 
-    std::sort(ret.begin(), ret.end());
+    sort(ret.begin(), ret.end());
     return ret;
 }
  
 int main(int argc, char *argv[])
 {
     int N = 10;
-    std::vector<int> ans = enum_div(N);
+    vector<int> ans = enum_div(N);
 
     for (int i = 0; i < ans.size(); i++) {
-        std::cout << ans[i] << std::endl;
+        cout << ans[i] << endl;
     }
     return 0;
 }

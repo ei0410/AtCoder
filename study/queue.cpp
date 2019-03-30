@@ -1,14 +1,24 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31)//INT_MAX/2
-#define MOD 1000000007
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
+#define INF INT_MAX
+#define MOD 1000000007
+#define PI  acos(-1)
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    std::queue<int> q;
+    queue<int> q;
 
     q.push(1);
     q.push(2);
@@ -26,18 +36,18 @@ int main(int argc, char *argv[])
     }
     */
 
-    std::cout << q.size() << std::endl;
+    cout << q.size() << endl;
 
-    std::cout << q.front() << std::endl;
-    std::cout << q.back() << std::endl;
+    cout << q.front() << endl;
+    cout << q.back() << endl;
     q.pop();
-    std::cout << q.front() << std::endl;
-    std::cout << q.back() << std::endl;
+    cout << q.front() << endl;
+    cout << q.back() << endl;
     q.pop();
-    std::cout << q.front() << std::endl;
-    std::cout << q.back() << std::endl;
+    cout << q.front() << endl;
+    cout << q.back() << endl;
     q.pop();
 
-    std::cout << std::boolalpha << q.empty() << std::endl;
+    cout << boolalpha << q.empty() << endl;
     return 0;
 }

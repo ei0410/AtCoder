@@ -1,5 +1,21 @@
 #include <bits/stdc++.h>
 
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
+#define MOD 1000000007
+#define PI  acos(-1)
+
+using ll  = long long;
+using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
 int gcd(int a, int b) 
 {
     if (a > b) {
@@ -20,7 +36,7 @@ int gcd(int a, int b)
 int main(int argc,a char *argv[])
 {
     int a, b;
-    std::cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
     return 0;
 }

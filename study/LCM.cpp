@@ -1,12 +1,20 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31) - 1 //INT_MAX/2
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
 
 using ll  = long long;
 using ull = unsigned long long;
-using P = std::pair<int, int>;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
 
 int GCD(int a, int b) {
     if (a <= 0 || b <= 0) {
@@ -37,6 +45,6 @@ int main(int argc, char *argv[])
 {
     int a = 2;
     int b = 3;
-    std::cout << LCM(a, b) << std::endl;
+    cout << LCM(a, b) << endl;
     return 0;
 }

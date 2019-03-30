@@ -1,11 +1,20 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31) - 1 //INT_MAX/2
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
 
 #define H_MAX 500
 #define W_MAX 500
@@ -32,11 +41,11 @@ void dfs(int x, int y) {
  
 int main(int argc, char *argv[])
 {
-    std::cin >> H >> W;
+    cin >> H >> W;
     int sx, sy, gx, gy;
     for (int i = 0; i < H; i++) {
         for (int j = 0; j < W; j++) {
-            std::cin >> c[i][j];
+            cin >> c[i][j];
             if (c[i][j] == 's') {
                 sx = i;
                 sy = j;
@@ -50,9 +59,9 @@ int main(int argc, char *argv[])
 
     dfs(sx, sy);
     if (reached[gx][gy]) {
-        std::cout << "Yes" << std::endl;
+        Yes;
     } else {
-        std::cout << "No"  << std::endl;
+        No;
     }
 
     return 0;

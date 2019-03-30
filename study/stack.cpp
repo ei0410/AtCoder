@@ -1,14 +1,24 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31)//INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
- 
+#define PI  acos(-1)
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    std::stack<int> s;
+    stack<int> s;
 
     s.push(1);
     s.push(2);
@@ -22,15 +32,15 @@ int main(int argc, char *argv[])
     }
     */
 
-    std::cout << s.size() << std::endl;
+    cout << s.size() << endl;
 
-    std::cout << s.top() << std::endl;
+    cout << s.top() << endl;
     s.pop();
-    std::cout << s.top() << std::endl;
+    cout << s.top() << endl;
     s.pop();
-    std::cout << s.top() << std::endl;
+    cout << s.top() << endl;
     s.pop();
 
-    std::cout << std::boolalpha << s.empty() << std::endl;
+    cout << boolalpha << s.empty() << endl;
     return 0;
 }

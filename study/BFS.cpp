@@ -1,13 +1,25 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
+#define MOD 1000000007
+#define PI  acos(-1)
+
+using ll  = long long;
+using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
  
 #define INF (1<<31) - 1 //INT_MAX/2
 #define MOD 1000000007
 #define PI  acos(-1)
  
-using ll  = long long;
-using ull = unsigned long long;
-typedef std::pair<int, int> P;
-
 #define R_MAX 50
 #define C_MAX 50
 
@@ -24,7 +36,7 @@ int sy, sx;
 int gy, gx;
 
 int bfs() {
-    std::queue<P> que;
+    queue<Pii> que;
 
     // init scores
     for (int i = 0; i < R; i++) {
@@ -40,13 +52,13 @@ int bfs() {
     gx -= 1;
 
     // init queue and start scores
-    que.push(P(sy, sx));
+    que.push(Pii(sy, sx));
     d[sy][sx] = 0;
 
     // while queue size equals zero or meet the condition
     while (que.size()) {
         // get queue front
-        P p = que.front();
+        Pii p = que.front();
         // get out queue front
         que.pop();
 
@@ -78,16 +90,16 @@ int bfs() {
  
 int main(int argc, char *argv[])
 {
-    std::cin >> R >> C;
-    std::cin >> sy >> sx;
-    std::cin >> gy >> gx;
+    cin >> R >> C;
+    cin >> sy >> sx;
+    cin >> gy >> gx;
 
     for (int i = 0; i < R; i++) {
         for (int j = 0; j < C; j++) {
-            std::cin >> c[i][j];
+            cin >> c[i][j];
         }
     }
 
-    std::cout << bfs() << std::endl;
+    cout << bfs() << endl;
     return 0;
 }

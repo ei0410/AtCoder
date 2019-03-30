@@ -1,43 +1,52 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31)//INT_MAX/2
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    std::vector<int> a, dummy;
+    vector<int> a, dummy;
     
     int N = 10;
     for (int i = 0; i < N; i++) {
         a.push_back(i);
     }
 
-    //std::sort(a, a + N);
-    //std::sort(a, a + N, greater<int>());
-    std::sort(a.begin(), a.end());
-    std::sort(a.rbegin(), a.rend());
-    //std::sort(a.begin(), a.end(), greater<int>());
+    //sort(a, a + N);
+    //sort(a, a + N, greater<int>());
+    sort(a.begin(), a.end());
+    sort(a.rbegin(), a.rend());
+    //sort(a.begin(), a.end(), greater<int>());
 
-    //std::reverse(a, a + N);
-    std::reverse(a.begin(), a.end());
+    //reverse(a, a + N);
+    reverse(a.begin(), a.end());
 
-    //std::copy(a, a + N, dummy.begin());
-    std::copy(a.begin(), a.end(), back_inserter(dummy));
+    //copy(a, a + N, dummy.begin());
+    copy(a.begin(), a.end(), back_inserter(dummy));
 
     for (int i = 0; i < a.size(); i++) {
-        std::cout << a[i] << std::endl;
+        cout << a[i] << endl;
     }
 
     for (int i = 0; i < dummy.size(); i++) {
-        std::cout << dummy[i] << std::endl;
+        cout << dummy[i] << endl;
     }
 
-    //std::fill(a, a + N, 0);
-    std::fill(a.begin(), a.end(), 0);
+    //fill(a, a + N, 0);
+    fill(a.begin(), a.end(), 0);
 
     return 0;
 }
