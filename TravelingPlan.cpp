@@ -24,28 +24,23 @@ int main(int argc, char *argv[])
     int N;
     cin >> N;
 
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) {
+    vector<int> A(N+2, 0);
+    for (int i = 1; i <= N; i++) {
         cin >> A[i];
     }
 
-    vector<int> diff(N);
-    diff[0] = abs(A[0]);
-    for (int i = 1; i < N; i++) {
-        diff[i] = abs(A[i] - A[i-1]);
+    vector<int> S(N+1);
+    for (int i = 0; i <= N; i++) {
+        S[i] = abs(A[i+1] - A[i]);
     }
 
     int sum = 0;
-    for (int i = 0; i < N; i++) {
-        sum += diff[i];
+    for (int i = 0; i <= N; i++) {
+        sum += S[i];
     }
-
-    for (int i = 0; i < N-1; i++) {
-        if (() || ()) {
-            
-        }
-        cout << sum + abs(A[N-1]) << endl;
+    
+    for (int i = 1; i <= N; i++) {
+        cout << sum + abs(A[i-1] - A[i+1]) - (abs(A[i-1] - A[i]) + abs(A[i] - A[i+1]))<< endl;        
     }
-
     return 0;
 }

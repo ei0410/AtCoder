@@ -21,25 +21,25 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int N, A;
-    cin >> N >> A;
+    int N;
+    cin >> N;
 
-    vector<int> x(N);
+    vector<int> a(N);
     for (int i = 0; i < N; i++) {
-        cin >> x[i];
+        cin >> a[i];
     }
 
-    sort(x.begin(), x.end());
-
-    int index = 0;
-    for (int i = 0; i < N; i++) {
-        if (x[i] == A) {
-            index = i;
-            break;
-        } else if (x[i] > A) {
-            index = i;
-            break;
+    int ans = INF;
+    for (int i = -100; i <= 100; i++) {
+        int sum = 0;
+        for (int j = 0; j < N; j++) {
+            sum += pow(abs(i - a[j]), 2); 
+        }
+        if (ans > sum) {
+            ans = sum;
         }
     }
+
+    cout << ans << endl;
     return 0;
 }
