@@ -23,5 +23,22 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    int N;
+    cin >> N;
+
+    int a = 1;
+    int b = 1;
+    rep (i, N) {
+        int T, A;
+        int n;
+        cin >> T >> A;
+
+        n = max(a/T, b/A);
+        a = n*T;
+        b = n*A;
+    }
+
+    cout << a+b << endl;
+
     return 0;
 }

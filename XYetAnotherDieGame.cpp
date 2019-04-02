@@ -16,12 +16,22 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < n; i++)
-
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    ll x;
+    cin >> x;
+
+    ll ans = 2 * (x / 11);
+    if (x % 11 != 0) {
+        ans++;
+        if (x % 11 > 6) {
+            ans++;
+        }
+    }
+
+    cout << ans << endl;
     return 0;
 }

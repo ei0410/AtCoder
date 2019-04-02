@@ -18,10 +18,38 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
 
+vector<bool> IsPrime;
+
+void sieve(size_t max) {
+    if (max+1 > IsPrime.size()) {
+        IsPrime.resize(max+1, true);
+    }
+    IsPrime[0] = false;
+    IsPrime[1] = false;
+
+    for (size_t i = 2; i*i <= max; i++) {
+        if (IsPrime[i]) {
+            for (size_t j = 2; i*j <= max; j++) {
+                IsPrime[i*j] = false;
+            }
+        }
+    }
+}
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    int N;
+    cin >> N;
+
+    sieve(N);
+
+    if (IsPrime[N]) {
+        YES;
+    } else {
+        NO;
+    }
     return 0;
 }
