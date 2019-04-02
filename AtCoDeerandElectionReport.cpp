@@ -16,18 +16,28 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
+#define rep(i, n) for (ll i = 0; i < n; i++)
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int N, x;
-    cin >> N >> x;
+    int N;
+    cin >> N;
 
-    vector<int> a(N);
-    for (int i = 0; i < N; i++) {
-        cin >> a[i];
+    ll t = 1;
+    ll a = 1;
+    rep (i, N) {
+        ll T, A;
+        cin >> T >> A;
+
+        ll n = max((t+T-1)/T, (a+A-1)/A);
+        t = n*T;
+        a = n*A;
     }
+
+    cout << t+a << endl;
 
     return 0;
 }
