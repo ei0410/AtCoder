@@ -8,6 +8,7 @@ using namespace std;
 #define No  cout << "No"  << endl;
  
 #define INF INT_MAX
+#define LLINF LLONG_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
 
@@ -33,42 +34,47 @@ template<class T> inline bool chmax(T& a, T b) {
     return false;
 }
 
+const int MAX_N = 110;
+const int MAX_V = 100100;
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
     // input values
-    int N;
-    cin >> N;
+    ll N, W;
+    cin >> N >> W;
 
-    vector<vector<int>> a(N, vector<int>(3, 0));
+    vector<ll> w(N), v(N);
     rep (i, N) {
-        rep (j, 3) {
-            cin >> a[i][j];
-        }
+        cin >> w[i] >> v[i];
     }
 
     // dp table
-    vector<vector<int>> dp(100100, vector<int>(3, 0));
-    
+    vector<vector<ll>> dp(MAX_N, vector<ll>(MAX_V, INF));
+
     // init dp table
 
     // init condition
+    dp[0][0] = 0;
 
     // loop
     rep (i, N) {
-        rep (j, 3) {
-            rep (k, 3) {
-                if (j == k) {
-                    continue;
-                }
-                chmax(dp[i+1][k], dp[i][j] + a[i][k]);
+        rep (sum_v, MAX_V) {
+            if (sum_v - v[i] >= 0) {
+                chmin(dp[i+1][sum_v], dp[i][sum_v-v[i]]+w[i]);
             }
+            chmin(dp[i+1][sum_v], dp[i][sum_v]);
         }
     }
 
-    ll ans = max(dp[N][0], max(dp[N][1], dp[N][2]));
+    ll ans = 0;
+    rep (sum_v, MAX_V) {
+        if (dp[N][sum_v] <= W) {
+            ans = sum_v;
+        }
+    }
 
     cout << ans << endl;
     return 0;

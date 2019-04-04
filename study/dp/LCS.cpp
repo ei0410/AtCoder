@@ -8,6 +8,7 @@ using namespace std;
 #define No  cout << "No"  << endl;
  
 #define INF INT_MAX
+#define LLINF LLONG_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
 
@@ -33,42 +34,49 @@ template<class T> inline bool chmax(T& a, T b) {
     return false;
 }
 
+#define MAX_S 3100
+#define MAX_T 3100
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
     // input values
-    int N;
-    cin >> N;
-
-    vector<vector<int>> a(N, vector<int>(3, 0));
-    rep (i, N) {
-        rep (j, 3) {
-            cin >> a[i][j];
-        }
-    }
+    string s, t;
+    cin >> s >> t;
 
     // dp table
-    vector<vector<int>> dp(100100, vector<int>(3, 0));
-    
+    vector<vector<int>> dp(MAX_S, vector<int>(MAX_T, 0));
+
     // init dp table
 
     // init condition
 
     // loop
-    rep (i, N) {
-        rep (j, 3) {
-            rep (k, 3) {
-                if (j == k) {
-                    continue;
-                }
-                chmax(dp[i+1][k], dp[i][j] + a[i][k]);
+    rep (i, s.size()) {
+        rep (j, t.size()) {
+            if (s[i] == t[j]) {
+                chmax(dp[i+1][j+1], dp[i][j]+1);
             }
+            chmax(dp[i+1][j+1], dp[i+1][j]);
+            chmax(dp[i+1][j+1], dp[i][j+1]);
         }
     }
 
-    ll ans = max(dp[N][0], max(dp[N][1], dp[N][2]));
+    string ans = "";
+    int i = (int)s.size(), j = (int)t.size();
+    while (i > 0 && j > 0) {
+        if (dp[i][j] == dp[i-1][j]) {
+            i--;
+        } else if (dp[i][j] == dp[i][j-1]) {
+            j--;
+        } else {
+            ans = s[i-1] + ans;
+            i--;
+            j--;
+        }
+    }
 
     cout << ans << endl;
     return 0;

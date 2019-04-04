@@ -39,37 +39,31 @@ int main(int argc, char *argv[])
     ios::sync_with_stdio(false);
 
     // input values
-    int N;
-    cin >> N;
+    int N, W;
+    cin >> N >> W;
 
-    vector<vector<int>> a(N, vector<int>(3, 0));
+    vector<int> w(N), v(N);
     rep (i, N) {
-        rep (j, 3) {
-            cin >> a[i][j];
-        }
+        cin >> w[i] >> v[i];
     }
 
     // dp table
-    vector<vector<int>> dp(100100, vector<int>(3, 0));
-    
+    vector<vector<ll>> dp(110, vector<ll>(100100, 0));
+
     // init dp table
 
     // init condition
 
     // loop
     rep (i, N) {
-        rep (j, 3) {
-            rep (k, 3) {
-                if (j == k) {
-                    continue;
-                }
-                chmax(dp[i+1][k], dp[i][j] + a[i][k]);
+        for (int sum_w = 0; sum_w <= W; sum_w++) {
+            if (sum_w - w[i] >= 0) {
+                chmax(dp[i+1][sum_w], dp[i][sum_w-w[i]]+v[i]);
             }
+            chmax(dp[i+1][sum_w], dp[i][sum_w]);
         }
     }
 
-    ll ans = max(dp[N][0], max(dp[N][1], dp[N][2]));
-
-    cout << ans << endl;
+    cout << dp[N][W] << endl;
     return 0;
 }

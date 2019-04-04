@@ -42,34 +42,26 @@ int main(int argc, char *argv[])
     int N;
     cin >> N;
 
-    vector<vector<int>> a(N, vector<int>(3, 0));
+    vector<int> h(N);
     rep (i, N) {
-        rep (j, 3) {
-            cin >> a[i][j];
-        }
-    }
-
-    // dp table
-    vector<vector<int>> dp(100100, vector<int>(3, 0));
+        cin >> h[i]; 
+    } 
     
+    // dp table
+    vector<int> dp(100100, INF);
+
     // init dp table
 
     // init condition
+    dp[0] = 0;
 
     // loop
-    rep (i, N) {
-        rep (j, 3) {
-            rep (k, 3) {
-                if (j == k) {
-                    continue;
-                }
-                chmax(dp[i+1][k], dp[i][j] + a[i][k]);
-            }
+    for (int i = 0; i < N; i++) {
+        for (int j = 1; j <= 2; j++) {
+            chmin(dp[i+j], dp[i]+abs(h[i+j]-h[i]));
         }
     }
 
-    ll ans = max(dp[N][0], max(dp[N][1], dp[N][2]));
-
-    cout << ans << endl;
-    return 0;
+    cout << dp[N-1] << endl; 
+    return 0; 
 }
