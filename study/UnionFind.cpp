@@ -1,12 +1,22 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31) - 1 //INT_MAX/2
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
-using Pii = std::pair<int, int>;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < n; i++)
 
 #define MAX_N 100010
 #define MAX_Q 200010
@@ -45,10 +55,10 @@ void unite(int x, int y) {
  
 int main(int argc, char *argv[])
 {
-    std::cin >> N >> Q;
+    cin >> N >> Q;
 
     for (int i = 0; i < Q; i++) {
-        std::cin >> P[i] >> A[i] >> B[i];
+        cin >> P[i] >> A[i] >> B[i];
     }
 
     init(N);
@@ -56,9 +66,9 @@ int main(int argc, char *argv[])
     for (int i = 0; i < Q; i++) {
         if (P[i]) {
             if (same(A[i], B[i])) {
-                std::cout << "Yes" << std::endl;
+                Yes
             } else {
-                std::cout << "No"  << std::endl;
+                No
             }
         } else {
             unite(A[i], B[i]);

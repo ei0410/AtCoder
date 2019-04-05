@@ -1,15 +1,25 @@
 #include <bits/stdc++.h> 
  
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
 #define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
-using Pii = std::pair<int, int>;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
 
-std::vector<int> i2g;
-std::vector<std::vector<int>> g2i;
+#define rep(i, n) for (ll i = 0; i < n; i++)
+
+vector<int> i2g;
+vector<vector<int>> g2i;
 
 void init(int n) {
     i2g.resize(n);
@@ -22,7 +32,7 @@ void init(int n) {
 
 void merge(int ia, int ib) {
     if (g2i[i2g[ia]].size() < g2i[i2g[ib]].size()) {
-        std::swap(ia, ib);
+        swap(ia, ib);
     }
 
     int ga = i2g[ia];
@@ -37,9 +47,9 @@ void merge(int ia, int ib) {
 }
 
 /*
-void merge_set(std::set<int> *&a, std::set<int> *&b) {
+void merge_set(set<int> *&a, set<int> *&b) {
     if (a->size() < b->size()) {
-        std::swap(a, b);
+        swap(a, b);
     }
 
     a->insert(b->begin(), b->end());

@@ -59,9 +59,9 @@ int main(int argc, char *argv[])
 
     dfs(sx, sy);
     if (reached[gx][gy]) {
-        Yes;
+        Yes
     } else {
-        No;
+        No
     }
 
     return 0;

@@ -1,26 +1,37 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31) - 1 //INT_MAX/2
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < n; i++)
  
 int main(int argc, char *argv[])
 {
     int N;
-    std::cin >> N;
+    cin >> N;
 
     for (int i = 1; i <= N; i++) {
         if (N % 15 == 0) {
-            std::cout << "FizzBuzz" << std::endl;
+            cout << "FizzBuzz" << endl;
         } else if (N % 3 == 0) {
-            std::cout << "Fizz" << std::endl;
+            cout << "Fizz" << endl;
         } else if (N % 5 == 0) {
-            std::cout << "Buzz" << std::endl;
+            cout << "Buzz" << endl;
         } else {
-            std::cout << i << std::endl;
+            cout << i << endl;
         }
     }
     return 0;

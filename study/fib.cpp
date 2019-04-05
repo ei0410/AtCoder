@@ -1,12 +1,24 @@
 #include <bits/stdc++.h> 
  
-#define INF (1<<31)//INT_MAX/2
-#define MOD 1000000007
+using namespace std;
 
-#define MAX_N 10000
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
+#define INF INT_MAX
+#define MOD 1000000007
+#define PI  acos(-1)
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < n; i++)
+
+#define MAX_N 10000
 
 int memo[MAX_N + 1];
 
@@ -18,11 +30,7 @@ int fib(int n) {
     } else if (n == 2) {
         return 1;
     }
-    /*
-    if (n <= 1) {
-        return n;
-    }
-    */
+
     if (memo[n] != 0) {
         return memo[n];
     }
@@ -33,8 +41,8 @@ int fib(int n) {
 int main(int argc, char *argv[])
 {
     int N;
-    std::cin >> N;
+    cin >> N;
 
-    std::cout << fib(N) << std::endl;
+    cout << fib(N) << endl;
     return 0;
 }
