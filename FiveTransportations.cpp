@@ -8,6 +8,7 @@ using namespace std;
 #define No  cout << "No"  << endl;
  
 #define INF INT_MAX
+#define LINF LONG_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
 
@@ -23,15 +24,23 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int a, b, c, d, e, k;
-    cin >> a >> b >> c >> d >> e >> k;
+    ll N;
+    cin >> N;
 
-    if (e - a > k) {
-        cout << ":(" << endl;
-    } else {
-        cout << "Yay!" << endl;
+    vector<ll> a(5);
+    rep (i, 5) {
+        cin >> a[i];
+    }
+    
+    ll minimam = LINF;
+    ll index = 0;
+    rep (i, 5) {
+        if (minimam > a[i]) {
+            minimam = a[i];
+            index = i;
+        }
     }
 
-
+    cout << 5 + (N + minimam - 1) / minimam - 1 << endl;
     return 0;
 }
