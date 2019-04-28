@@ -23,5 +23,30 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    int N;
+    cin >> N;
+
+    vector<int> V(N), C(N);
+    rep (i, N) {
+        cin >> V[i];
+    }
+    rep (i, N) {
+        cin >> C[i];
+    }
+
+    int ans = -MOD;
+    for (int bit = 0; bit < (1<<N); bit++) {
+        int X = 0;
+        int Y = 0;
+        for (int i = 0; i < N; i++) {
+            if (bit & (1<<i)) {
+                X += V[i];
+                Y += C[i];
+            }
+        }
+        ans = max(ans, X-Y);
+    }
+
+    cout << ans << endl;
     return 0;
 }
