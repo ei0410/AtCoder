@@ -91,8 +91,6 @@ int bfs() {
 int main(int argc, char *argv[])
 {
     cin >> R >> C;
-    cin >> sy >> sx;
-    cin >> gy >> gx;
 
     for (int i = 0; i < R; i++) {
         for (int j = 0; j < C; j++) {
