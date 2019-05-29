@@ -18,24 +18,45 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
 
+vector<string> split(string s, string delim) {
+    vector<string> res;
+    int pos = 0;
+    while (true) {
+        int found = s.find(delim, pos);
+        if (found >= 0) {
+            res.push_back(s.substr(pos, found - pos));
+        } else {
+            res.push_back(s.substr(pos));
+            break;
+        }
+        pos = found + delim.size();
+    }
+    return res;
+}
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string s;
-    cin >> s;
+    string S;
+    cin >> S;
 
-    vector<string> v;
-    int ans = 1;
+    vector<string> s = split(S, "+");
+
+    int ans = 0;
     rep (i, s.size()) {
-        if (s[i] == '+') {
-            ans++;
+        if (s[i].size() == 1) {
+            if (s[i][0] != '0') {
+                ans++;
+            }
+        } else {
+            if (s[i].find("0") == -1) {
+                ans++;
+            }
         }
     }
 
-    rep (i, v.size()) {
-        cout << v[i] << endl;
-    }
+    cout << ans << endl;
     return 0;
 }

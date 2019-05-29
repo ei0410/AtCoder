@@ -1,5 +1,5 @@
 #include <bits/stdc++.h> 
- 
+
 using namespace std;
 
 #define YES cout << "YES" << endl;
@@ -18,28 +18,28 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
 
-vector<string> split(string s, string delim) {
-    vector<string> res;
-    int pos = 0;
-    while (true) {
-        int found = s.find(delim, pos);
-        if (found >= 0) {
-            res.push_back(s.substr(pos, found - pos));
-        } else {
-            res.push_back(s.substr(pos));
-            break;
-        }
-        pos = found + delim.size();
-    }
-    return res;
-}
- 
 int main(int argc, char *argv[])
 {
-    string s = "a b c d e f g";
-    string d = " ";
-    vector<string> ans = split(s, d);
-    rep (i, ans.size()) {
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+
+    ll r, D, x;
+    cin >> r >> D >> x;
+
+    ll ans[10];
+
+    ans[0] = r*x - D;
+    ans[1] = r*ans[0] - D;
+    ans[2] = r*ans[1] - D;
+    ans[3] = r*ans[2] - D;
+    ans[4] = r*ans[3] - D;
+    ans[5] = r*ans[4] - D;
+    ans[6] = r*ans[5] - D;
+    ans[7] = r*ans[6] - D;
+    ans[8] = r*ans[7] - D;
+    ans[9] = r*ans[8] - D;
+
+    rep (i, 10) {
         cout << ans[i] << endl;
     }
     return 0;
