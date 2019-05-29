@@ -23,21 +23,22 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int H, W;
-    cin >> H >> W;
+    ll N;
+    cin >> N;
 
-    vector<vector<char>> A(H, vector<char>(W, '0'));
-    rep (i, H) {
-        rep (j, W) {
-            cin >> A[i][j];
-        }
+    string ss = to_string(N % 60);
+    if (ss.size() == 1) {
+        ss = "0" + ss;
     }
-    rep (i, H) {
-        rep (j, W) {
-            cout << A[i][j];
-        }
-        cout << endl;
+    string mm = to_string((N / 60) % 60);
+    if (mm.size() == 1) {
+        mm = "0" + mm;
+    }
+    string hh = to_string(N / 3600);
+    if (hh.size() == 1) {
+        hh = "0" + hh;
     }
 
+    cout << hh << ":" << mm << ":" << ss << endl;
     return 0;
 }

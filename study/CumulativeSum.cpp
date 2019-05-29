@@ -16,6 +16,8 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
+#define rep(i, n) for (ll i = 0; i < n; i++)
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
@@ -28,12 +30,12 @@ int main(int argc, char *argv[])
     cin >> left >> right;
 
     vector<int> a(N);
-    for (int i = 0; i < N; i++) {
+    rep (i, N) {
         cin >> a[i];
     }
 
     vector<int> s(N+1, 0);
-    for (int i = 0; i < N; i++) {
+    rep (i, N) {
         s[i+1] = s[i] + a[i];
     }
 

@@ -16,30 +16,32 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
+#define rep(i, n) for (ll i = 0; i < n; i++)
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int N, Q;
+    ll N, Q;
     cin >> N >> Q;
 
     string S;
     cin >> S;
 
-    vector<int> ans(N+1, 0);
-    for (int i = 1; i <= N; i++) {
-        ans[i] = ans[i-1];
-        if (S[i-1] == 'A' && S[i] == 'C') {
-            ++ans[i];
+    vector<ll> s(N+1, 0);
+    rep (i, N) {
+        if (i+1 < N && S[i] == 'A' && S[i+1] == 'C') {
+            s[i+1] = s[i] + 1;
+        } else {
+            s[i+1] = s[i];
         }
     }
 
-    int l, r;
-    for (int i = 0; i < Q; i++) {
+    rep (i, Q) {
+        ll l, r;
         cin >> l >> r;
-        cout << ans[r-1] - ans[l-1] << endl;
+        cout << s[r-1] - s[l-1] << endl;
     }
-
     return 0;
 }

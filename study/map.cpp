@@ -31,6 +31,11 @@ int main(int argc, char *argv[])
     for (map<string, int>::iterator it = m.begin(), end = m.end(); it != end; it++) {
         cout << it->first << ":" << it->second << endl;
     }
+    /*
+    for (auto it : m) {
+        cout << it.first << ":" << it.second << endl;
+    }
+    */
 
     cout << m.count("one") << endl; // number of element in a key
 

@@ -18,6 +18,20 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
 
+vector<ll> enum_div(ll n)
+{
+    vector<ll> ret;
+    for (ll i = 1; i*i <= n; i++) {
+        if (n % i == 0) {
+            ret.push_back(i);
+            ret.push_back(n/i);
+        }
+    }
+
+    sort(ret.begin(), ret.end());
+    return ret;
+}
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
@@ -26,31 +40,17 @@ int main(int argc, char *argv[])
     ll N;
     cin >> N;
 
-    vector<ll> a(N), b(N);
-    rep (i, N) {
-        cin >> a[i];
-    }
-    rep (i, N) {
-        cin >> b[i];
-    }
+    vector<ll> tmp = enum_div(2025-N);
 
-    ll asum = 0;
-    ll bsum = 0;
-    ll acount = 0;
-    ll bcount = 0;
-    rep(i, N) {
-        sum += (b[i] - a[i]);
-        if (a[i] > b[i]) {
-            acount += (a[i] - b[i]);
-        } else if (a[i] < b[i]) {
-            bcount += (b[i] - a[i])/2;
+    set<string> s;
+    rep (i, tmp.size()) {
+        if (tmp[i] <= 9 && tmp[tmp.size()-(i+1)] <= 9) {
+            s.insert(to_string(tmp[i]) + " x " + to_string(tmp[tmp.size()-(i+1)]));
         }
     }
 
-    if (sum <= acount && sum <= bcount) {
-        No
-    } else {
-        Yes
+    for (auto it = s.begin(); it != s.end(); it++) {
+        cout << *it << endl;
     }
     return 0;
 }

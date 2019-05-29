@@ -23,28 +23,29 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string S;
-    cin >> S;
+    ll N;
+    cin >> N;
 
-    vector<ll> num(S.size());
-    rep (i, S.size()) {
-        num[i] = S[i] - '0';
+    vector<ll> A(N);
+    rep (i, N) {
+        cin >> A[i];
     }
 
-    int n = S.size()-1;
-
-    ll sum = 0;
-    for (int bit = 0; bit < (1<<n); bit++) {
-        for (int i = 0; i < n; i++) {
-            ll tmp = 0;
-            if (bit & (1<<i)) {
-
-            } else {
-                
-            }
-        }
+    vector<ll> s(N+1, 0);
+    map<ll, ll> nums;
+    rep (i, N) {
+        s[i+1] = s[i] + A[i];
+    }
+    rep (i, N+1) {
+        nums[s[i]]++;
     }
 
-    cout << sum << endl;
+    ll res = 0;
+    for (auto it : nums) {
+        ll num = it.second;
+        res += num * (num-1) / 2;
+    }
+
+    cout << res << endl;
     return 0;
 }

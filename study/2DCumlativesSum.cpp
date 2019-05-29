@@ -18,39 +18,34 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
 
-ll GCD(ll a, ll b) {
-    if (a <= 0 || b <= 0) {
-        return -1;
-    }
-    if (a > b) {
-        if (a % b == 0) {
-            return b;
-        } else {
-            GCD(b, a % b);
-        }
-    } else if (a < b) {
-        if (b % a == 0) {
-            return a;
-        } else {
-            GCD(a, b % a);
-        }
-    } else {
-        return a;
-    }
-}
-
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll H, W;
+    cin >> H >> W;
 
-    vector<ll> A(N);
-    rep (i, N) {
-        cin >> A[i];
+    vector<vector<ll>> a(H, vector<ll>(W));
+    rep (i, H) {
+        rep (j, W) {
+            cin >> a[i][j];
+        }
     }
 
+    vector<vector<ll>> s(H+1, vector<ll>(W+1, 0));
+    rep (i, H) {
+        rep (j, W) {
+            s[i+1][j+1] = s[i][j+1] + s[i+1][j] - s[i][j] + a[i][j];
+        }
+    }
+
+    ll Q;
+    cin >> Q;
+    rep (i, Q) {
+        ll x1, x2, y1, y2;
+        cin >> x1 >> x2 >> y1 >> y2;
+        cout << s[x2][y2] - s[x1][y2] - s[x2][y1] + s[x1][y1] << endl;
+    }
     return 0;
 }
