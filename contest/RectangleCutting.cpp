@@ -26,75 +26,13 @@ int main(int argc, char *argv[])
     ll W, H, x, y;
     cin >> W >> H >> x >> y;
 
-    ll tile[4];
-    tile[0] = W*(H-y);
-    tile[1] = W*y;
-    tile[2] = H*(W-x);
-    tile[3] = H*x;
+    double ans = (double)(W) * double(H)/2;
+    cout << fixed << setprecision(10) << ans << " ";
 
-    double ans = 0;
-    bool flag = false;
-    ll tmp1 = 0;
-    ll tmp2 = 0;
-    if (tile[0] < tile[1]) {
-        tmp1 = tile[0];
-        if (tile[2] < tile[3]) {
-            tmp2 = tile[2];
-        } else if (tile[2] > tile[3]) {
-            tmp2 = tile[3];
-        } else {
-            tmp2 = tile[2];
-        }
-        if (tmp1 < tmp2) {
-            ans = tmp2;
-        } else if (tmp1 > tmp2) {
-            ans = tmp1;
-        } else {
-            flag = true;
-            ans = tmp1;
-        }
-    } else if (tile[0] > tile[1]) {
-        tmp1 = tile[1];
-        if (tile[2] < tile[3]) {
-            tmp2 = tile[2];
-        } else if (tile[2] > tile[3]) {
-            tmp2 = tile[3];
-        } else {
-            tmp2 = tile[2];
-        }
-        if (tmp1 < tmp2) {
-            ans = tmp2;
-        } else if (tmp1 > tmp2) {
-            ans = tmp1;
-        } else {
-            flag = true;
-            ans = tmp1;
-        }
+    if (x*2 == W && y*2 == H) {
+        cout << 1 << endl;
     } else {
-        tmp1 = tile[1];
-        if (tile[2] < tile[3]) {
-            tmp2 = tile[2];
-        } else if (tile[2] > tile[3]) {
-            tmp2 = tile[3];
-        } else {
-            tmp2 = tile[2];
-        }
-        if (tmp1 < tmp2) {
-            ans = tmp2;
-        } else if (tmp1 > tmp2) {
-            ans = tmp1;
-        } else {
-            flag = true;
-            ans = tmp1;
-        }
-    }
-
-    if (flag) {
-        cout << fixed;
-        cout << setprecision(6) << ans << " " << 1 << endl;
-    } else {
-        cout << fixed;
-        cout << setprecision(6) << ans << " " << 0 << endl;
+        cout << 0 << endl;
     }
     return 0;
 }

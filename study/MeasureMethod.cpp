@@ -23,6 +23,9 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    //ll N;
+    //cin >> N;
+
     ll N, K;
     cin >> N >> K;
 
@@ -31,25 +34,18 @@ int main(int argc, char *argv[])
         cin >> a[i];
     }
 
-    ll right = 0;
     ll ans = 0;
-    ll sum = 0;
-    for (int left = 0; left < N; left++) {
-        while (right < N && sum < K) {
-            sum += a[right];
+    ll right = 0;
+    ll cur = 0;
+    for (ll left = 0; left < N; left++) {
+        // while(right < N && check()) {
+        while(right < N && cur <= K){
+            cur += a[right];
             right++;
         }
-        if (sum < K) {
-            break;
-        }
 
-        ans += (N-right+1);
-
-        if (right == left) {
-            right++;
-        } else {
-            sum -= a[left];
-        }
+        ans += N-right+1;
+        cur -= a[right];
     }
 
     cout << ans << endl;
