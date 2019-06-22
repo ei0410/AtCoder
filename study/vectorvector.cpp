@@ -18,32 +18,32 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    vector<vector<int>> vv(5, vector<int>(4, 0));
+    vector<vector<ll>> vv(5, vector<int>(4, 0));
 
     /*
-    vector<vector<int>> vv;
+    vector<vector<ll>> vv;
     vv.resize(5);
     for (int i = 0; i < vv.size(); i++) {
         vv[i].resize(4);
     }
 
-    for (int i = 0; i < vv.size(); i++) {
-        for (int j = 0; j < vv[i].size(); j++) {
+    for (ll i = 0; i < vv.size(); i++) {
+        for (ll j = 0; j < vv[i].size(); j++) {
             vv[i][j] = 0;
         }
     }
     */
 
     /*
-    vector<vector<int>> vv;
+    vector<vector<ll>> vv;
     vv.resize(5);
-    for (int i = 0; i < vv.size(); i++) {
+    for (ll i = 0; i < vv.size(); i++) {
         vv.push_back(i);
     }
     */
 
-    for (int i = 0; i < vv.size(); i++) {
-        for (int j = 0; j < vv[i].size(); j++) {
+    for (ll i = 0; i < vv.size(); i++) {
+        for (ll j = 0; j < vv[i].size(); j++) {
             cout << vv[i][j] << " ";
         }
         cout << endl;

@@ -1,5 +1,5 @@
 #include <bits/stdc++.h> 
- 
+
 using namespace std;
 
 #define YES cout << "YES" << endl;
@@ -15,20 +15,17 @@ using ll  = long long;
 using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
- 
+
+#define rep(i, n) for (ll i = 0; i < n; i++)
+
 int main(int argc, char *argv[])
 {
-    priority_queue<ll> pq;
-    // priority_queue<int, vector<int>, greater<int>> pq;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    pq.push(3);
-    pq.push(1);
-    pq.push(2);
+    ll A, B;
+    cin >> A >> B;
 
-    while(!pq.empty()) {
-        cout << pq.top() << " " << flush;
-        pq.pop();
-    }
-    cout << endl;
+    cout << (A-1)*(B-1) << endl;
     return 0;
 }

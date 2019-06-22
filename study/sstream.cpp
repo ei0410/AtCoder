@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     ss << "0 1" << flush;
     string str = ss.str();
 
-    int a, b;
+    ll a, b;
     ss >> a >> b;
 
     cout << a << " " << b << endl;

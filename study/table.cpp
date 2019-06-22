@@ -18,14 +18,14 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    int H = 3;
-    int W = 3;
+    ll H = 3;
+    ll W = 3;
 
-    vector<vector<int>> vv(H, vector<int>(W, 0));
+    vector<vector<ll>> vv(H, vector<ll>(W, 0));
     //vector<vector<int>> vv(H, vector<int>(W));
 
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
+    for (ll i = 0; i < H; i++) {
+        for (ll j = 0; j < W; j++) {
             cin >> vv[i][j];
         }
     }
@@ -45,6 +45,5 @@ int main(int argc, char *argv[])
         }
         cout << endl;
     }
-
     return 0;
 }

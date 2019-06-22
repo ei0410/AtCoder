@@ -18,10 +18,10 @@ using Pll = pair<ll, ll>;
 
 int main(int argc, char *argv[])
 {
-    int N = 24;
+    ll N = 24;
 
-    int left = 20;
-    int right = 36; 
+    ll left = 20;
+    ll right = 36; 
 
     // check
     if (N < left || right < N) {
@@ -29,9 +29,9 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    int count = 0;
+    ll count = 0;
     while (right - left > 1) {
-        int mid = (right + left) / 2;
+        ll mid = (right + left) / 2;
 
         count++;
         if (N == mid) {

@@ -18,23 +18,23 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    multiset<int> ms;
+    multiset<ll> ms;
 
     // add elements
     // s.insert("key");
     ms.insert(0);
-    ms.insert(multiset<int>::value_type(0));
+    ms.insert(multiset<ll>::value_type(0));
     cout << ms.size() << endl;
 
     // output value
-    for (multiset<int>::iterator it = ms.begin(), end = ms.end(); it != end; it++) {
+    for (multiset<ll>::iterator it = ms.begin(), end = ms.end(); it != end; it++) {
         cout << *it << endl;
     }
 
     cout << ms.count(0) << endl; // number of elements in a key
 
     // search for value
-    multiset<int>::iterator it = ms.find(0);
+    multiset<ll>::iterator it = ms.find(0);
     if (it != ms.end()) {
         cout << "found:" << *it << endl;
     }

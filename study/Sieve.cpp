@@ -36,14 +36,14 @@ void sieve(size_t max) {
 
 int main(int argc, char *argv[]) 
 {
-    int N = 10;
+    ll N = 10;
     sieve(N);
 
-    for (int i = 0; i < IsPrime.size(); i++) {
+    for (ll i = 0; i < IsPrime.size(); i++) {
         cout << IsPrime[i] << endl;
     }
 
-    for (int i = 0; i < IsPrime.size(); i++) {
+    for (ll i = 0; i < IsPrime.size(); i++) {
         if (IsPrime[i]) {
             cout << i << endl;
         }

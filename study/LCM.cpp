@@ -16,7 +16,7 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-int GCD(int a, int b) {
+ll GCD(ll a, ll b) {
     if (a <= 0 || b <= 0) {
         return -1;
     }
@@ -37,14 +37,14 @@ int GCD(int a, int b) {
     }
 }
 
-int LCM(int a, int b) {
+ll LCM(ll a, ll b) {
     return (a * b) / GCD(a, b);
 }
 
 int main(int argc, char *argv[])
 {
-    int a = 2;
-    int b = 3;
+    ll a = 2;
+    ll b = 3;
     cout << LCM(a, b) << endl;
     return 0;
 }

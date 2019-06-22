@@ -18,24 +18,24 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    set<int> s;
+    set<ll> s;
 
     // add elements
     // s.insert("key");
     s.insert(0);
-    s.insert(set<int>::value_type(0));
+    s.insert(set<ll>::value_type(0));
     s.insert(1);
     cout << s.size() << endl;
 
     // output value
-    for (set<int>::iterator it = s.begin(), end = s.end(); it != end; it++) {
+    for (set<ll>::iterator it = s.begin(), end = s.end(); it != end; it++) {
         cout << *it << endl;
     }
 
     cout << s.count(0) << endl; // number of elements in a key
 
     // search for value
-    set<int>::iterator it = s.find(0);
+    set<ll>::iterator it = s.find(0);
     if (it != s.end()) {
         cout << "found:" << *it << endl;
     }

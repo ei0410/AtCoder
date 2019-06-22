@@ -19,23 +19,22 @@ using Pll = pair<ll, ll>;
 #define MAX_V 50
 
 struct edge {
-    int to;
-    int cost;
+    ll to;
+    ll cost;
 };
 
-vector<int> G[MAX_V];
+vector<ll> G[MAX_V];
  
 int main(int argc, char *argv[])
 {
-    int V, E;
+    ll V, E;
     cin >> V >> E;
 
-    for (int i = 0; i < E; i++) {
-        int s, t;
+    for (ll i = 0; i < E; i++) {
+        s, t;
         cin >> s >> t;
         G[s].push_back(t);
         G[t].push_back(s);
     }
-
     return 0;
 }

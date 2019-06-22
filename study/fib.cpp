@@ -20,9 +20,9 @@ using Pll = pair<ll, ll>;
 
 #define MAX_N 10000
 
-int memo[MAX_N + 1];
+ll memo[MAX_N + 1];
 
-int fib(int n) {
+ll fib(ll n) {
     if (n <= 0) {
         return 0;
     } else if (n == 1) {
@@ -40,7 +40,7 @@ int fib(int n) {
  
 int main(int argc, char *argv[])
 {
-    int N;
+    ll N;
     cin >> N;
 
     cout << fib(N) << endl;

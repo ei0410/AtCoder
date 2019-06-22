@@ -36,11 +36,11 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int V, E;
+    ll V, E;
     cin >> V >> E;
 
-    for (int i = 0; i < E; i++) {
-        int s, t;
+    rep (i, E) {
+        ll s, t;
         cin >> s >> t;
         G[s].push_back(t);        
         // G[t].push_back(s); // undirected graph
@@ -53,6 +53,5 @@ int main(int argc, char *argv[])
         }
         cout << endl;
     }
-
     return 0;
 }

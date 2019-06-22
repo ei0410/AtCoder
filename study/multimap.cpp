@@ -18,23 +18,23 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    multimap<string, int> mm;
+    multimap<string, ll> mm;
 
     // add elements
     // cannot use []
-    mm.insert(multimap<string, int>::value_type("one", 1));
-    mm.insert(multimap<string, int>::value_type("one", -1));
+    mm.insert(multimap<string, ll>::value_type("one", 1));
+    mm.insert(multimap<string, ll>::value_type("one", -1));
     cout << mm.size() << endl;
 
     // output value
-    for (multimap<string, int>::iterator it = mm.begin(), end = mm.end(); it != end; it++) {
+    for (multimap<string, ll>::iterator it = mm.begin(), end = mm.end(); it != end; it++) {
         cout << it->first << ":" << it->second << endl;
     }
 
     cout << mm.count("one") << endl; // number of element in a key
 
     // search for value
-    multimap<string, int>::iterator it = mm.find("one");
+    multimap<string, ll>::iterator it = mm.find("one");
     if (it != mm.end()) {
         cout << "found: (" << it->first << "," << it->second << ")" << endl;
     }

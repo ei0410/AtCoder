@@ -18,7 +18,7 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    deque<int> dq;
+    deque<ll> dq;
 
     dq.push_back(0);
     dq.push_back(1);

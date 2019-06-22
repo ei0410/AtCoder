@@ -1,5 +1,5 @@
 #include <bits/stdc++.h> 
- 
+
 using namespace std;
 
 #define YES cout << "YES" << endl;
@@ -17,20 +17,36 @@ using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
- 
+
 int main(int argc, char *argv[])
 {
-    complex<double> a, b, c;
-    a = complex<double>(3, 2);
-    b = complex<double>(-1, 3);
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    c = a + b;
-    cout << c << endl;
-    c = a - b;
-    cout << c << endl;
-    c = a * b;
-    cout << c << endl;
-    c = a / b;
-    cout << c << endl;
+    ll N;
+    cin >> N;
+
+    vector<ll> A(N), B(N);
+    rep (i, N) {
+        cin >> A[i] >> B[i];
+    }
+
+    vector<Pll> p;
+    rep (i, N) {
+        p.push_back(make_pair(B[i], A[i]));
+    }
+
+    sort(p.begin(), p.end());
+
+    ll ans = 0;
+    rep (i, N) {
+        ans += p[i].second;
+        if (p[i].first < ans) {
+            No;
+            return 0;
+        } 
+    }
+
+    Yes;
     return 0;
 }

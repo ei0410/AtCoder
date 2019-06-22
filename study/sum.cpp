@@ -6,30 +6,30 @@
 using ll  = long long;
 using ull = unsigned long long;
  
-const int SIZE=1<<10;
-int array[SIZE+1];
-int cumsum[SIZE+1];
+const ll SIZE=1<<10;
+ll array[SIZE+1];
+ll cumsum[SIZE+1];
 
-int sum(int a, int b) {
+ll sum(ll a, ll b) {
     if (a >= b) {
         return 0;
     }
     return cumsum[b] - cumsum[a-1];
 }
 
-void add (int a, int x) {
-    for (int i = a; i <= SIZE; i++) {
+void add (ll a, ll x) {
+    for (ll i = a; i <= SIZE; i++) {
         cumsum[i] += x;
     }
 }
 
 int main(int argc, char *argv[])
 {
-    for (int i = 1; i <= SIZE; i++) {
+    for (ll i = 1; i <= SIZE; i++) {
         array[i] = i;
     }
 
-    for (int i = 1; i <= SIZE; i++) {
+    for (ll i = 1; i <= SIZE; i++) {
         cumsum[i] = cumsum[i - 1] + array[i];
     }
 

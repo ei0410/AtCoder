@@ -18,13 +18,13 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    vector<int> v(2);
-    vector<int> v2(2, 0);
+    vector<ll> v(2);
+    vector<ll> v2(2, 0);
 
     v.resize(4);
     v2.resize(4, 1);
 
-    for (int i = 0; i < v2.size(); i++) {
+    for (ll i = 0; i < v2.size(); i++) {
         cout << v2[i] << endl;
     }
 
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     vstr[2] = 'r';
     vstr[3] = '\0';
     cout << &vstr[0] << endl;
-    for (int i = 0; i < v2.size(); i++) {
+    for (ll i = 0; i < v2.size(); i++) {
         cout << vstr[i] << endl;
     }
     return 0;

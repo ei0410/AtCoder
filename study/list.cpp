@@ -18,7 +18,7 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    list<int> lst;
+    list<ll> lst;
 
     cout << lst.size() << endl;
 
@@ -36,37 +36,37 @@ int main(int argc, char *argv[])
     lst.resize(3, -2);
     lst.resize(2);
 
-    for (list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+    for (list<ll>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
         cout << *it << endl;
     }
 
     cout << lst.front() << endl;
     cout << lst.back() << endl;
 
-    list<int>::iterator pos = lst.begin();
+    list<ll>::iterator pos = lst.begin();
     lst.insert(pos, -3);
-    for (list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+    for (list<ll>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
         cout << *it << endl;
     }
 
     cout << *pos << endl;
     lst.erase(pos);
-    for (list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+    for (list<ll>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
         cout << *it << endl;
     }
 
     lst.push_back(0);
     lst.erase(++lst.begin(), lst.end());
-    for (list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+    for (list<ll>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
         cout << *it << endl;
     }
 
-    list<int> other(5, 1);
+    list<ll> other(5, 1);
     lst.splice(lst.begin(), other, other.begin(), other.end());
-    for (list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+    for (list<ll>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
         cout << *it << endl;
     }
-    for (list<int>::iterator it = other.begin(), end = other.end(); it != end; it++) {
+    for (list<ll>::iterator it = other.begin(), end = other.end(); it != end; it++) {
         cout << *it << endl;
     }
 
@@ -75,9 +75,8 @@ int main(int argc, char *argv[])
     //lst.sort(greater<int>());
 
     lst.unique();
-    for (list<int>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
+    for (list<ll>::iterator it = lst.begin(), end = lst.end(); it != end; it++) {
         cout << *it << endl;
     }
-    
     return 0;
 }

@@ -16,9 +16,9 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-vector<int> a = {1, 14, 32, 51, 51, 243, 419, 750, 910};
+vector<ll> a = {1, 14, 32, 51, 51, 243, 419, 750, 910};
 
-bool isOK(int index, int key) {
+bool isOK(ll index, ll key) {
     if (a[index] >= key) {
         return true;
     } else {
@@ -26,12 +26,12 @@ bool isOK(int index, int key) {
     }
 }
 
-int binary_search(int key) {
-    int ng = -1;
-    int ok = (int)a.size();
+ll binary_search(ll key) {
+    ll ng = -1;
+    ll ok = (ll)a.size();
 
     while (abs(ok - ng) > 1) {
-        int mid = (ok + ng) / 2;
+        ll mid = (ok + ng) / 2;
 
         if (isOK(mid, key)) {
             ok = mid;

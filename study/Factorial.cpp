@@ -16,7 +16,7 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-int fact(int n) {
+ll fact(ll n) {
     if (n < 0) {
         return -1;
     } else if (n == 0 || n == 1) {
@@ -28,7 +28,7 @@ int fact(int n) {
  
 int main(int argc, char *argv[])
 {
-    int N = 10;
+    ll N = 10;
     cout << fact(N) << endl;
     return 0;
 }

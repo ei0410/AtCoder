@@ -21,15 +21,15 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int C, T;
+    ll C, T;
     cin >> C >> T;
 
-    vector<int> S(C), E(C);
+    vector<ll> S(C), E(C);
     rep (i, C) {
         cin >> S[i] >> E[i];
     }
 
-    vector<int> table(T, 0);
+    vector<ll> table(T, 0);
     rep (i, C) {
         table[S[i]]++;
         table[E[i]]--;
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    int M = 0;
+    ll M = 0;
     rep (i, T) {
         if (M < table[i]) {
             M = table[i];

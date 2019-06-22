@@ -20,9 +20,9 @@ using Pll = pair<ll, ll>;
 
 vector<string> split(string s, string delim) {
     vector<string> res;
-    int pos = 0;
+    ll pos = 0;
     while (true) {
-        int found = s.find(delim, pos);
+        ll found = s.find(delim, pos);
         if (found >= 0) {
             res.push_back(s.substr(pos, found - pos));
         } else {

@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
 
 using namespace std;
 
@@ -16,27 +16,20 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-int gcd(int a, int b) 
-{
-    if (a > b) {
-        if (a%b==0) {
-            return b;
-        } else {
-            return gcd(b, a%b);
-        }
-    } else {
-        if (b%a==0) {
-            return a;
-        } else {
-            return gcd(a, b%a);
-        }
-    }
-}
+#define rep(i, n) for (ll i = 0; i < n; i++)
 
-int main(int argc,a char *argv[])
+int main(int argc, char *argv[])
 {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+
+    string S;
+    cin >> S;
+
+    if (S[0] == S[1] || S[1] == S[2] || S[2] == S[3]) {
+        cout << "Bad" << endl;
+    } else {
+        cout << "Good" << endl;
+    }
     return 0;
 }

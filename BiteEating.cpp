@@ -1,5 +1,5 @@
 #include <bits/stdc++.h> 
- 
+
 using namespace std;
 
 #define YES cout << "YES" << endl;
@@ -15,23 +15,36 @@ using ll  = long long;
 using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
- 
+
+#define rep(i, n) for (ll i = 0; i < n; i++)
+
 int main(int argc, char *argv[])
 {
-    string str1 = "12345";
-    string str2 = "abcde";
-    string str3 = "ABCDE";
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    vector<string> v;
-    v.push_back(str1);
-    v.push_back(str2);
-    v.push_back(str3);
+    ll N, L;
+    cin >> N >> L;
 
-    for (ll i = 0; i < v.size(); i++) {
-        for (ll j = 0; j < v[i].size(); j++) {
-            cout << v[i][j] << " ";
-        }
-        cout << endl;
+    vector<ll> a(N);
+    rep(i, N) {
+        a[i] = L+i;
     }
+
+    ll b = 500;
+    ll tmp = 0;
+    rep (i, N) {
+        if (b > abs(a[i])) {
+            b = abs(a[i]);
+            tmp = a[i];
+        }
+    }
+
+    ll ans = 0;
+    rep (i, N) {
+        ans += a[i];
+    }
+
+    cout << ans - tmp << endl;
     return 0;
 }

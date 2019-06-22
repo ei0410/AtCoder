@@ -18,7 +18,7 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    queue<int> q;
+    queue<ll> q;
 
     q.push(1);
     q.push(2);

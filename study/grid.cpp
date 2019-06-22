@@ -18,23 +18,23 @@ using Pll = pair<ll, ll>;
 
 int main(int argc, char *argv[])
 {
-    int H, W;
+    ll H, W;
     cin >> H >> W;
 
     vector<string> S(H+2);
-    for (int i = 0; i < H+2; i++) {
-        for (int j = 0; j < W+2; j++) {
+    for (ll i = 0; i < H+2; i++) {
+        for (ll j = 0; j < W+2; j++) {
             S[i].push_back('0');
         }
     }
-    for (int i = 1; i <= H; i++) {
-        for (int j = 1; j <= W; j++) {
+    for (ll i = 1; i <= H; i++) {
+        for (ll j = 1; j <= W; j++) {
             cin >> S[i][j];
         }
     }
 
-    for (int i = 0; i < H+2; i++) {
-        for (int j = 0; j < W+2; j++) {
+    for (ll i = 0; i < H+2; i++) {
+        for (ll j = 0; j < W+2; j++) {
             cout << S[i][j];
         }
         cout << endl;

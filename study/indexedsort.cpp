@@ -20,22 +20,21 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    vector<int> x;
+    vector<ll> x;
     x.push_back(11);
     x.push_back(7);
     x.push_back(3);
     x.push_back(4);
     x.push_back(8);
 
-    vector<Pii> y;
-    for (int i = 0; i < x.size(); i++) {
+    vector<Pll> y;
+    for (ll i = 0; i < x.size(); i++) {
         y.push_back(Pii(x[i], i));
     }
 
     sort(y.begin(), y.end());
-    for (vector<Pii>::iterator it = y.begin(); it != y.end(); ++it){
+    for (vector<Pll>::iterator it = y.begin(); it != y.end(); ++it){
         cout << it->first << " " << it->second << endl;
     }
-
     return 0;
 }

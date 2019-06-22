@@ -28,14 +28,14 @@ int main(int argc, char *argv[])
     cout << str[0] << endl;
     cout << str.at(0) << endl;
 
-    int pos = str.find("abc");
+    ll pos = str.find("abc");
 
-    int start_pos = 1;
+    ll start_pos = 1;
     pos = str.find("xyz", start_pos);
 
     pos = str.rfind("abc");
 
-    int len = 3;
+    ll len = 3;
     str.substr(pos, len);
     str.substr(pos); // to last
 
@@ -48,6 +48,5 @@ int main(int argc, char *argv[])
     str.erase(pos); // to last
 
     strcmp(s1.c_str(), s2.c_str());
-
     return 0;
 }

@@ -16,10 +16,10 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-vector<int> enum_div(int n)
+vector<ll> enum_div(ll n)
 {
-    vector<int> ret;
-    for (int i = 1; i*i <= n; i++) {
+    vector<ll > ret;
+    for (ll i = 1; i*i <= n; i++) {
         if (n % i == 0) {
             ret.push_back(i);
             ret.push_back(n/i);
@@ -32,10 +32,10 @@ vector<int> enum_div(int n)
  
 int main(int argc, char *argv[])
 {
-    int N = 10;
-    vector<int> ans = enum_div(N);
+    ll N = 10;
+    vector<ll> ans = enum_div(N);
 
-    for (int i = 0; i < ans.size(); i++) {
+    for (ll i = 0; i < ans.size(); i++) {
         cout << ans[i] << endl;
     }
     return 0;

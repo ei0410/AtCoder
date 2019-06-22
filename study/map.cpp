@@ -18,17 +18,17 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    map<string, int> m;
+    map<string, ll> m;
 
     // add elements
     // m["key"] = value;
     m["one"] = 1;
     m["two"] = 2;
-    m.insert(map<string, int>::value_type("two", 2)); // same mean
+    m.insert(map<string, ll>::value_type("two", 2)); // same mean
     cout << m.size() << endl;
 
     cout << m["one"] << endl; // output value
-    for (map<string, int>::iterator it = m.begin(), end = m.end(); it != end; it++) {
+    for (map<string, ll>::iterator it = m.begin(), end = m.end(); it != end; it++) {
         cout << it->first << ":" << it->second << endl;
     }
     /*
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     cout << m.count("one") << endl; // number of element in a key
 
     // search for value
-    map<string, int>::iterator it = m.find("one");
+    map<string, ll>::iterator it = m.find("one");
     if (it != m.end()) {
         cout << "found: (" << it->first << "," << it->second << ")" << endl;
     }

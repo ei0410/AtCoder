@@ -18,10 +18,10 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    int n = 5;
+    ll n = 5;
 
-    for (int bit = 0; bit < (1<<n); bit++) {
-        for (int i = 0; i < n; i++) {
+    for (ll bit = 0; bit < (1<<n); bit++) {
+        for (ll i = 0; i < n; i++) {
             if (bit & (1<<i)) {
                 cout << bit << " " << i << endl;
             }

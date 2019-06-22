@@ -18,7 +18,7 @@ using Pll = pair<ll, ll>;
  
 int main(int argc, char *argv[])
 {
-    stack<int> s;
+    stack<ll> s;
 
     s.push(1);
     s.push(2);
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     /*
     //DFS
     while (!s.empty()) {
-        int n = s.top();
+        ll n = s.top();
         s.pop();
     }
     */
