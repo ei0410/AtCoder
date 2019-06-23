@@ -38,7 +38,7 @@ ll GCD(ll a, ll b) {
 }
 
 ll LCM(ll a, ll b) {
-    return (a * b) / GCD(a, b);
+    return a / GCD(a, b) * b;
 }
 
 int main(int argc, char *argv[])

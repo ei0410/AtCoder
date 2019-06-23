@@ -51,20 +51,8 @@ int main(int argc, char *argv[])
     ll A, B, C, D;
     cin >> A >> B >> C >> D;
 
-    ll ans = 0;
-    ll a = B/C;
-    ll b = B/D;
-    ll c = B/LCM(C, D);
-
-    ll d = B - (a+b-c);
-    
     A -= 1;
-    ll e = A/C;
-    ll f = A/D;
-    ll g = A/LCM(C, D);
 
-    ll h = A - (e+f-g);
-
-    cout << d-h << endl;
+    cout << (B - (B/C + B/D - B/LCM(C, D))) - (A - (A/C + A/D - A/LCM(C, D))) << endl;
     return 0;
 }
