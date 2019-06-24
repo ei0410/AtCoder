@@ -18,18 +18,15 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
 
+double f(double n) {
+    return (n*n+4.0)/8.0;
+}
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
-
-    if (N%2 == 0) {
-        cout << N << endl;
-    } else {
-        cout << N*2 << endl;
-    }
+    cout << f(f(f(20))) << endl;
     return 0;
 }

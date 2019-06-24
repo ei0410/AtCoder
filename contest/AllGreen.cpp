@@ -23,13 +23,25 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll D, G;
+    cin >> D >> G;
 
-    if (N%2 == 0) {
-        cout << N << endl;
-    } else {
-        cout << N*2 << endl;
+    vector<Pll> P;
+    rep (i, D) {
+        ll p, c;
+        cin >> p >> c;
+        P.push_back(make_pair(c, p));
     }
+
+    sort(P.begin(), P.end());
+    rep (i, D) {
+        cout << P[i].first << " " << P[i].second << endl;
+    }
+
+    ll ans = 0;
+    ll sum = 0;
+    for (ll i = D-1; i <= 0; i--) {
+    }
+    cout << ans << endl;
     return 0;
 }

@@ -23,13 +23,19 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll a, b;
+    cin >> a >> b;
 
-    if (N%2 == 0) {
-        cout << N << endl;
+    if (a > 0) {
+        cout << "Positive" << endl;
+    } else if (a <= 0 && b >= 0) {
+        cout << "Zero" << endl;
     } else {
-        cout << N*2 << endl;
+        if ((b-a)%2 == 0) {
+            cout << "Negative" << endl;
+        } else {
+            cout << "Positive" << endl;
+        }
     }
     return 0;
 }

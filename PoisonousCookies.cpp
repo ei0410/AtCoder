@@ -23,13 +23,13 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll A, B, C;
+    cin >> A >> B >> C;
 
-    if (N%2 == 0) {
-        cout << N << endl;
+    if (A+B+1 >= C) {
+        cout << B+C << endl;
     } else {
-        cout << N*2 << endl;
+        cout << A+2*B+1 << endl;
     }
     return 0;
 }

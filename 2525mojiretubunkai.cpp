@@ -23,13 +23,29 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    string s;
+    cin >> s;
 
-    if (N%2 == 0) {
-        cout << N << endl;
+    ll top = 0;
+    ll ans = 0;
+    rep (i, s.size()) {
+        if (s[i] == '2') {
+            top++;
+        } else {
+            if (top == 0) {
+                cout << -1 << endl;
+                return 0;
+            } else {
+                top--;
+            }
+        }
+        ans = max(ans, top);
+    }
+
+    if (top != 0) {
+        cout << -1 << endl;
     } else {
-        cout << N*2 << endl;
+        cout << ans << endl;
     }
     return 0;
 }
