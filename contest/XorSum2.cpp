@@ -23,11 +23,8 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    //ll N;
-    //cin >> N;
-
-    ll N, K;
-    cin >> N >> K;
+    ll N;
+    cin >> N;
 
     vector<ll> a(N);
     rep (i, N) {
@@ -36,11 +33,11 @@ int main(int argc, char *argv[])
 
     ll ans = 0;
     ll right = 0;
-    ll cur = 0;
+    ll sum = 0;
     for (ll left = 0; left < N; left++) {
         // while(right < N && check()) {
-        while(right < N && cur <= K){
-            cur += a[right];
+        while(right < N && (sum + a[right]) == (sum ^ a[right])) {
+            sum += a[right];
             right++;
         }
 
@@ -48,7 +45,7 @@ int main(int argc, char *argv[])
         if (left == right) {
             right++;
         } else {
-            cur -= a[right];
+            sum -= a[left];
         }
     }
 
