@@ -1,33 +1,41 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31) - 1 //INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < n; i++)
 
 int main(int argc, char *argv[])
 {
-    std::string S;
-    std::cin >> S;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    bool flag = false;
-    for (int i = 0; i < S.size(); i++) {
-        for (int j = i; j < S.size(); j++) {
-            std::string s1, s2;
-            s1 = S.substr(0, i);
-            s2 = S.substr(j, S.size() - j);
-            if (s1+s2 == "keyence") {
-                flag = true;
+    string S;
+    cin >> S;
+
+    string str = "";
+    for (ll i = 0; i < S.size(); i++) {
+        for (ll j = i; j < S.size(); j++) {
+            if (S.substr(0, i)+S.substr(j, S.size()-j) == "keyence") {
+                YES;
+                return 0;
             }
         }
     }
 
-    if (flag) {
-        std::cout << "YES" << std::endl;
-    } else {
-        std::cout << "NO"  << std::endl;
-    }
+    NO;
     return 0;
 }

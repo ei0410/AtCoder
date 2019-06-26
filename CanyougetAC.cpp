@@ -23,20 +23,16 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll A, B, C, X, Y;
-    cin >> A >> B >> C >> X >> Y;
+    string S;
+    cin >> S;
 
-    ll ans = INF;
-    for (ll i = 0; i <= max(X, Y); i++) {
-        if (X-i < 0) {
-            ans = min(ans, C*2*i+B*(Y-i));
-        } else if (Y-i < 0) {
-            ans = min(ans, C*2*i+A*(X-i));
-        } else {
-            ans = min(ans, C*2*i+A*(X-i)+B*(Y-i));
+    for (ll i = 0; i < S.size()-1; i++) {
+        if (S[i] == 'A' && S[i+1] == 'C') {
+            Yes;
+            return 0;
         }
     }
 
-    cout << ans << endl;
+    No;
     return 0;
 }
