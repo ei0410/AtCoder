@@ -26,28 +26,17 @@ int main(int argc, char *argv[])
     string s;
     cin >> s;
 
-    vector<ll> a(26, 0);
-    ll right = 1;
-    for (ll left = 0; left < s.size(); left++) {
-        // while(right < N && check()) {
-        while(right < s.size()){
-            a[s[right]-'a']++;
-            rep (i, 26) {
-                if (2*a[i] > right-left+1) {
-                    cout << left+1 << " " << right+1 << endl;
-                    return 0;
-                }
-            }
-            right++;
-        }
+    ll K;
+    cin >> K;
 
-        if (left == right+1) {
-            right++;
-        } else {
-            a[s[left]]--;
+    set<string> st;
+    for (ll i = 0; i < s.size(); i++) {
+        for (ll j = 1; j <= K; j++) {
+            st.insert(s.substr(i, j)); 
         }
     }
 
-    cout << -1 << " " << -1 << endl;
+    set<string>::iterator itr = next(st.begin(), K-1);
+    cout << *itr << endl;
     return 0;
 }
