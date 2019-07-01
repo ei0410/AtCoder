@@ -23,26 +23,18 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll D, G;
-    cin >> D >> G;
-
-    vector<ll> p(D), c(D);
-    rep (i, D) {
-        cin >> p[i] >> c[i];
-    }
+    ll X;
+    cin >> X;
 
     ll ans = 0;
-    for (ll bit = 0; bit < (1<<D); bit++) {
-        ll point = 0;
-        ll count = 0;
-        for (ll i = 0; i < D; i++) {
-            if (bit & (1<<i)) {
-                point += (i+1)*100*p[i] + c[i]; 
-                count += p[i];
-            }
-        }
-        cout << point << " " << count << endl;
+    ll cnt = 0;
+    ll i = 0;
+    while (cnt < X) {
+        i++;
+        cnt += i;
+        ans++;
     }
 
+    cout << ans << endl;
     return 0;
 }

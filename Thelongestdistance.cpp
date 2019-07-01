@@ -1,32 +1,43 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31)//INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
- 
+#define PI  acos(-1)
+
 using ll  = long long;
 using ull = unsigned long long;
- 
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < n; i++)
+
 int main(int argc, char *argv[])
 {
-    int N;
-    std::cin >> N;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    double x[N];
-    double y[N];
-    for (int i = 0; i < N; i++) {
-        std::cin >> x[i] >> y[i];
+    ll N;
+    cin >> N;
+
+    vector<double> x(N), y(N);
+    rep (i, N) {
+        cin >> x[i] >> y[i];
     }
 
-    double max = 0;
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            double distance = std::sqrt((x[i] - x[j]) * (x[i] - x[j]) + (y[i] - y[j]) * (y[i] - y[j])); 
-            if (max < distance) {
-                max = distance;
-            }
+    double ans = 0;
+    rep (i, N) {
+        rep (j, N) {
+            ans = max(ans, pow(pow(x[j]-x[i], 2)+pow(y[j]-y[i], 2), 0.5));
         }
     }
 
-    std::cout << max << std::endl;
+    cout << ans << endl;
     return 0;
 }

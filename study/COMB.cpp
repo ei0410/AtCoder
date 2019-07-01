@@ -18,7 +18,7 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
 
-#define MAX 10000
+#define MAX 510000
 
 ll fac[MAX], finv[MAX], inv[MAX];
 
@@ -48,22 +48,8 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, K;
-    cin >> N >> K;
-
     init();
 
-    for (ll i = 1; i <= K; i++) {
-        ll blue = COMB(K, i);
-        ll red = 0;
-
-        red += COMB(N-K, i-1);
-        red += COMB(N-K, i);
-        red += COMB(N-K, i);
-        red += COMB(N-K, i+1);
-
-        ll ans = blue*red%MOD;
-        cout << ans << endl;
-    }
+    cout << COMB(4, 2) << endl;
     return 0;
 }

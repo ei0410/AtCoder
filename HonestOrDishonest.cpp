@@ -23,26 +23,17 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll D, G;
-    cin >> D >> G;
+    char a, b;
+    cin >> a >> b;
 
-    vector<ll> p(D), c(D);
-    rep (i, D) {
-        cin >> p[i] >> c[i];
+    if (a == 'H' && b == 'H') {
+        cout << 'H' << endl;
+    } else if (a == 'H' && b == 'D') {
+        cout << 'D' << endl;
+    } else if (a == 'D' && b == 'H') {
+        cout << 'D' << endl;
+    } else if (a == 'D' && b == 'D') {
+        cout << 'H' << endl;
     }
-
-    ll ans = 0;
-    for (ll bit = 0; bit < (1<<D); bit++) {
-        ll point = 0;
-        ll count = 0;
-        for (ll i = 0; i < D; i++) {
-            if (bit & (1<<i)) {
-                point += (i+1)*100*p[i] + c[i]; 
-                count += p[i];
-            }
-        }
-        cout << point << " " << count << endl;
-    }
-
     return 0;
 }
