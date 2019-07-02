@@ -29,11 +29,17 @@ int main(int argc, char *argv[])
     string S;
     cin >> S;
 
-    S = '#' + S + '#';
-
-    rep (i, N-1) {
+    S = "#" + S + "#";
+    for (ll i = A; i <= C; i++) {
         if (S[i] == '#' && S[i+1] == '#') {
-            No
+            No;
+            return 0;
+        }
+    }
+
+    for (ll i = B; i <= D; i++) {
+        if (S[i] == '#' && S[i+1] == '#') {
+            No;
             return 0;
         }
     }
