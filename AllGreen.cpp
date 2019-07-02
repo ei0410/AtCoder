@@ -31,18 +31,39 @@ int main(int argc, char *argv[])
         cin >> p[i] >> c[i];
     }
 
-    ll ans = 0;
+    ll ans = INF;
     for (ll bit = 0; bit < (1<<D); bit++) {
         ll point = 0;
         ll count = 0;
+        vector<ll> index;
+        vector<ll> memo;
+
         for (ll i = 0; i < D; i++) {
             if (bit & (1<<i)) {
                 point += (i+1)*100*p[i] + c[i]; 
                 count += p[i];
             }
         }
-        cout << point << " " << count << endl;
+
+        if (point >= G) {
+            ans = min(ans, count);
+        } else {
+            for (ll i = D-1; i >= 0; i--) {
+                if (bit & (1 << i)) {
+                    continue;
+                }
+                for (ll j = 0; j < p[i]; j++) {
+                    if (point >= G) {
+                        break;
+                    }
+                    point += (i+1)*100;
+                    count++;
+                }
+            }
+            ans = min(ans, count);
+        }
     }
 
+    cout << ans << endl;
     return 0;
 }
