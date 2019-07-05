@@ -24,29 +24,9 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, L;
-    cin >> N >> L;
+    string s, t;
+    cin >> s >> t;
 
-    vector<ll> aji(N);
-    for (ll i = 0; i < N; i++) {
-        aji[i] = L+i;
-    }
-
-    ll mi = INF;
-    ll memo = 0;
-    rep (i, N) {
-        if (abs(aji[i]) < mi) {
-            mi = abs(aji[i]);
-            memo = aji[i];
-        }
-    }
-
-    ll ans = 0;
-    rep (i, N) {
-        ans += aji[i];
-    }
-
-    ans -= memo;
-    cout << ans << endl;
+    cout << "A" << t[0] << "C" << endl;
     return 0;
 }

@@ -24,21 +24,41 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
-
-    vector<ll> a(3*N);
-    rep (i, 3*N) {
+    int a[5];
+    rep (i, 5) {
         cin >> a[i];
     }
 
-    sort(a.rbegin(), a.rend());
-
-    ll ans = 0;
-    for (ll i = 0; i < N; i++) {
-        ans += a[2*i+1];
+    int mi = INF;
+    int index = 0;
+    rep (i, 5) {
+        if (a[i]%10!=0) {
+            if (a[i]%10 < mi) {
+                mi = a[i]%10;
+                index = i;
+            }
+        }
     }
 
+    int ans = 0;
+    if (mi == INF) {
+        rep (i, 5) {
+            ans += a[i];
+        }
+    } else {
+        rep (i, 5) {
+            if (i == index) {
+                ans += a[i];
+            } else {
+                if (a[i]%10 == 0) {
+                    ans += a[i];
+                } else {
+                    ans += (a[i]/10)*10+10;
+                }
+            }
+        }
+    }
+    
     cout << ans << endl;
     return 0;
 }

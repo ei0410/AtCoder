@@ -24,29 +24,34 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, L;
-    cin >> N >> L;
+    ll N, M;
+    cin >> N >> M;
 
-    vector<ll> aji(N);
-    for (ll i = 0; i < N; i++) {
-        aji[i] = L+i;
-    }
+    vector<ll> cnt(N+1, 1);
+    vector<bool> flags(N+1, false);
+    flags[1] = true;
 
-    ll mi = INF;
-    ll memo = 0;
-    rep (i, N) {
-        if (abs(aji[i]) < mi) {
-            mi = abs(aji[i]);
-            memo = aji[i];
+    rep (i, M) {
+        ll x, y;
+        cin >> x >> y;
+
+        if (flags[x]) {
+            cnt[x]--;
+            cnt[y]++;
+            flags[y] = true;
+            if (cnt[x] <= 0) {
+                flags[x] = false;
+            }
         }
     }
 
     ll ans = 0;
-    rep (i, N) {
-        ans += aji[i];
+    for (ll i = 1; i <= N; i++) {
+        if (flags[i]) {
+            ans++;
+        }
     }
 
-    ans -= memo;
     cout << ans << endl;
     return 0;
 }

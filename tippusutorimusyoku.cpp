@@ -24,29 +24,22 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, L;
-    cin >> N >> L;
+    int N;
+    cin >> N;
 
-    vector<ll> aji(N);
-    for (ll i = 0; i < N; i++) {
-        aji[i] = L+i;
-    }
+    int ans = 0;
+    if (N == 1) {
+        ans = 4;
+    } else if (N == 2) {
+        ans = 16;
+    } else if (N == 3) {
+        ans = 64;
+    } else if (N == 4) {
+        ans = 256;
+    } else if (N == 5) {
+        ans = 1024;
+    } 
 
-    ll mi = INF;
-    ll memo = 0;
-    rep (i, N) {
-        if (abs(aji[i]) < mi) {
-            mi = abs(aji[i]);
-            memo = aji[i];
-        }
-    }
-
-    ll ans = 0;
-    rep (i, N) {
-        ans += aji[i];
-    }
-
-    ans -= memo;
     cout << ans << endl;
     return 0;
 }

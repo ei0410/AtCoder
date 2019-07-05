@@ -48,5 +48,12 @@ int main(int argc, char *argv[])
     // clear
     s.clear();
     cout << boolalpha << s.empty() << endl;
+
+    auto itr = s.begin();
+    int K = 5;
+    rep (i, K) {
+        itr++;
+    }
+    cout << *itr << endl;
     return 0;
 }
