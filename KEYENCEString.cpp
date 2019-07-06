@@ -16,7 +16,8 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 int main(int argc, char *argv[])
 {
@@ -26,10 +27,10 @@ int main(int argc, char *argv[])
     string S;
     cin >> S;
 
-    string str = "";
-    for (ll i = 0; i < S.size(); i++) {
-        for (ll j = i; j < S.size(); j++) {
-            if (S.substr(0, i)+S.substr(j, S.size()-j) == "keyence") {
+    rep (i, S.size()) {
+        for (int j = i; j < S.size(); j++) {
+            string tmp = S.substr(0, i) + S.substr(j, S.size()-j);
+            if (tmp == "keyence") {
                 YES;
                 return 0;
             }

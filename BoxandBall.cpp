@@ -29,24 +29,27 @@ int main(int argc, char *argv[])
 
     vector<ll> cnt(N+1, 1);
     vector<bool> flags(N+1, false);
-    flags[1] = true;
+    flags[0] = true;
 
     rep (i, M) {
         ll x, y;
         cin >> x >> y;
+        x--;
+        y--;
 
         if (flags[x]) {
-            cnt[x]--;
-            cnt[y]++;
             flags[y] = true;
-            if (cnt[x] <= 0) {
-                flags[x] = false;
-            }
+        }
+
+        cnt[x]--;
+        cnt[y]++;
+        if (cnt[x] <= 0) {
+            flags[x] = false;
         }
     }
 
     ll ans = 0;
-    for (ll i = 1; i <= N; i++) {
+    rep (i, N) {
         if (flags[i]) {
             ans++;
         }
