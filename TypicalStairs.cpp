@@ -26,26 +26,27 @@ int main(int argc, char *argv[])
     ll N, M;
     cin >> N >> M;
 
-    vector<ll> oks(N+1, true);
+    vector<bool> flags(N+1, false);
     rep (i, M) {
         ll a;
         cin >> a;
-        oks[a] = false;
+        flags[a] = true;
     }
 
-    vector<ll> dp(N+1);
-    
-    dp[0] = 1;
-
-    rep (i, N) {
-        for (ll j = i+1; j <= min(N, i+2); j++) {
-            if (oks[j]) {
-                dp[j] += dp[i];
-                dp[j] %= MOD;
-            }
+    vector<ll> dp(N+1, 0);
+    dp[N] = 1;
+    for (ll i = N-1; i >= 0; i--) {
+        if (flags[i]) {
+            dp[i] = 0;
+            continue;
+        }
+        if (i == N-1) {
+            dp[i] = dp[i+1];
+        } else {
+            dp[i] = (dp[i+1] + dp[i+2]) % MOD;
         }
     }
 
-    cout << dp[N] << endl;
+    cout << dp[0] << endl;
     return 0;
 }
