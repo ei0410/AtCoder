@@ -28,14 +28,19 @@ int main(int argc, char *argv[])
     cin >> L >> R;
 
     ll mod = 2019;
-    ll ans = 0;
-    
-    if (L%mod == 0 || R%mod == 0 || L%mod > R%mod) {
-        cout << 0 << endl;
-        return 0;
+    ll ans = mod;
+    if (R-L+1 >= mod) {
+        ans = 0;
+    } else {
+        ll l = L%mod;
+        ll r = R%mod;
+        for (int i = l; i < r; i++) {
+            for (int j = i+1; j <= r; j++) {
+                ans = min(ans, i*j%mod);
+            }
+        }
     }
-
-    ans = (L%mod)*((L+1)%mod);
+    
     cout << ans << endl;
     return 0;
 }
