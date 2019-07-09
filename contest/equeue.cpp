@@ -27,13 +27,5 @@ int main(int argc, char *argv[])
     ll N, K;
     cin >> N >> K;
 
-    deque<ll> de(N);
-    rep (i, N) {
-        cin >> de[i];
-    }
-
-    rep (i, N) {
-        cout << de[i] << endl;
-    }
     return 0;
 }
