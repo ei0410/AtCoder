@@ -24,17 +24,28 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    char b;
-    cin >> b;
+    int N, M, A, B;
+    cin >> N >> M >> A >> B;
 
-    if (b == 'A') {
-        cout << "T" << endl;
-    } else if (b == 'T') {
-        cout << "A" << endl;
-    } else if (b == 'G') {
-        cout << "C" << endl;
-    } else if (b == 'C') {
-        cout << "G" << endl;
+    vector<int> L(M), R(M);
+    rep (i, M) {
+        cin >> L[i] >> R[i];
+        L[i]--;
+        R[i]--;
     }
+
+    vector<int> mikan(N, B);
+    int ans = 0;
+    rep (i, M) {
+        for (int j = L[i]; j <= R[i]; j++) {
+            mikan[j] = A;
+        }
+    }
+
+    rep (i, N) {
+        ans += mikan[i];
+    }
+
+    cout << ans << endl;
     return 0;
 }

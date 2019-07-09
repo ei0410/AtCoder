@@ -32,23 +32,33 @@ int main(int argc, char *argv[])
         cin >> a[i];
     }
 
-    /*
-    int aokiindex = 0;
-    for (int i = 0; i < N; i++) {
-        int score = 0;
-        for (int j = i+2; j < N; j++) {
-            vector<int> tmp(a.begin(), a.end());
-            tmp.erase(tmp.begin()+i, tmp.begin()+j);        
-
-            int tmpscore = 0;
-            for (int k = 0; k < tmp.size(); k++) {
-                if (k % 2 != 0) {
-                    tmpscore += tmp[k];
+    int ans = -INF;
+    rep (i, N) {
+        int tmp1 = -INF;
+        int tmp2 = -INF;
+        rep (j, N) {
+            if (i == j) {
+                continue;
+            }
+            int l = min(i, j);
+            int r = max(i, j);
+            int takahashi = 0;
+            int aoki = 0;
+            for (int k = 0; k <= r-l; k++) {
+                if (k%2 == 0) {
+                    takahashi += a[l+k];
+                } else {
+                    aoki += a[l+k];
                 }
             }
-            score = max(score, tmpscore);
+            if (tmp2 < aoki) {
+                tmp1 = takahashi;
+                tmp2 = aoki;
+            }
         }
+        ans = max(ans, tmp1);
     }
-    */
+
+    cout << ans << endl;
     return 0;
 }

@@ -24,17 +24,18 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    char b;
-    cin >> b;
+    int n;
+    cin >> n;
 
-    if (b == 'A') {
-        cout << "T" << endl;
-    } else if (b == 'T') {
-        cout << "A" << endl;
-    } else if (b == 'G') {
-        cout << "C" << endl;
-    } else if (b == 'C') {
-        cout << "G" << endl;
+    vector<int> a(n);
+    rep (i, n) {
+        cin >> a[i];
+    }
+
+    rep (i, n-1) {
+        if (a[i] > a[i+1]) {
+            
+        }
     }
     return 0;
 }
