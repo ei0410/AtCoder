@@ -1,59 +1,71 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31) - 1 //INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 int main(int argc, char *argv[])
 {
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+
     int n;
-    std::cin >> n;
+    cin >> n;
 
-    std::vector<int> a(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> a[i];
+    vector<int> a(n+1, 0);
+    for (int i = 1; i <= n; i++) {
+        cin >> a[i];
     }
 
-    ll sum1 = 0;
-    ll ans1 = 0;
-    for (int i = 0; i < n; i++) {
-        sum1 += a[i];
-
-        if (i%2 == 0) {
-            if (sum1 <= 0) {
-                ans1 += -sum1 + 1;
-                sum1 = 1;
+    ll even = 0;
+    ll sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += a[i];
+        if (i % 2 == 0) {
+            if (sum >= 0) {
+                even += abs(sum)+1;
+                sum = -1;
             }
         } else {
-            if (sum1 >= 0) {
-                ans1 += sum1 + 1;
-                sum1 = -1;
+            if (sum <= 0) {
+                even += abs(sum)+1;
+                sum = 1;
             }
         }
     }
 
-    ll sum2 = 0;
-    ll ans2 = 0;
-    for (int i = 0; i < n; i++) {
-        sum2 += a[i];
-
-        if (i%2 == 0) {
-            if (sum2>= 0) {
-                ans2 += sum2 + 1;
-                sum2 = -1;
+    ll odd = 0;
+    sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += a[i];
+        if (i % 2 != 0) {
+            if (sum >= 0) {
+                odd += abs(sum)+1;
+                sum = -1;
             }
         } else {
-            if (sum2 <= 0) {
-                ans2 += -sum2 + 1;
-                sum2 = 1;
+            if (sum <= 0) {
+                odd += abs(sum)+1;
+                sum = 1;
             }
         }
     }
 
-    std::cout << std::min(ans1, ans2) << std::endl;
-
+    cout << min(even, odd) << endl;
     return 0;
 }
