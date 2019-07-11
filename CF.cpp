@@ -24,31 +24,24 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int N;
-    cin >> N;
+    string s;
+    cin >> s;
 
-    set<int> s;
-    rep (i, N) {
-        char S;
-        cin >> S;
-        if (S == 'G') {
-            s.insert(1);
+    bool flagc = false;
+    bool flagf = false;
+    rep (i, s.size()) {
+        if (s[i] == 'C') {
+            flagc = true;
         }
-        if (S == 'W') {
-            s.insert(2);
-        }
-        if (S == 'Y') {
-            s.insert(3);
-        }
-        if (S == 'P') {
-            s.insert(4);
+        if (s[i] == 'F' && flagc) {
+            flagf = true;
         }
     }
 
-    if (s.size() == 3) {
-        cout << "Three" << endl;
+    if (flagc && flagf) {
+        Yes;
     } else {
-        cout << "Four" << endl;
+        No;
     }
     return 0;
 }

@@ -27,28 +27,41 @@ int main(int argc, char *argv[])
     int N;
     cin >> N;
 
-    set<int> s;
+    vector<int> A(N);
     rep (i, N) {
-        char S;
-        cin >> S;
-        if (S == 'G') {
-            s.insert(1);
-        }
-        if (S == 'W') {
-            s.insert(2);
-        }
-        if (S == 'Y') {
-            s.insert(3);
-        }
-        if (S == 'P') {
-            s.insert(4);
+        cin >> A[i];
+    }
+
+    vector<int> m(5, 0);
+    rep (i, N) {
+        m[A[i]]++;
+    }
+
+    int ans = 0;
+    ans += m[4];
+
+    if (m[3] >= m[1]) {
+        ans += m[3];
+        ans += (m[2]+1)/2;
+    } else {
+        ans += m[3];
+        m[1] -= m[3];
+
+        if (m[1] >= m[2]*2) {
+            ans += m[2];
+            m[1] -= m[2]*2;
+            ans += (m[1]+3)/4;
+        } else {
+            ans += m[2]/2;
+            if (m[2]%2 == 0) {
+                ans += (m[1]+3)/4;
+            } else {
+                m[1] += 2;
+                ans += (m[1]+3)/4;
+            }
         }
     }
 
-    if (s.size() == 3) {
-        cout << "Three" << endl;
-    } else {
-        cout << "Four" << endl;
-    }
+    cout << ans << endl;
     return 0;
 }
