@@ -1,42 +1,46 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31)//INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
- 
+#define PI  acos(-1)
+
 using ll  = long long;
 using ull = unsigned long long;
- 
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
 int main(int argc, char *argv[])
 {
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+
     int H, W;
-    std::cin >> H >> W;
+    cin >> H >> W;
 
-    char C[H][W];
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
-            std::cin >> C[i][j];
+    vector<vector<char>> C(H, vector<char>(W, '0'));
+    rep (i, H) {
+        rep (j, W) {
+            cin >> C[i][j];
         }
     }
 
-    char ans[2*H][W];
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
-            if (C[i][j] == '*') {
-                ans[2*i][j]   = '*';
-                ans[2*i+1][j] = '*';
-            } else if (C[i][j] == '.') {
-                ans[2*i][j]   = '.'; 
-                ans[2*i+1][j] = '.'; 
+    rep (i, H) {
+        rep (j, 2) {
+            rep (k, W) {
+                cout << C[i][k];
             }
+            cout << endl;
         }
     }
-
-    for (int i = 0; i < 2*H; i++) {
-        for (int j = 0; j < W; j++) {
-            std::cout << ans[i][j];
-        }
-        std::cout << std::endl;
-    }
-
     return 0;
 }
