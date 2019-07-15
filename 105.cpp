@@ -16,7 +16,22 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
+vector<ll> enum_div(ll n)
+{
+    vector<ll > ret;
+    for (ll i = 1; i*i <= n; i++) {
+        if (n % i == 0) {
+            ret.push_back(i);
+            ret.push_back(n/i);
+        }
+    }
+
+    sort(ret.begin(), ret.end());
+    return ret;
+}
 
 int main(int argc, char *argv[])
 {
@@ -25,20 +40,14 @@ int main(int argc, char *argv[])
 
     int N;
     cin >> N;
-    
+
     int ans = 0;
-    for (int i = N; i >= 1; i--) {
-        int count = 0;
-        if (i % 2 == 0) {
-            continue;
-        }
-        for (int j = 1; j <= i; j++) {
-            if (i % j == 0) {
-                count++;
+    for (int i = 1; i <= N; i++) {
+        if (i%2 != 0) {
+            vector<ll> cnt = enum_div(i);
+            if (cnt.size() == 8) {
+                ans++;
             }
-        }
-        if (count == 8) {
-            ans++;
         }
     }
 

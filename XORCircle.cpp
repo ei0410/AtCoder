@@ -24,27 +24,21 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, x;
-    cin >> N >> x;
+    int N;
+    cin >> N;
 
-    vector<ll> a(N);
+    int ans = 0;
     rep (i, N) {
-        cin >> a[i];
+        int a;
+        cin >> a;
+
+        ans ^= a;
     }
 
-    ll ans = 0;
-    rep (i, N-1) {
-        if (a[i]+a[i+1] > x) {
-            ll tmp = a[i]+a[i+1]-x;
-            if (a[i+1] - tmp > 0) {
-                a[i+1] -= tmp;
-            } else {
-                a[i+1] = 0;
-            }
-            ans += tmp;
-        }
+    if (ans) {
+        No;
+    } else {
+        Yes;
     }
-
-    cout << ans << endl;
     return 0;
 }
