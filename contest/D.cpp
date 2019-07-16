@@ -19,21 +19,37 @@ using Pll = pair<ll, ll>;
 #define rep(i, n) for (ll i = 0; i < (n); i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
+#define MAX_N 200
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string S;
-    cin >> S;
+    int N, M, R;
+    cin >> N >> M >> R;
 
-    int ans = 0;
-    rep (i, S.size()-1) {
-        if (S[i] != S[i+1]) {
-            ans++;
-        } 
+    vector<int> r(R);
+    rep (i, R) {
+        cin >> r[i];
     }
 
-    cout << ans << endl;
+    vector<vector<int>> d(M, vector<int>(M, INF));
+
+    rep (i, M) {
+        int A, B, C;
+        cin >> A >> B >> C;
+        d[A][B] = C;
+    }
+
+    rep (i, N) {
+        rep (j, N) {
+            rep (k, N) {
+                d[j][k] = min(d[j][j], d[j][i] + d[i][k]);
+            }
+        }
+    }
+
+    cout << d[N-1][N-1] << endl;
     return 0;
 }

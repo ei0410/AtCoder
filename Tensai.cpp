@@ -24,14 +24,30 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string S;
-    cin >> S;
+    int N, X;
+    cin >> N >> X;
+
+    vector<int> a(N), b(N);
+    rep (i, N) {
+        cin >> a[i] >> b[i];
+    }
+
+    int memo = 0;
+    int tmp = 0;
+    rep (i, N) {
+        if (tmp < b[i]) {
+            tmp = b[i];
+            memo = i;
+        }
+    }
 
     int ans = 0;
-    rep (i, S.size()-1) {
-        if (S[i] != S[i+1]) {
-            ans++;
-        } 
+    rep (i, N) {
+        if (i == memo) {
+            ans += (a[i]+X)*b[i];
+        } else {
+            ans += a[i]*b[i];
+        }
     }
 
     cout << ans << endl;
