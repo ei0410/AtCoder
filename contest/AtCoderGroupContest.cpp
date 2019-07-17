@@ -24,9 +24,21 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int a, b, c;
-    cin >> a >> b >> c;
+    ll N;
+    cin >> N;
 
-    cout << a*b/2 << endl;
+    vector<ll> a(3*N);
+    rep (i, 3*N) {
+        cin >> a[i];
+    }
+
+    sort(a.rbegin(), a.rend());
+
+    ll ans = 0;
+    rep (i, N) {
+        ans += a[1+2*i];
+    }    
+
+    cout << ans << endl;
     return 0;
 }

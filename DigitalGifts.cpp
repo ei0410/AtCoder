@@ -1,33 +1,47 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
 #define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
-using P = std::pair<int, int>;
- 
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
 int main(int argc, char *argv[])
 {
-    int N;
-    std::cin >> N;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    std::vector<double> x(N);
-    std::vector<std::string> u(N);
-    for (int i = 0; i < N; i++) {
-        std::cin >> x[i] >> u[i];
+    int N;
+    cin >> N;
+
+    vector<double> x(N);
+    vector<string> u(N);
+    rep (i, N) {
+        cin >> x[i] >> u[i];
     }
 
     double ans = 0;
-    for (int i = 0; i < N; i++) {
-        if (u[i] == "BTC") {
-            ans += x[i] * 380000.0;
-        } else {
+    rep (i, N) {
+        if (u[i] == "JPY") {
             ans += x[i];
+        } else {
+            ans += 380000*x[i];
         }
     }
 
-    std::cout << ans << std::endl;
+    cout << ans << endl;
     return 0;
 }
