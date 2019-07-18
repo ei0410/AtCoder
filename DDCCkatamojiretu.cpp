@@ -24,23 +24,20 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int N;
-    cin >> N;
-
-    map<int, int> m;
-    rep (i, N) {
-        int A;
-        cin >> A;
-        m[A]++;
+    vector<char> s(4);
+    rep (i, 4) {
+        cin >> s[i];
     }
 
-    int ans = 0;
-    for (auto it : m) {
-        if (it.second % 2 != 0) {
-            ans++;
-        }
+    if (s[0] == s[1] && s[1] == s[2] && s[2] == s[3]) {
+        No;
+        return 0;
     }
 
-    cout << ans << endl;
+    if (s[0] == s[1] && s[2] == s[3]) {
+        Yes;
+    } else {
+        No;
+    }
     return 0;
 }

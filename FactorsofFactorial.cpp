@@ -16,22 +16,8 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-map<int, int> m;
-
-void prime_factor(int n) {
-    for (int i = 2; i*i <= n; i++) {
-        while (n % i == 0) {
-            m[i]++;
-            n /= i;
-        }
-    }
-
-    if (n != 1) {
-        m[n]++;
-    }
-
-    return;
-}
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 int main(int argc, char *argv[])
 {
@@ -41,13 +27,23 @@ int main(int argc, char *argv[])
     ll N;
     cin >> N;
 
-    ll ans = 1;
-    for (int i = 1; i <= N; i++) {
-        prime_factor(i);
+    vector<ll> x(N+1);
+    for (ll i = 2; i <= N; i++) {
+        ll tmp = i;
+        for (ll j = 2; j <= tmp; j++) {
+            while (tmp > 0 && tmp%j == 0) {
+                x[j]++;
+                tmp /= j;
+            }
+        }
     }
 
-    for (int i = 1; i <= N; i++) {
-        ans = ans*(m[i]+1) % MOD;
+    ll ans = 1;
+    rep (i, N+1) {
+        if (x[i] > 0) {
+            ans *= (x[i]+1);
+            ans %= MOD;
+        }
     }
 
     cout << ans << endl;

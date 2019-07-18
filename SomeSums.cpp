@@ -1,42 +1,49 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
+#define MOD 1000000007
+#define PI  acos(-1)
+
+using ll  = long long;
+using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
+ll digit_sum(ll N) {
+    ll digit = 0;
+    while(N > 0) {
+        digit += N%10;
+        N /= 10;
+    }
+    return digit;
+}
 
 int main(int argc, char *argv[])
 {
-    int N, A, B;
-    std::cin >> N >> A >> B;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    /*
-    int ans = 0;
-    for (int i = 0; i <= N; i++) {
-        std::string str = std::to_string(i);
-
-        int sum = 0;
-        for (int j = 0; j < str.size(); j++) {
-            sum += (int)(str[j] - '0'); 
-        }
-        if ((A <= sum) && (sum <= B)) {
-            ans += i;
-        }
-    }
-
-    std::cout << ans;
-    */
+    ll N, A, B;
+    cin >> N >> A >> B;
 
     int ans = 0;
     for (int i = 1; i <= N; i++) {
-        int sum = 0;
-        int num = i;
-        while (num > 0) {
-            sum += (num % 10);
-            num /= 10;
-        }
-
-        if ((A <= sum) && (sum <= B)) {
+        int tmp = digit_sum(i);
+        if (tmp >= A && tmp <= B) {
             ans += i;
         }
     }
 
-    std::cout << ans << std::endl;
-
+    cout << ans << endl;
     return 0;
 }
