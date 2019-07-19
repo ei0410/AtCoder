@@ -24,20 +24,15 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
-
-    vector<ll> a(3*N);
-    rep (i, 3*N) {
-        cin >> a[i];
+    int t[8];
+    rep (i, 8) {
+        cin >> t[i];
     }
 
-    sort(a.rbegin(), a.rend());
-
-    ll ans = 0;
-    rep (i, N) {
-        ans += a[1+2*i];
-    }    
+    int ans = 0;
+    rep (i, 8) {
+        ans = max(t[i], ans);
+    }
 
     cout << ans << endl;
     return 0;

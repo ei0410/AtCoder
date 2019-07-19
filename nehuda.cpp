@@ -24,20 +24,23 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
+    int N;
     cin >> N;
 
-    vector<ll> a(3*N);
-    rep (i, 3*N) {
-        cin >> a[i];
+    vector<int> p(N);
+    rep (i, N) {
+        cin >> p[i];
     }
 
-    sort(a.rbegin(), a.rend());
-
-    ll ans = 0;
+    int ans = INF;
     rep (i, N) {
-        ans += a[1+2*i];
-    }    
+        int cnt = 0;
+        while (p[i] % 10 == 0) {
+            p[i] /= 10;
+            cnt++;
+        }
+        ans = min(ans, cnt);
+    }
 
     cout << ans << endl;
     return 0;
