@@ -19,68 +19,54 @@ using Pll = pair<ll, ll>;
 #define rep(i, n) for (ll i = 0; i < (n); i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
-int N, M, R;
-int d[201][201];
-int r[9];
-int A, B, C;
-int ans = 0;
-bool used[9];
-
-void dfs(int c, int las, int dist) {
-    if (c==R+1) {
-        ans = min(ans, dist);
-        return 0;
-    }
-
-    for (int i = 1; i <= R; i++) {
-        if (!used[i]) {
-            used[i] = true;
-            if (las == -1) {
-                dfs(c+1, i, 0);
-            } else {
-                dfs(c+1, i, dist+d[r[las]][r[i]]);
-            }
-            used[i] = false;
-        }
-    }
-}
-
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    ll N, M, R;
     cin >> N >> M >> R;
 
-    for (int i = 1; i <= N; i++) {
-        for (int j = 1; j <= N; j++) {
+    vector<ll> r(R);
+    rep (i, R) {
+        cin >> r[i];
+    }
+
+    ll d[210][210];
+    rep (i, 210) {
+        rep (j, 210) {
             if (i != j) {
                 d[i][j] = INF;
             }
         }
     }
 
-    for (int i = 1; i <= R; i++) {
-        cin >> r[i];
-    }
-
-    for (int i = 1; i <= M; i++) {
+    rep (i, M) {
+        ll A, B, C;
         cin >> A >> B >> C;
-        if (d[A][B] > C) {
-            d[A][B] = d[B][A] = C;
-        }
+        d[A][B] = C;
+        d[B][A] = C;
     }
 
-    for (int k = 1; k <= N; k++) {
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= N; j++) {
+    for (ll k = 1; k <= N; k++) {
+        for (ll i = 1; i <= N; i++) {
+            for (ll j = 1; j <= N; j++) {
                 d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
             }
         }
     }
 
-    ans = INF;
-    dfs(1, -1, 0);
+    sort(r.begin(), r.end());
+
+    ll ans = INF;
+    do {
+        ll tmp = 0;
+        rep (i, R-1) {
+            tmp += d[r[i]][r[i+1]];
+        }
+        ans = min(tmp, ans);
+    } while (next_permutation(r.begin(), r.end()));
+
     cout << ans << endl;
     return 0;
 }

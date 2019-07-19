@@ -24,8 +24,19 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
+    int N;
     cin >> N;
 
+    vector<ll> v(N);
+    rep (i, N) {
+        cin >> v[i];
+    }
+
+    do {
+        rep (i, N) {
+            cout << v[i] << " ";
+        }
+        cout << endl;
+    } while (next_permutation(v.begin(), v.end()));
     return 0;
 }
