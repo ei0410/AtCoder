@@ -27,23 +27,29 @@ int main(int argc, char *argv[])
     ll N;
     cin >> N;
 
-    string S;
-    cin >> S;
-    
-    ll red = 0;
-    ll blue = 0;
-    rep (i, N) {
-        if (S[i] == 'R') {
-            red++;
-        } else {
-            blue++;
-        }
+    vector<ll> C(N-1), S(N-1), F(N-1);
+    rep (i, N-1) {
+        cin >> C[i] >> S[i] >> F[i];
     }
 
-    if (red > blue) {
-        Yes;
-    } else {
-        No;
+    vector<ll> ans(N);
+    rep (i, N) {
+        ll t = 0;
+        for (int j = i; j < N-1; j++) {
+            if (t < S[j]) {
+                t = S[j];
+            } else if (t%F[j] == 0) {
+                ;
+            } else {
+                t = t+F[j]-t%F[j];
+            }
+            t += C[j];
+        }
+        ans[i] = t;
+    }
+
+    rep (i, N) {
+        cout << ans[i] << endl;
     }
     return 0;
 }

@@ -24,26 +24,16 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
-
-    string S;
-    cin >> S;
-    
-    ll red = 0;
-    ll blue = 0;
-    rep (i, N) {
-        if (S[i] == 'R') {
-            red++;
-        } else {
-            blue++;
-        }
+    vector<char> S(5);
+    rep (i, 5) {
+        cin >> S[i];
     }
 
-    if (red > blue) {
-        Yes;
+    sort(S.begin(), S.end());
+    if (S[0] == 'a' && S[1] == 'h' && S[2] == 'o' && S[3] == 'o' && S[4] == 'y') {
+        YES;
     } else {
-        No;
+        NO;
     }
     return 0;
 }
