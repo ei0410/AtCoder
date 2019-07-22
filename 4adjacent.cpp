@@ -24,5 +24,35 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    ll N;
+    cin >> N;
+
+    vector<ll> a(N);
+    rep (i, N) {
+        cin >> a[i];
+    }
+
+    ll cnt = 0;
+    ll cnt2 = 0;
+    ll cnt4 = 0;
+    rep (i, N) {
+        if (a[i]%4 == 0) {
+            cnt4++;
+        } else if (a[i]%2 == 0) {
+            cnt2++;
+        } else {
+            cnt++;
+        }
+    }
+
+    if (cnt2) {
+        cnt++;
+    }
+
+    if (cnt <= cnt4+1) {
+        Yes;
+    } else {
+        No;
+    }
     return 0;
 }
