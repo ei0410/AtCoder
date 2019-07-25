@@ -24,22 +24,20 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll N, K;
+    cin >> N >> K;
 
     ll ans = 0;
     for (ll i = 1; i <= N; i++) {
-        if (i % 2 != 0) {
-            ll count = 0;
-            for (ll j = 1; j <= N; j++) {
-                if (i % j == 0){
-                    count++;
-                }
-            }
-            if (count == 8) {
-                ans++;
-            }
-        }
+        ll div = N / i;
+        ans += max(i - K, ll(0)) * div;
+
+        ll rem = N % i;
+        ans += max(rem - K + 1, ll(0));
+    }
+
+    if (K == 0) {
+        ans -= N;
     }
 
     cout << ans << endl;

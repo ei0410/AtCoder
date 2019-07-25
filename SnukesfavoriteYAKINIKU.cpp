@@ -24,24 +24,18 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    string S;
+    cin >> S;
 
-    ll ans = 0;
-    for (ll i = 1; i <= N; i++) {
-        if (i % 2 != 0) {
-            ll count = 0;
-            for (ll j = 1; j <= N; j++) {
-                if (i % j == 0){
-                    count++;
-                }
-            }
-            if (count == 8) {
-                ans++;
-            }
-        }
+    if (S.size() <= 3) {
+        No;
+        return 0;
     }
 
-    cout << ans << endl;
+    if (S[0] == 'Y' && S[1] == 'A' && S[2] == 'K' && S[3] == 'I') {
+        Yes;
+    } else {
+        No;
+    }
     return 0;
 }

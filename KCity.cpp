@@ -1,16 +1,32 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31)//INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
- 
+#define PI  acos(-1)
+
 using ll  = long long;
 using ull = unsigned long long;
- 
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
 int main(int argc, char *argv[])
 {
-    int n, m;
-    std::cin >> n >> m;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    std::cout << (n-1) * (m-1) << std::endl;
+    int n, m;
+    cin >> n >> m;
+
+    cout << (n-1)*(m-1) << endl;
     return 0;
 }

@@ -27,21 +27,25 @@ int main(int argc, char *argv[])
     ll N;
     cin >> N;
 
-    ll ans = 0;
-    for (ll i = 1; i <= N; i++) {
-        if (i % 2 != 0) {
-            ll count = 0;
-            for (ll j = 1; j <= N; j++) {
-                if (i % j == 0){
-                    count++;
-                }
-            }
-            if (count == 8) {
-                ans++;
-            }
-        }
+    vector<ll> X(N);
+    rep (i, N) {
+        cin >> X[i];
     }
 
-    cout << ans << endl;
+    vector<ll> tmp(N);
+    copy(X.begin(), X.end(), tmp.begin());
+
+    sort(tmp.begin(), tmp.end());
+
+    ll first  = tmp[N/2-1];
+    ll second = tmp[N/2];
+
+    rep (i, N) {
+        if (X[i] <= first) {
+            cout << second << endl;
+        } else if (X[i] >= second) {
+            cout << first << endl;
+        }
+    }
     return 0;
 }

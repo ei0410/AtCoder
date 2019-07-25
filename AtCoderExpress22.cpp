@@ -24,24 +24,30 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll N, M, Q;
+    cin >> N >> M >> Q;
 
-    ll ans = 0;
-    for (ll i = 1; i <= N; i++) {
-        if (i % 2 != 0) {
-            ll count = 0;
-            for (ll j = 1; j <= N; j++) {
-                if (i % j == 0){
-                    count++;
-                }
-            }
-            if (count == 8) {
-                ans++;
-            }
+    vector<vector<ll>> a(N, vector<ll>(N, 0));
+    rep (i, M) {
+        ll L, R;
+        cin >> L >> R;
+        L--;
+        R--;
+        a[L][R]++;
+    }
+
+    vector<vector<ll>> s(N+1, vector<ll>(N+1, 0));
+    rep (i, N) {
+        rep (j, N) {
+            s[i+1][j+1] = s[i][j+1] + s[i+1][j] - s[i][j] + a[i][j];
         }
     }
 
-    cout << ans << endl;
+    rep (i, Q) {
+        ll p, q;
+        cin >> p >> q;
+        p--;
+        cout << s[q][q] - s[p][q] - s[q][p] + s[p][p] << endl;
+    }
     return 0;
 }

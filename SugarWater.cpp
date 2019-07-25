@@ -1,44 +1,58 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31) - 1 //INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 int main(int argc, char *argv[])
 {
-    int A, B, C, D, E, F;
-    std::cin >> A >> B >> C >> D >> E >> F;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    double percent = double(E) / double(100 + E); 
-    int water, sugar;
-    int ans1, ans2;
-    double max = 0.0;
-    for (int i = 0; i <= F; i += 100*A) {
-        for (int j = 0; j <= F; j += 100*B) {
-            for (int k = 0; k <= F - (i+j); k += C) {
-                for (int l = 0; l <= F - (i+j+k); l += D) {
-                    if (i == 0 && j == 0) {
-                        break;
+    ll A, B, C, D, E, F;
+    cin >> A >> B >> C >> D >> E >> F;
+
+    ll ans1 = 0;
+    ll ans2 = 0;
+    double dense = 0;
+    for (ll i = 0; i <= F; i+=A*100) {
+        for (ll j = 0; j <= F; j+=B*100) {
+            for (ll k = 0; k <= F; k+=C) {
+                for (ll l = 0; l <= F; l+=D) {
+                    double water = i+j;
+                    double sugar = k+l;
+                    double swater = water + sugar;
+
+                    if (swater == 0 || swater > F || swater*E < (100+E)*sugar) {
+                        continue;
                     }
-                    water = i+j+k+l;
-                    sugar = k+l;
-                    double conc = double(sugar) / double(water);
-                    if (conc <= percent) {
-                        if (max <= conc) {
-                            max = conc;
-                            ans1 = water;
-                            ans2 = sugar;
-                        }
+
+                    double tmp = sugar/swater;
+                    if (dense <= tmp) {
+                        dense = tmp;
+                        ans1 = swater;
+                        ans2 = sugar;
                     }
                 }
             }
         }
     }
 
-    std::cout << ans1 << " " << ans2 << std::endl;
-
+    cout << ans1 << " " << ans2 << endl;
     return 0;
 }
