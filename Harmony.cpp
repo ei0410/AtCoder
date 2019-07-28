@@ -24,29 +24,13 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll A, B;
+    cin >> A >> B;
 
-    vector<ll> a(N);
-    rep (i, N) {
-        cin >> a[i];
-    }
-
-    map<ll, ll> m;
-    rep (i, N) {
-        m[a[i]] = 0;
-    }
-
-    map<ll, ll> ans;
-    ll cnt = 0;
-    for (auto it : m) {
-        it.second = cnt;
-        ans[it.first] = it.second;
-        cnt++;
-    }
-
-    rep (i, N) {
-        cout << ans[a[i]] << endl;
+    if ((A+B)%2 == 0){
+        cout << abs(A+B)/2 << endl;
+    } else {
+        cout << "IMPOSSIBLE" << endl;
     }
     return 0;
 }

@@ -24,29 +24,5 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
-
-    vector<ll> a(N);
-    rep (i, N) {
-        cin >> a[i];
-    }
-
-    map<ll, ll> m;
-    rep (i, N) {
-        m[a[i]] = 0;
-    }
-
-    map<ll, ll> ans;
-    ll cnt = 0;
-    for (auto it : m) {
-        it.second = cnt;
-        ans[it.first] = it.second;
-        cnt++;
-    }
-
-    rep (i, N) {
-        cout << ans[a[i]] << endl;
-    }
     return 0;
 }

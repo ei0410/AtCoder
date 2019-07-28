@@ -27,26 +27,18 @@ int main(int argc, char *argv[])
     ll N;
     cin >> N;
 
-    vector<ll> a(N);
-    rep (i, N) {
-        cin >> a[i];
+    vector<ll> L(2*N);
+    rep (i, 2*N) {
+        cin >> L[i];
     }
 
-    map<ll, ll> m;
-    rep (i, N) {
-        m[a[i]] = 0;
+    sort(L.begin(), L.end());
+
+    ll ans = 0;
+    rep (i, 2*N) {
+        ans += L[2*i];
     }
 
-    map<ll, ll> ans;
-    ll cnt = 0;
-    for (auto it : m) {
-        it.second = cnt;
-        ans[it.first] = it.second;
-        cnt++;
-    }
-
-    rep (i, N) {
-        cout << ans[a[i]] << endl;
-    }
+    cout << ans << endl;
     return 0;
 }

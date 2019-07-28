@@ -27,26 +27,40 @@ int main(int argc, char *argv[])
     ll N;
     cin >> N;
 
-    vector<ll> a(N);
+    vector<ll> p(N);
     rep (i, N) {
-        cin >> a[i];
+        cin >> p[i];
     }
 
-    map<ll, ll> m;
-    rep (i, N) {
-        m[a[i]] = 0;
-    }
-
-    map<ll, ll> ans;
-    ll cnt = 0;
-    for (auto it : m) {
-        it.second = cnt;
-        ans[it.first] = it.second;
-        cnt++;
+    rep (k, N-1) {
+        if (p[k] > p[k+1]) {
+            break;
+        }
+        if (k == N-2) {
+            YES;
+            return 0;
+        }
     }
 
     rep (i, N) {
-        cout << ans[a[i]] << endl;
+        for (ll j = i+1; j < N; j++) {
+            vector<ll> vec(N);
+            copy(p.begin(), p.end(), vec.begin());
+            ll tmp = vec[i];
+            vec[i] = vec[j];
+            vec[j] = tmp;
+            rep (k, N-1) {
+                if (vec[k] > vec[k+1]) {
+                    break;
+                }
+                if (k == N-2) {
+                    YES;
+                    return 0;
+                }
+            }
+        }
     }
+
+    NO;
     return 0;
 }
