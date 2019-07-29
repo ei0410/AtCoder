@@ -1,54 +1,54 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31)//INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
- 
+#define PI  acos(-1)
+
 using ll  = long long;
 using ull = unsigned long long;
- 
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
 int main(int argc, char *argv[])
 {
-    int N, M, X, Y;
-    std::cin >> N >> M >> X >> Y;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    std::vector<int> x(N);
-    for (int i = 0; i < N; i++) {
-        std::cin >> x[i];
+    ll N, M, X, Y;
+    cin >> N >> M >> X >> Y;
+
+    vector<ll> x(N), y(M);
+    rep (i, N) {
+        cin >> x[i];
+    }
+    rep (i, M) {
+        cin >> y[i];
     }
 
-    std::vector<int> y(M);
-    for (int i = 0; i < M; i++) {
-        std::cin >> y[i];
-    }
+    sort(x.rbegin(), x.rend());
+    sort(y.begin(), y.end());
 
     bool flag = false;
-    for (int Z = -100; Z <= 100; Z++) {
-        bool xflag = true;
-        if (X < Z && Z <= Y) {
-            for (int j = 0; j < N; j++) {
-                if (x[j] >= Z) {
-                    xflag = false;
-                    break; 
-                }
-            }
-            bool yflag = true;
-            if (xflag) {
-                for (int k = 0; k < M; k++) {
-                    if (y[k] < Z) {
-                        yflag = false;
-                    }
-                }
-                if (yflag) {
-                    flag = true;
-                }
-            }
+    for (ll i = X+1; i <= Y; i++) {
+        if (x[0] < i && i <= y[0]) {
+            flag = true;
         }
     }
 
     if (flag) {
-        std::cout << "No War" << std::endl;
+        cout << "No War" << endl;
     } else {
-        std::cout << "War"    << std::endl;
+        cout << "War" << endl;
     }
     return 0;
 }

@@ -24,25 +24,8 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    string X;
+    
 
-    vector<ll> a(N);
-    rep (i, N) {
-        cin >> a[i];
-    }
-
-    vector<ll> m(100010, 0);
-    rep (i, N) {
-        m[a[i]]++;
-    }
-
-    ll ans = 0;
-    for (ll i = 1; i < 100009; i++) {
-        ll tmp = (m[i-1]+m[i]+m[i+1]);
-        ans = max(ans, tmp);
-    }
-
-    cout << ans << endl;
     return 0;
 }

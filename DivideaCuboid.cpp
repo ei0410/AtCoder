@@ -24,23 +24,26 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll A, B, C;
+    cin >> A >> B >> C;
 
-    vector<ll> a(N);
-    rep (i, N) {
-        cin >> a[i];
-    }
-
-    vector<ll> m(100010, 0);
-    rep (i, N) {
-        m[a[i]]++;
-    }
-
-    ll ans = 0;
-    for (ll i = 1; i < 100009; i++) {
-        ll tmp = (m[i-1]+m[i]+m[i+1]);
-        ans = max(ans, tmp);
+    ll ans;
+    if (A%2 == 0 || B%2 == 0 || C%2 == 0) {
+        ans = 0;
+    } else {
+        if (A < B) {
+            if (B < C) {
+                ans = A*B;
+            } else {
+                ans = A*C;
+            }
+        } else {
+            if (A < C) {
+                ans = A*B;
+            } else {
+                ans = B*C;
+            }
+        }
     }
 
     cout << ans << endl;

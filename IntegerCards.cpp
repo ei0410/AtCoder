@@ -24,23 +24,37 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll N, M;
+    cin >> N >> M;
 
-    vector<ll> a(N);
+    vector<ll> A(N);
     rep (i, N) {
-        cin >> a[i];
+        cin >> A[i];
     }
 
-    vector<ll> m(100010, 0);
+    vector<ll> B(M), C(M);
+    rep (i, M) {
+        cin >> B[i] >> C[i];
+    }
+
+    priority_queue<Pll> pq;
     rep (i, N) {
-        m[a[i]]++;
+        pq.push(make_pair(A[i], 1));
+    }
+
+    rep (i, M) {
+        pq.push(make_pair(C[i], B[i]));
     }
 
     ll ans = 0;
-    for (ll i = 1; i < 100009; i++) {
-        ll tmp = (m[i-1]+m[i]+m[i+1]);
-        ans = max(ans, tmp);
+    rep (i, N) {
+        Pll p = pq.top();
+        pq.pop();
+        ans += p.first; 
+        if (p.second > 1) {
+            p.second--;
+            pq.push(p);
+        }
     }
 
     cout << ans << endl;
