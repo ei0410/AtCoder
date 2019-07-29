@@ -24,37 +24,21 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string S;
-    cin >> S;
+    ll N;
+    cin >> N;
 
-    ll ans = INF;
-    ll tmp = 0;
-    rep (i, S.size()) {
-        if (i%2 == 0) {
-            if (S[i] == '0') {
-                tmp++;
-            }
-        } else {
-            if (S[i] == '1') {
-                tmp++;
-            }
+    vector<ll> A(N), B(N);
+    rep (i, N) {
+        cin >> A[i] >> B[i];
+    }
+
+    ll ans = 0;
+    rrep(i, N) {
+        A[i] += ans;
+        if (A[i]%B[i] != 0) {
+            ans += B[i]-A[i]%B[i];
         }
     }
-    ans = min(ans, tmp);
-
-    tmp = 0;
-    rep (i, S.size()) {
-        if (i%2 != 0) {
-            if (S[i] == '0') {
-                tmp++;
-            }
-        } else {
-            if (S[i] == '1') {
-                tmp++;
-            }
-        }
-    }
-    ans = min(ans, tmp);
 
     cout << ans << endl;
     return 0;

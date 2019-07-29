@@ -24,8 +24,29 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string X;
-    
+    ll N, P;
+    cin >> N >> P;
 
+    vector<ll> A(N);
+    rep (i, N) {
+        cin >> A[i];
+    }
+
+    ll odd = 0;
+    rep (i, N) {
+        if (A[i]%2 != 0) {
+            odd++;
+        }
+    }
+
+    if (odd) {
+        cout << setprecision(64) << pow(2, N-1) << endl;
+    } else {
+        if (P) {
+            cout << 0 << endl;
+        } else {
+            cout << setprecision(64) << pow(2, N) << endl;
+        }
+    }
     return 0;
 }

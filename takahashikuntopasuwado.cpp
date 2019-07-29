@@ -24,38 +24,22 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string S;
-    cin >> S;
+    string s;
+    cin >> s;
 
-    ll ans = INF;
-    ll tmp = 0;
-    rep (i, S.size()) {
-        if (i%2 == 0) {
-            if (S[i] == '0') {
-                tmp++;
-            }
-        } else {
-            if (S[i] == '1') {
-                tmp++;
-            }
-        }
+    ll k;
+    cin >> k;
+
+    if (s.size() < k) {
+        cout << 0 << endl;
+        return 0;
     }
-    ans = min(ans, tmp);
 
-    tmp = 0;
-    rep (i, S.size()) {
-        if (i%2 != 0) {
-            if (S[i] == '0') {
-                tmp++;
-            }
-        } else {
-            if (S[i] == '1') {
-                tmp++;
-            }
-        }
+    set<string> st;
+    rep (i, s.size()-k+1) {
+        st.insert(s.substr(i, k));
     }
-    ans = min(ans, tmp);
 
-    cout << ans << endl;
+    cout << st.size() << endl;
     return 0;
 }

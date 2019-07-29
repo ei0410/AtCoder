@@ -19,42 +19,45 @@ using Pll = pair<ll, ll>;
 #define rep(i, n) for (ll i = 0; i < (n); i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
+ll GCD(ll a, ll b) {
+    if (a <= 0 || b <= 0) {
+        return -1;
+    }
+    if (a > b) {
+        if (a % b == 0) {
+            return b;
+        } else {
+            GCD(b, a % b);
+        }
+    } else if (a < b) {
+        if (b % a == 0) {
+            return a;
+        } else {
+            GCD(a, b % a);
+        }
+    } else {
+        return a;
+    }
+}
+
+ll LCM(ll a, ll b) {
+    return a / GCD(a, b) * b;
+}
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string S;
-    cin >> S;
+    ll a, b, n;
+    cin >> a >> b >> n;
 
-    ll ans = INF;
-    ll tmp = 0;
-    rep (i, S.size()) {
-        if (i%2 == 0) {
-            if (S[i] == '0') {
-                tmp++;
-            }
-        } else {
-            if (S[i] == '1') {
-                tmp++;
-            }
-        }
+    ll ans = LCM(a, b);
+    ll i = 1;
+    while (ans < n) {
+        ans = LCM(a, b)*i;
+        i++;
     }
-    ans = min(ans, tmp);
-
-    tmp = 0;
-    rep (i, S.size()) {
-        if (i%2 != 0) {
-            if (S[i] == '0') {
-                tmp++;
-            }
-        } else {
-            if (S[i] == '1') {
-                tmp++;
-            }
-        }
-    }
-    ans = min(ans, tmp);
 
     cout << ans << endl;
     return 0;
