@@ -24,15 +24,13 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int A, B, C, D;
-    cin >> A >> B >> C >> D;
+    ll X, Y;
+    cin >> X >> Y;
 
-    int ans = min(B, D)-max(A, C);
-
-    if (ans < 0) {
-        cout << 0 << endl;
+    if (X%Y == 0) {
+        cout << -1 << endl;
     } else {
-        cout << ans << endl;
+        cout << X << endl;
     }
     return 0;
 }

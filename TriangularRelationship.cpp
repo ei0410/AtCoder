@@ -24,15 +24,14 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int A, B, C, D;
-    cin >> A >> B >> C >> D;
+    ll N, K;
+    cin >> N >> K;
 
-    int ans = min(B, D)-max(A, C);
-
-    if (ans < 0) {
-        cout << 0 << endl;
-    } else {
-        cout << ans << endl;
+    ll ans = pow(N/K, 3);
+    if (K%2 == 0) {
+        ans += pow((N+K/2)/K, 3);
     }
+
+    cout << ans << endl;
     return 0;
 }

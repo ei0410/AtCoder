@@ -24,15 +24,26 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int A, B, C, D;
-    cin >> A >> B >> C >> D;
+    string S;
+    cin >> S;
 
-    int ans = min(B, D)-max(A, C);
-
-    if (ans < 0) {
-        cout << 0 << endl;
-    } else {
-        cout << ans << endl;
+    ll index = 0;
+    rep (i, S.size()) {
+        if (S[i] == 'B') {
+            index = i;
+            break;
+        }
     }
+
+    ll ans = 0;
+    ll cnt = 0;
+    for (ll i = index; i < S.size(); i++) {
+        if (S[i] == 'W') {
+            ans += (i-index-cnt);
+            cnt++;
+        }
+    }
+
+    cout << ans << endl;
     return 0;
 }

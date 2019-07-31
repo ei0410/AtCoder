@@ -24,15 +24,28 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int A, B, C, D;
-    cin >> A >> B >> C >> D;
+    ll N;
+    cin >> N;
 
-    int ans = min(B, D)-max(A, C);
-
-    if (ans < 0) {
-        cout << 0 << endl;
-    } else {
-        cout << ans << endl;
+    vector<ll> a(N);
+    rep (i, N) {
+        cin >> a[i];
     }
+
+    ll ans = 0;
+    ll cnt = 0;
+    rep (i, N-1) {
+        if (a[i] == a[i+1]) {
+            cnt++;
+        } else {
+            ans += (cnt+1)/2;
+            cnt = 0;
+        }
+        if (i == N-2) {
+            ans += (cnt+1)/2;
+        }
+    }
+
+    cout << ans << endl;
     return 0;
 }
