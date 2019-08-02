@@ -27,25 +27,22 @@ int main(int argc, char *argv[])
     ll A, B, C;
     cin >> A >> B >> C;
 
-    ll ans;
     if (A%2 == 0 || B%2 == 0 || C%2 == 0) {
-        ans = 0;
+        cout << 0 << endl;
     } else {
         if (A < B) {
             if (B < C) {
-                ans = A*B;
+                cout << A*B << endl;
             } else {
-                ans = A*C;
+                cout << A*C << endl;
             }
         } else {
             if (A < C) {
-                ans = A*B;
+                cout << A*B << endl;
             } else {
-                ans = B*C;
+                cout << B*C << endl;
             }
         }
     }
-
-    cout << ans << endl;
     return 0;
 }

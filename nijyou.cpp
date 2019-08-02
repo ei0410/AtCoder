@@ -24,27 +24,8 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, K;
-    cin >> N >> K;
-
-    vector<Pll> p;
-    rep (i, N) {
-        ll a, b;
-        cin >> a >> b;
-        p.push_back(make_pair(a, b));
-    }
-
-    sort(p.begin(), p.end());
-
-    ll cnt = 0;
-    rep (i, N) {
-        if (cnt+p[i].second < K) {
-            cnt += p[i].second;
-        } else {
-            cout << p[i].first << endl;
-            return 0;
-        }
-    }
-
+    ll N;
+    cin >> N;
+    cout << floor(sqrt(N)) << endl;
     return 0;
 }

@@ -1,37 +1,52 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31) - 1 //INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
- 
+
 using ll  = long long;
 using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 int main(int argc, char *argv[])
 {
-    int N, C, K;
-    std::cin >> N >> C >> K;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    std::vector<int> T(N);
-    for (int i = 0; i < N; i++) {
-        std::cin >> T[i];
+    ll N, C, K;
+    cin >> N >> C >> K;
+
+    vector<ll> T(N);
+    rep (i, N) {
+        cin >> T[i];
     }
 
-    std::sort(T.begin(), T.end());
-    int ans = N;
-    int count = C-1;
-    int t = T[0];
-    for (int i = 1; i < N; i++) {
-        if (T[i] - t <= K && count > 0) {
+    sort(T.begin(), T.end());
+
+    ll ans = N;
+    ll cnt = C-1;
+    ll t = T[0];
+    for (ll i = 1; i < N; i++) {
+        if (T[i]-t <= K && cnt > 0) {
             ans--;
-            count--;
+            cnt--;
         } else {
-            count = C-1;
+            cnt = C-1;
             t = T[i];
         }
     }
 
-    std::cout << ans << std::endl;
-
+    cout << ans << endl;
     return 0;
 }

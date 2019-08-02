@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int a, b, c;
+    ll a, b, c;
     cin >> a >> b >> c;
 
     cout << a*b/2 << endl;

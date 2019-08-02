@@ -24,27 +24,24 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, K;
-    cin >> N >> K;
+    string N;
+    cin >> N;
 
-    vector<Pll> p;
-    rep (i, N) {
-        ll a, b;
-        cin >> a >> b;
-        p.push_back(make_pair(a, b));
-    }
+    reverse(N.begin(), N.end());
+    ll odd = 0;
+    ll even = 0;
 
-    sort(p.begin(), p.end());
-
-    ll cnt = 0;
-    rep (i, N) {
-        if (cnt+p[i].second < K) {
-            cnt += p[i].second;
+    rep (i, N.size()) {
+        if (i%2 == 0) {
+            odd += N[i]-'0';
         } else {
-            cout << p[i].first << endl;
-            return 0;
+            even += N[i]-'0';
         }
     }
+
+    cout << (odd-even)%11 << endl;
+
+    //cout << N%11 << endl;
 
     return 0;
 }
