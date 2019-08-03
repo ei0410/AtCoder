@@ -24,13 +24,31 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll a, b;
-    cin >> a >> b;
+    int N;
+    cin >> N;
 
-    if (a%2 == 0 || b%2 == 0) {
-        cout << "Even" << endl;
-    } else {
-        cout << "Odd" << endl;
+    vector<pair<int, string>> p;
+    rep (i, N) {
+        string S;
+        cin >> S;
+
+        int P;
+        cin >> P;
+        p.push_back(make_pair(P, S));
     }
+
+    sort(p.begin(), p.end());
+
+    int tmp = 0;
+    rep (i, N-1) {
+        tmp += p[i].first;
+    }
+
+    if (tmp < p[N-1].first) {
+        cout << p[N-1].second << endl;
+    } else {
+        cout << "atcoder" << endl;
+    }
+
     return 0;
 }

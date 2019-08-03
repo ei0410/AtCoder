@@ -24,13 +24,13 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll a, b;
-    cin >> a >> b;
+    string N;
+    cin >> N;
 
-    if (a%2 == 0 || b%2 == 0) {
-        cout << "Even" << endl;
+    if (N[0] == N[1] && N[1] == N[2] && N[2] == N[3]) {
+        cout << "SAME" << endl;
     } else {
-        cout << "Odd" << endl;
+        cout << "DIFFERENT" << endl;
     }
     return 0;
 }

@@ -1,4 +1,11 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
 #define INF INT_MAX
 #define MOD 1000000007
@@ -6,38 +13,40 @@
 
 using ll  = long long;
 using ull = unsigned long long;
-using P = std::pair<int, int>;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 int main(int argc, char *argv[])
 {
-    int N, T;
-    std::cin >> N >> T;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    std::vector<int> c(N), t(N);
-    for (int i = 0; i < N; i++) {
-        std::cin >> c[i] >> t[i];
+    ll N, T;
+    cin >> N >> T;
+
+    vector<Pll> p;
+    rep (i, N) {
+        ll c, t;
+        cin >> c >> t;
+        p.push_back(make_pair(t, c));
     }
 
-    std::vector<int> score;
-    bool flag = true;
-    for (int i = 0; i < N; i++) {
-        if (t[i] <= T) {
-            flag = false;
-            score.push_back(c[i]);
+    sort(p.begin(), p.end());
+
+    ll ans = INF;
+    rep (i, N) {
+        if (p[i].first <= T) {
+            ans = min(ans, p[i].second);
         }
     }
 
-    if (flag) {
-        std::cout << "TLE" << std::endl;
+    if (ans == INF) {
+        cout << "TLE" << endl;
     } else {
-        int min = INF;
-        for (int i = 0; i < score.size(); i++) {
-            if (min > score[i]) {
-                min = score[i];
-            }
-        }
-
-        std::cout << min << std::endl;
+        cout << ans << endl;
     }
     return 0;
 }

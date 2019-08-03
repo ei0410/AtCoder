@@ -1,7 +1,9 @@
 #include <bits/stdc++.h> 
 
 using namespace std;
+#define MAX_N 31
 
+/*
 #define YES cout << "YES" << endl;
 #define NO  cout << "NO"  << endl;
 #define Yes cout << "Yes" << endl;
@@ -34,6 +36,7 @@ template<class T> inline bool chmax(T& a, T b) {
     }
     return false;
 }
+*/
 
 int main(int argc, char *argv[])
 {
@@ -41,10 +44,35 @@ int main(int argc, char *argv[])
     ios::sync_with_stdio(false);
 
     // input values
-    // dp table
-    // init dp table
-    // init condition
-    // loop
+    vector<int> vec;
+    int i = 0;
+    for (i = 0; i < MAX_N; i++) {
+        int n;
+        cin >> n;
+        if (n == 0) {
+            break;
+        }
+        vec.push_back(n);
+    }
 
+    // dp table
+    vector<int> dp(MAX_N, 0);
+
+    // init dp table
+    // ok
+
+    // init condition
+    dp[0] = 1;
+    dp[1] = 1;
+    dp[2] = 2;
+
+    // loop
+    for (i = 0; i < MAX_N; i++) {
+        dp[i+3] = dp[i]+dp[i+1]+dp[i+2];
+    }
+
+    for (i = 0; i < vec.size(); i++) {
+        cout << dp[vec[i]]/3650+1 << endl;
+    }
     return 0;
 }
