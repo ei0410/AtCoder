@@ -16,7 +16,8 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 int main(int argc, char *argv[])
 {
@@ -26,26 +27,37 @@ int main(int argc, char *argv[])
     string S;
     cin >> S;
 
-    bool Nflag = false;
-    bool Sflag = false;
-    bool Wflag = false;
-    bool Eflag = false;
+    ll cnt1 = 0;
+    ll cnt2 = 0;
+    ll cnt3 = 0;
+    ll cnt4 = 0;
+    
     rep (i, S.size()) {
         if (S[i] == 'N') {
-            Nflag = true;
+            cnt1++;
         }
         if (S[i] == 'S') {
-            Sflag = true;
+            cnt2++;
         }
         if (S[i] == 'W') {
-            Wflag = true;
+            cnt3++;
         }
         if (S[i] == 'E') {
-            Eflag = true;
+            cnt4++;
         }
     }
 
-    if (Nflag == Sflag && Wflag == Eflag) {
+    bool flag1 = false;
+    bool flag2 = false;
+
+    if ((cnt1 == 0 && cnt2 == 0) || (cnt1 != 0 && cnt2 != 0)) {
+        flag1 = true;
+    }
+    if ((cnt3 == 0 && cnt4 == 0) || (cnt3 != 0 && cnt4 != 0)) {
+        flag2 = true;
+    }
+
+    if (flag1 && flag2) {
         Yes;
     } else {
         No;
