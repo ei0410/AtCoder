@@ -27,46 +27,29 @@ int main(int argc, char *argv[])
     string S;
     cin >> S;
 
-    vector<ll> ans(S.size(), 1);
-    rep (i, S.size()-1) {
+    ll N = S.size();
+    vector<ll> ans(N, 1);
+    rep (i, N) {
         if (S[i] == 'R' && S[i+1] == 'R') {
-            ans[i+1] += ans[i];
+            ans[i+2] += ans[i];
             ans[i] = 0;
         }
     }
 
     reverse(S.begin(), S.end());
     reverse(ans.begin(), ans.end());
-    rep (i, S.size()-1) {
+
+    rep (i, N) {
         if (S[i] == 'L' && S[i+1] == 'L') {
-            ans[i+1] += ans[i];
+            ans[i+2] += ans[i];
             ans[i] = 0;
         }
     }
-
-    reverse(ans.begin(), ans.end());
+    
     reverse(S.begin(), S.end());
+    reverse(ans.begin(), ans.end());
 
-    rep (i, ans.size()-1) {
-        if (ans[i] != 0 && ans[i+1] != 0 && S[i] == 'R' && S[i+1] == 'L') {
-            if ((ans[i]+ans[i+1])%2 == 0) {
-                ans[i] = (ans[i]+ans[i+1])/2;
-                ans[i+1] = (ans[i]+ans[i+1])/2;
-            } else {
-                if (ans[i] > ans[i+1]) {
-                    if (ans[i]%2 == 0) {
-                        swap(ans[i], ans[i+1]);
-                    }
-                } else {
-                    if (ans[i+1]%2 == 0) {
-                        swap(ans[i], ans[i+1]);
-                    }
-                }
-            }
-        }
-    }
-
-    rep (i, S.size()) {
+    rep (i, N) {
         if (i == S.size()-1) {
             cout << ans[i] << endl;
             break;
