@@ -16,21 +16,24 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string s;
-    cin >> s;
+    string S;
+    cin >> S;
 
-    set<char> st;
-    rep(i, s.size()) {
-        if (st.count(s[i]) == 0) {
-            st.insert(s[i]);
-        } else {
+    map<char, ll> m;
+    rep (i, S.size()) {
+        m[S[i]]++;
+    }
+
+    for (auto it : m) {
+        if (it.second > 1) {
             cout << "no" << endl;
             return 0;
         }

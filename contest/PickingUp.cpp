@@ -24,14 +24,24 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll A, B, C;
-    cin >> A >> B >> C;
+    ll N;
+    cin >> N;
 
-    ll d = A*100+B*10+C;
-    if (d%4) {
-        NO;
-    } else {
-        YES;
+    vector<ll> x(N), y(N);
+    rep (i, N) {
+        cin >> x[i] >> y[i];
+    }
+
+    rep (p, N) {
+        rep (q, N) {
+            rep (x, N) {
+                rep (y, N) {
+                    if (p != q) {
+
+                    }
+                }
+            }
+        }
     }
     return 0;
 }

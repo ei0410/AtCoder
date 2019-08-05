@@ -24,14 +24,13 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll A, B, C;
-    cin >> A >> B >> C;
+    ll n, a, b;
+    cin >> n >> a >> b;
 
-    ll d = A*100+B*10+C;
-    if (d%4) {
-        NO;
+    if (a+b>n) {
+        cout << a+b-n << endl;
     } else {
-        YES;
+        cout << 0 << endl;
     }
     return 0;
 }

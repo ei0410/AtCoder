@@ -27,11 +27,10 @@ int main(int argc, char *argv[])
     ll A, B, C;
     cin >> A >> B >> C;
 
-    ll d = A*100+B*10+C;
-    if (d%4) {
-        NO;
+    if (B+C > A) {
+        cout << B+C-A << endl;
     } else {
-        YES;
+        cout << 0 << endl;
     }
     return 0;
 }

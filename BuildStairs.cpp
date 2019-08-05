@@ -24,14 +24,30 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll A, B, C;
-    cin >> A >> B >> C;
+    ll N;
+    cin >> N;
 
-    ll d = A*100+B*10+C;
-    if (d%4) {
-        NO;
+    vector<ll> A(N);
+    rep (i, N) {
+        cin >> A[i];
+    }
+
+    bool flag = true;
+    A[0]--;
+    rep (i, N-1) {
+        if (A[i+1] > A[i]) {
+            A[i+1]--;
+        } else if (A[i+1] == A[i]) {
+            ;
+        } else {
+            flag = false;
+        }
+    }
+
+    if (flag) {
+        Yes;
     } else {
-        YES;
+        No;
     }
     return 0;
 }
