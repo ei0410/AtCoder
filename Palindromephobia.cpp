@@ -24,13 +24,28 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll A, B;
-    cin >> A >> B;
+    string S;
+    cin >> S;
 
-    if (A > 8 || B > 8) {
-        cout << ":(" << endl;
+    ll a = 0;
+    ll b = 0;
+    ll c = 0;
+    rep (i, S.size()) {
+        if (S[i] == 'a') {
+            a++;
+        }
+        if (S[i] == 'b') {
+            b++;
+        }
+        if (S[i] == 'c') {
+            c++;
+        }
+    }
+
+    if (abs(a-b) >= 2 || abs(b-c) >= 2 || abs(c-a) >= 2) {
+        NO;
     } else {
-        cout << "Yay!" << endl;
+        YES;
     }
     return 0;
 }

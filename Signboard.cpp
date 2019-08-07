@@ -24,29 +24,14 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, M;
-    cin >> N >> M;
+    string S;
+    cin >> S;
 
-    vector<ll> k(M);
-    vector<vector<ll>> s(M);
-    rep (i, M) {
-        cin >> k[i];
-        rep (j, k[i]) {
-            cin >> s[i][j];
-        }
-    }
-
-    vector<ll> p(M);
-    rep (i, M) {
-        cin >> p[i];
-    }
-
+    string s = "CODEFESTIVAL2016";
     ll ans = 0;
-    for (ll bit = 0; bit < (1<<N); bit++) {
-        for (ll i = 0; i < N; i++) {
-            if ((1 & i)<<bit) {
-                tmp ^= s[i];
-            }
+    rep (i, S.size()) {
+        if (S[i] != s[i]) {
+            ans++;
         }
     }
 

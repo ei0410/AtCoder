@@ -1,5 +1,5 @@
 #include <bits/stdc++.h> 
- 
+
 using namespace std;
 
 #define YES cout << "YES" << endl;
@@ -16,18 +16,19 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 #define MAX_N 100010
-#define MAX_Q 200010
+#define MAX_M 100010
 
-int N, Q;
-int P[MAX_Q], A[MAX_Q], B[MAX_Q], parent[MAX_N], rank[MAX_N];
+ll N, M;
+ll X[MAX_M], Y[MAX_M], Z[MAX_M], parent[MAX_N], ranked[MAX_N];
 
 void init(ll n) {
     for (ll i = 0; i < n; i++) {
         parent[i] = i;
-        rank[i] = 0;
+        ranked[i] = 0;
     }
 }
 
@@ -51,36 +52,39 @@ void unite(ll x, ll y) {
         return;
     }
 
-    if (rank[x] < rank[y]) {
+    if (ranked[x] < ranked[y]) {
         parent[x] = y;
     } else {
         parent[y] = x;
-        if (rank[x] == rank[y]) {
-            rank[x]++;
+        if (ranked[x] == ranked[y]) {
+            ranked[x]++;
         }
     }
 }
- 
+
 int main(int argc, char *argv[])
 {
-    cin >> N >> Q;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    for (int i = 0; i < Q; i++) {
-        cin >> P[i] >> A[i] >> B[i];
+    cin >> N >> M;
+    rep (i, M) {
+        cin >> X[i] >> Y[i] >> Z[i];
+        X[i]--;
+        Y[i]--;
     }
 
     init(N);
 
-    for (int i = 0; i < Q; i++) {
-        if (P[i]) {
-            if (same(A[i], B[i])) {
-                Yes
-            } else {
-                No
-            }
-        } else {
-            unite(A[i], B[i]);
-        }
+    rep (i, M) {
+        unite(X[i], Y[i]);
     }
+
+    set<ll> s;
+    rep (i, N) {
+        s.insert(root(i));
+    }
+
+    cout << s.size() << endl;
     return 0;
 }

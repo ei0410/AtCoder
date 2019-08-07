@@ -24,30 +24,42 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll D, N;
-    cin >> D >> N;
+    ll N;
+    cin >> N;
 
+    string S;
+    cin >> S;
+
+    if (S == "b") {
+        cout << 0 << endl;
+        return 0;
+    }
+
+    string s = "b";
     ll ans = 0;
-    if (D == 0) {
-        if (N == 100) {
-            ans = 101;
-        } else {
-            ans = N;
+    rep (i, 100) {
+        if (S == s) {
+            ans = i;
+            break;
         }
-    } else if (D == 1) {
-        if (N == 100) {
-            ans = 10100;
-        } else {
-            ans = N*100;
+        if (i%3 == 0) {
+            s.insert(0, "a");
+            s += "c";
         }
-    } else {
-        if (N == 100) {
-            ans = 1010000;
-        } else {
-            ans = N*10000;
+        if (i%3 == 1) {
+            s.insert(0, "c");
+            s += "a";
+        }
+        if (i%3 == 2) {
+            s.insert(0, "b");
+            s += "b";
         }
     }
 
-    cout << ans << endl;
+    if (ans) {
+        cout << ans << endl;
+    } else {
+        cout << -1 << endl;
+    }
     return 0;
 }

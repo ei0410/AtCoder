@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
     string ans = "";
     rep (i, s.size()) {
-        if (i % 2 == 0) {
+        if (i%2 == 0) {
             ans += s[i];
         }
     }
