@@ -24,20 +24,30 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string s;
-    cin >> s;
-    
-    ll k = 0;
-    rep (i, s.size()) {
-        if (s[i] == 'x') {
-            k++;
+    ll N;
+    cin >> N;
+
+    vector<ll> a(N), b(N);
+    rep (i, N) {
+        cin >> a[i];
+    }
+    rep (i, N) {
+        cin >> b[i];
+    }
+
+    ll cnt = 0;
+    rep (i, N) {
+        if (a[i] < b[i]) {
+            cnt += (b[i]-a[i])/2;
+        } else {
+            cnt -= (a[i]-b[i]);
         }
     }
 
-    if (k <= 7) {
-        YES;
+    if (cnt < 0) {
+        No;
     } else {
-        NO;
+        Yes;
     }
     return 0;
 }

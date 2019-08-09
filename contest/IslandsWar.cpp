@@ -24,20 +24,21 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string s;
-    cin >> s;
-    
-    ll k = 0;
-    rep (i, s.size()) {
-        if (s[i] == 'x') {
-            k++;
-        }
+    ll N, M;
+    cin >> N >> M;
+
+    vector<Pll> p;
+    rep (i, M) {
+        ll a, b;
+        cin >> a >> b;
+        p.push_back(make_pair(b, a));
     }
 
-    if (k <= 7) {
-        YES;
-    } else {
-        NO;
+    sort(p.begin(), p.end());
+
+    rep (i, M) {
+        cout << p[i].first << " " << p[i].second << endl;
     }
+
     return 0;
 }
