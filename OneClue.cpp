@@ -24,9 +24,15 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll r;
-    cin >> r;
+    ll N, X;
+    cin >> N >> X;
 
-    cout << r*r*3 << endl;
+    for (ll i = X-N+1; i <= N+X-1; i++) {
+        if (i == N+X-1) {
+            cout << i << endl;
+        } else {
+            cout << i << " ";
+        }
+    }
     return 0;
 }

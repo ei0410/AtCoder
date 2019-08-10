@@ -24,9 +24,9 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll r;
-    cin >> r;
+    ll A, B;
+    cin >> A >> B;
 
-    cout << r*r*3 << endl;
+    cout << max(A+B, max(A-B, A*B)) << endl;
     return 0;
 }

@@ -24,9 +24,31 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll r;
-    cin >> r;
+    ll N, M;
+    cin >> N >> M;
 
-    cout << r*r*3 << endl;
+    vector<Pll> p;
+    rep (i, N) {
+        ll A, B;
+        cin >> A >> B;
+        p.push_back(make_pair(B, A));
+    }
+
+    sort(p.rbegin(), p.rend());
+
+    ll ans = 0;
+    rep(i, N) {
+        if (M >= p[i].second) {
+            ans += p[i].first;
+        }
+        M--;
+    }
+    /*
+    rep (i, N) {
+        cout << p[i].first << " " << p[i].second << endl;
+    }
+    */
+
+    cout << ans << endl;
     return 0;
 }

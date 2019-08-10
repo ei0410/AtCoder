@@ -24,9 +24,25 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll r;
-    cin >> r;
+    ll N;
+    cin >> N;
 
-    cout << r*r*3 << endl;
+    vector<string> s(N);
+    rep (i, N) {
+        cin >> s[i];
+    }
+
+    map<string, ll> m;
+    rep (i, N) {
+        sort(s[i].begin(), s[i].end());
+        m[s[i]]++;
+    }
+
+    ll ans = 0;
+    for (auto it : m) {
+        ans += (it.second)*(it.second-1)/2;
+    }
+
+    cout << ans << endl;
     return 0;
 }

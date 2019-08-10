@@ -24,9 +24,18 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll r;
-    cin >> r;
+    ll N, M, K;
+    cin >> N >> M >> K;
 
-    cout << r*r*3 << endl;
+    rep(i, N+1) {
+        rep (j, M+1) {
+            if ((N-i)*j+i*(M-j) == K) {
+                Yes;
+                return 0;
+            }
+        }
+    }
+
+    No;
     return 0;
 }
