@@ -24,9 +24,35 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, A, B;
-    cin >> N >> A >> B;
+    ll N, M;
+    cin >> N >> M;
 
-    cout << min(N*A, B) << endl;
+    vector<vector<ll>> jobs(M+1);
+
+    rep (i, N) {
+        ll a, b;
+        cin >> a >> b;
+        if (a > M) {
+            continue;
+        }
+
+        jobs[M-a].push_back(b);
+    }
+
+    priority_queue<ll> pq;
+    ll ans = 0;
+
+    rrep (i, M) {
+        for (auto j : jobs[i]) {
+            pq.push(j);
+        }
+        
+        if (!pq.empty()) {
+            ans += pq.top();
+            pq.pop();
+        }
+    }
+
+    cout << ans << endl;
     return 0;
 }
