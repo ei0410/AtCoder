@@ -24,13 +24,35 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll A, B, C;
-    cin >> A >> B >> C;
+    double N;
+    cin >> N;
 
-    if ((A >= C && B <= C) || (A <= C && B >= C)) {
-        Yes;
+    string s;
+    cin >> s;
+
+    double ans = 0;
+    rep (i, N) {
+        if (s[i] == 'A') {
+            ans += 4.0;
+        }
+        if (s[i] == 'B') {
+            ans += 3.0;
+        }
+        if (s[i] == 'C') {
+            ans += 2.0;
+        }
+        if (s[i] == 'D') {
+            ans += 1.0;
+        }
+        if (s[i] == 'F') {
+            ans += 0.0;
+        }
+    }
+
+    if (ans) {
+        cout << setprecision(15) << ans/N << endl;
     } else {
-        No;
+        cout << 0 << endl;
     }
     return 0;
 }

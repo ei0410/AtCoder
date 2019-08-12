@@ -24,13 +24,20 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll A, B, C;
-    cin >> A >> B >> C;
+    ll N;
+    cin >> N;
 
-    if ((A >= C && B <= C) || (A <= C && B >= C)) {
-        Yes;
-    } else {
-        No;
+    string s, t;
+    cin >> s >> t;
+
+    string ans = "";
+    rep (i, N+1) {
+        ans = s.substr(0, i)+t;
+        if (ans.substr(0, N) == s) {
+            break;
+        }
     }
+
+    cout << ans.size() << endl;
     return 0;
 }
