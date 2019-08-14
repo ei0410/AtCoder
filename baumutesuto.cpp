@@ -1,5 +1,5 @@
 #include <bits/stdc++.h> 
- 
+
 using namespace std;
 
 #define YES cout << "YES" << endl;
@@ -66,27 +66,42 @@ struct UF {
         return siz[root(x)];
     }
 };
- 
+
 int main(int argc, char *argv[])
 {
-    ll N, Q;
-    cin >> N >> Q;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+
+    ll N, M;
+    cin >> N >> M;
 
     UF uf(N);
 
-    rep (i, Q) {
-        ll p, x, y;
-        cin >> p >> x >> y;
+    vector<ll> A(M), B(M);
+    vector<ll> memo(N, 0);
+    rep (i, M) {
+        cin >> A[i] >> B[i];
+        A[i]--;
+        B[i]--;
+        if (uf.same(A[i], B[i])) {
+            memo[uf.root(A[i])] = -1;
+        }
+        uf.unite(A[i], B[i]);
+    }
 
-        if (p) {
-            if (uf.same(x, y)) {
-                Yes;
-            } else {
-                No;
-            }
-        } else {
-            uf.unite(x, y);
+    rep (i, N) {
+        if (memo[uf.root(i)] >= 0) {
+            memo[uf.root(i)]++;
         }
     }
+
+    ll ans = 0;
+    rep (i, N) {
+        if (memo[i] > 0) {
+            ans++;
+        }
+    }
+
+    cout << ans << endl;
     return 0;
 }

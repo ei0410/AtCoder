@@ -24,24 +24,26 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll N, K;
+    cin >> N >> K;
 
-    vector<ll> x(N), y(N);
+    vector<ll> a(N), b(N);
     rep (i, N) {
-        cin >> x[i] >> y[i];
+        cin >> a[i];
+    }
+    rep (i, N) {
+        cin >> b[i];
     }
 
-    rep (p, N) {
-        rep (q, N) {
-            rep (x, N) {
-                rep (y, N) {
-                    if (p != q) {
-
-                    }
-                }
-            }
+    vector<ll> grid;
+    rep (i, min(N, ll(10))) {
+        rep (j, min(N, ll(10))) {
+            grid.push_back(a[i]*b[j]);
         }
     }
+
+    sort(grid.begin(), grid.end());
+
+    cout << grid[K-1] << endl;
     return 0;
 }
