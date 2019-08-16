@@ -27,28 +27,29 @@ int main(int argc, char *argv[])
     ll N;
     cin >> N;
 
-    map<ll, ll> m;
+    vector<string> S(N);
     rep (i, N) {
-        ll D;
-        cin >> D;
-        m[D]++;
+        cin >> S[i];
     }
 
-    ll M;
-    cin >> M;
-    rep (i, M) {
-        ll T;
-        cin >> T;
-        m[T]--;
-    }
-
-    for (auto it : m) {
-        if (it.second < 0) {
-            NO;
-            return 0;
+    ll red = 0;
+    ll blue = 0;
+    rep (i, N) {
+        rep (j, S[i].size()) {
+            if (S[i][j] == 'R') {
+                red++;
+            } else if (S[i][j] == 'B') {
+                blue++;
+            }
         }
     }
 
-    YES;
+    if (red > blue) {
+        cout << "TAKAHASHI" << endl;
+    } else if (red < blue) {
+        cout << "AOKI" << endl;
+    } else {
+        cout << "DRAW" << endl;
+    }
     return 0;
 }
