@@ -24,28 +24,13 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, M;
-    cin >> N >> M;
+    ll N;
+    cin >> N;
 
-    vector<ll> id(100010);
-    vector<vector<Pll>> p(100010);
-    rep (i, M) {
-        ll P, Y;
-        cin >> P >> Y;
-        P--;
-        p[P].push_back(Pll(Y, i));
-    }
-
-    rep (i, N) {
-        sort(p[i].begin(), p[i].end());
-        rep (j, p[i].size()) {
-            id[p[i][j].second] = ll(i+1)*1000000 + j+1;
-        }
-    }
-
-    cout << setfill('0') << right;
-    rep (i, M) {
-        cout << setw(12) << id[i] << endl;
+    if (N%10 > 6) {
+        cout << ((N/10)+1)*100 << endl;
+    } else {
+        cout << (N/10)*100+(N%10)*15 << endl;
     }
     return 0;
 }
