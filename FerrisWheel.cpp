@@ -16,20 +16,21 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int A, B;
+    ll A, B;
     cin >> A >> B;
 
     if (A >= 13) {
         cout << B << endl;
     } else if (A >= 6) {
-        cout << B /2 << endl;
+        cout << B/2 << endl;
     } else {
         cout << 0 << endl;
     }

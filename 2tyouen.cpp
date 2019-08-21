@@ -24,17 +24,21 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, M;
-    cin >> N >> M;
+    ll A, K;
+    cin >> A >> K;
 
-    vector<string> C(N);
-    rep (i, N) {
-        string tmp;
-        cin >> C[i];
+    ll th = 2000000000000;
+    ll mon = A;
+    ll ans = 0;
+    if (K == 0) {
+        cout << th - A << endl;
+        return 0;
+    }
+    while (mon < th) {
+        mon = (mon+1+K*mon);
+        ans++;
     }
 
-    rep (i, 2*N) {
-        cout << C[i/2] << endl;
-    }
+    cout << ans << endl;
     return 0;
 }

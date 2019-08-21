@@ -1,31 +1,55 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
 
-int main() {
-    int N;
-    int t[110000], x[110000], y[110000];
-    std::cin >> N;
-    t[0] = x[0] = y[0] = 0;
-    for (int i = 0; i < N; i++) {
-        std::cin >> t[i+1] >> x[i+1] >> y[i+1];
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
+ 
+#define INF INT_MAX
+#define MOD 1000000007
+#define PI  acos(-1)
+
+using ll  = long long;
+using ull = unsigned long long;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
+int main(int argc, char *argv[])
+{
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+
+    ll N;
+    cin >> N;
+
+    bool flag = true;
+    ll T = 0;
+    ll X = 0;
+    ll Y = 0;
+    rep (i, N) {
+        ll t, x, y;
+        cin >> t >> x >> y;
+
+        ll dt = t-T;
+        ll dist = abs(x-X)+abs(y-Y);
+        if ((dt < dist) || (dt%2 != dist%2)) {
+            flag = false;
+        }
+
+        T = t;
+        X = x;
+        Y = y;
     }
 
-    bool can = true;
-    for (int i = 0; i < N; i++) {
-        int dt = t[i+1] - t[i];
-        int dist = std::abs(x[i+1] - x[i]) + std::abs(y[i+1] - y[i]);
-        if (dt < dist) {
-            can = false;
-        }
-        if (dist % 2 != dt % 2) {
-            can = false;
-        }
-    }
-
-    if (can) {
-        std::cout << "Yes" << std::endl;
+    if (flag) {
+        Yes;
     } else {
-        std::cout << "No" << std::endl;
+        No;
     }
-
     return 0;
 }
