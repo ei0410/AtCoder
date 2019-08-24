@@ -24,23 +24,27 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll X;
-    cin >> X;
+    ll n;
+    cin >> n;
 
-    vector<ll> v;
-    for (ll i = 1; i < 32; i++) {
-        for (ll j = 2; j < 10; j++) {
-            if (pow(i, j) <= X) {
-                v.push_back(pow(i, j));
-            }
+    vector<ll> a(n);
+    rep (i, n) {
+        cin >> a[i];
+    }
+
+    sort(a.begin(), a.end());
+
+    double ans1 = a[n-1];
+    double ans2 = INF;
+    double th = ans1/2;
+    double memo = INF;
+    rep (i, n-1) {
+        if (abs(a[i]-th) < memo) {
+            memo = abs(a[i]-th);
+            ans2 = a[i];
         }
     }
 
-    ll ans = 0;
-    rep (i, v.size()) {
-        ans = max(ans, v[i]);
-    }
-
-    cout << ans << endl;
+    cout << ll(ans1) << " " << ll(ans2) << endl;
     return 0;
 }

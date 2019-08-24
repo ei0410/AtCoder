@@ -24,23 +24,26 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll X;
-    cin >> X;
+    ll K, T;
+    cin >> K >> T;
 
-    vector<ll> v;
-    for (ll i = 1; i < 32; i++) {
-        for (ll j = 2; j < 10; j++) {
-            if (pow(i, j) <= X) {
-                v.push_back(pow(i, j));
-            }
-        }
+    vector<ll> a(T);
+    rep (i, T) {
+        cin >> a[i];
     }
 
-    ll ans = 0;
-    rep (i, v.size()) {
-        ans = max(ans, v[i]);
+    sort(a.begin(), a.end());
+
+    ll tmp = a[T-1];
+    ll sum = 0;
+    rep (i, T-1) {
+        sum += a[i];
     }
 
-    cout << ans << endl;
+    if (tmp - sum > 1) {
+        cout << tmp-sum-1 << endl;
+    } else {
+        cout << 0 << endl;
+    }
     return 0;
 }

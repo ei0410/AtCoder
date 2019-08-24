@@ -24,23 +24,9 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll X;
+    string X;
     cin >> X;
 
-    vector<ll> v;
-    for (ll i = 1; i < 32; i++) {
-        for (ll j = 2; j < 10; j++) {
-            if (pow(i, j) <= X) {
-                v.push_back(pow(i, j));
-            }
-        }
-    }
-
-    ll ans = 0;
-    rep (i, v.size()) {
-        ans = max(ans, v[i]);
-    }
-
-    cout << ans << endl;
+    cout << X[0]-'0'+X[1]-'0' << endl;
     return 0;
 }

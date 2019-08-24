@@ -24,21 +24,15 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll X;
-    cin >> X;
+    ll x;
+    cin >> x;
 
-    vector<ll> v;
-    for (ll i = 1; i < 32; i++) {
-        for (ll j = 2; j < 10; j++) {
-            if (pow(i, j) <= X) {
-                v.push_back(pow(i, j));
-            }
+    ll ans = (x/11)*2;
+    if (x%11 != 0) {
+        ans++;
+        if (x%11 > 6) {
+            ans++;
         }
-    }
-
-    ll ans = 0;
-    rep (i, v.size()) {
-        ans = max(ans, v[i]);
     }
 
     cout << ans << endl;

@@ -24,23 +24,24 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll X;
-    cin >> X;
-
-    vector<ll> v;
-    for (ll i = 1; i < 32; i++) {
-        for (ll j = 2; j < 10; j++) {
-            if (pow(i, j) <= X) {
-                v.push_back(pow(i, j));
-            }
-        }
-    }
+    ll A, B;
+    cin >> A >> B;
 
     ll ans = 0;
-    rep (i, v.size()) {
-        ans = max(ans, v[i]);
+    ll C = abs(A-B);
+    while(C >= 10) {
+        ans++;
+        C -= 10;
     }
 
-    cout << ans << endl;
+    if (C == 9 || C == 6 || C == 4 || C == 2) {
+        cout << ans+2 << endl;
+    } else if (C == 8 || C == 7 || C == 3) {
+        cout << ans+3 << endl;
+    } else if (C == 5 || C == 1) {
+        cout << ans+1 << endl;
+    } else {
+        cout << ans << endl;
+    }
     return 0;
 }
