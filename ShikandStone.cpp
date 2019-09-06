@@ -24,31 +24,24 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll H, W;
+    cin >> H >> W;
 
-    vector<ll> num(4, 0);
-    rep (i, N) {
-        char S;
-        cin >> S;
-        if (S == 'P') {
-            num[0]++;
-        } 
-        if (S == 'W') {
-            num[1]++;
-        } 
-        if (S == 'G') {
-            num[2]++;
-        } 
-        if (S == 'Y') {
-            num[3]++;
-        } 
+    ll cnt = 0;
+    rep (i, H) {
+        rep (j, W) {
+            char A;
+            cin >> A;
+            if (A == '#') {
+                cnt++;
+            }
+        }
     }
 
-    if (num[0] == 0 || num[1] == 0 || num[2] == 0 || num[3] == 0) {
-        cout << "Three" << endl;
+    if (cnt == H+W-1) {
+        cout << "Possible" << endl;
     } else {
-        cout << "Four" << endl;
+        cout << "Impossible" << endl;
     }
     return 0;
 }

@@ -24,8 +24,10 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll x, y;
-    cin >> x >> y;
+    ll A, B;
+    cin >> A >> B;
 
+    swap(A, B);
+    cout << A << " " << B << endl;
     return 0;
 }

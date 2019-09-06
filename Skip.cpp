@@ -1,14 +1,25 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31) - 1 //INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
 
 using ll  = long long;
 using ull = unsigned long long;
-using P = std::pair<int, int>;
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
 
-int Euc(int a, int b) {
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
+ll GCD(ll a, ll b) {
     if (a <= 0 || b <= 0) {
         return -1;
     }
@@ -16,13 +27,13 @@ int Euc(int a, int b) {
         if (a % b == 0) {
             return b;
         } else {
-            Euc(b, a % b);
+            GCD(b, a % b);
         }
     } else if (a < b) {
         if (b % a == 0) {
             return a;
         } else {
-            Euc(a, b % a);
+            GCD(a, b % a);
         }
     } else {
         return a;
@@ -31,27 +42,29 @@ int Euc(int a, int b) {
 
 int main(int argc, char *argv[])
 {
-    int N, X;
-    std::cin >> N >> X;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
 
-    std::vector<int> x(N);
-    for (int i = 0; i < N; i++) {
-        std::cin >> x[i];
+    ll N;
+    cin >> N;
+
+    vector<ll> x(N+1);
+    rep (i, N+1) {
+        cin >> x[i];
     }
-    x.push_back(X);
 
-    std::sort(x.begin(), x.end());
+    sort(x.rbegin(), x.rend());
 
-    int ans = 0;
+    ll ans = 0;
     if (N == 1) {
-        ans = std::abs(x[1] - x[0]);
+        ans = x[0]-x[1];
     } else {
-        ans = Euc(std::abs(x[2] - x[1]), x[1] - x[0]);
-        for (int i = 2; i < N; i++) {
-            ans = Euc(x[i+1] - x[i], ans);
+        ans = GCD(x[0]-x[1], x[1]-x[2]);
+        for (ll i = 2; i < N; i++) {
+            ans = GCD(x[i]-x[i+1], ans);
         }
     }
 
-    std::cout << ans << std::endl;
+    cout << ans << endl;
     return 0;
 }
