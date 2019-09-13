@@ -24,17 +24,26 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, K;
-    cin >> N >> K;
+    ll N;
+    cin >> N;
 
-    ll ans = 1;
-    while(N > 0) {
-        if (ans+K > ans*2) {
-            ans *= 2;
-        } else {
-            ans += K;
+    vector<ll> t(N);
+    rep (i, N) {
+        cin >> t[i];
+    }
+
+    ll ans = INF;
+    for (ll bit = 0; bit < (1<<N); bit++) {
+        ll tmp1 = 0;
+        ll tmp2 = 0;
+        for (ll i = 0; i < N; i++) {
+            if (bit & (1<<i)) {
+                tmp1 += t[i];
+            } else {
+                tmp2 += t[i];
+            }
         }
-        N--;
+        ans = min(ans, max(tmp1, tmp2));
     }
 
     cout << ans << endl;

@@ -24,19 +24,13 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, K;
-    cin >> N >> K;
+    double n, m, d;
+    cin >> n >> m >> d;
 
-    ll ans = 1;
-    while(N > 0) {
-        if (ans+K > ans*2) {
-            ans *= 2;
-        } else {
-            ans += K;
-        }
-        N--;
+    if (d) {
+        cout << fixed << setprecision(10) << (m-1)*2*(n-d)/(n*n) << endl;
+    } else {
+        cout << fixed << setprecision(10) << (m-1)/n << endl;
     }
-
-    cout << ans << endl;
     return 0;
 }

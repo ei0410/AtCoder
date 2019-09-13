@@ -24,19 +24,9 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, K;
-    cin >> N >> K;
+    ll a, b, h;
+    cin >> a >> b >> h;
 
-    ll ans = 1;
-    while(N > 0) {
-        if (ans+K > ans*2) {
-            ans *= 2;
-        } else {
-            ans += K;
-        }
-        N--;
-    }
-
-    cout << ans << endl;
+    cout << (a+b)*h/2 << endl;
     return 0;
 }

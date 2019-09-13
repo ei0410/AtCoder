@@ -21,23 +21,6 @@ using Pll = pair<ll, ll>;
 
 using Graph = vector<vector<ll>>;
 
-vector<ll> color;
-bool dfs(const Graph &G, ll v, ll cur = 0) {
-    color[v] = cur;
-    for (auto next : G[v]) {
-        if (color[next] != -1) {
-            if (color[next] == cur) {
-                return false;
-            }
-            continue;
-        }
-        if (!dfs(G, next, 1-cur)) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main(int argc, char *argv[])
 {
     cin.tie(0);
@@ -54,21 +37,19 @@ int main(int argc, char *argv[])
         G[b].push_back(a);
     }
 
-    color.assign(N, -1);
-    bool flag = true;
-    rep (i, N) {
-        if (color[i] != -1) {
-            continue;
-        }
-        if (!dfs(G, i)) {
-            flag = false;
-        }
-    }
+    vector<bool> seen(N, false);
+    stack<ll> s;
+    s.push(0);
 
-    if (flag) {
-        Yes;
-    } else {
-        No;
+    while (!s.empty()) {
+        ll cur = s.top();
+        s.pop();
+        for (auto next : G[cur]) {
+            if (!seen[next]) {
+                seen[next] = true;
+                s.push(next);
+            }
+        }
     }
     return 0;
 }

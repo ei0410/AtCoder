@@ -24,19 +24,28 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, K;
-    cin >> N >> K;
+    ll N, M;
+    cin >> N >> M;
 
-    ll ans = 1;
-    while(N > 0) {
-        if (ans+K > ans*2) {
-            ans *= 2;
-        } else {
-            ans += K;
-        }
-        N--;
+    map<ll, ll> m;
+    rep (i, M) {
+        ll a, b;
+        cin >> a >> b;
+        m[a]++;
+        m[b]++;
     }
 
-    cout << ans << endl;
+    bool flag = true;
+    for (auto it : m) {
+        if (it.second%2 != 0) {
+            flag = false;
+        }
+    }
+
+    if (flag) {
+        YES;
+    } else {
+        NO;
+    }
     return 0;
 }

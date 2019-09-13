@@ -16,27 +16,40 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rep(i, n) for (ll i = 0; i < n; i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
+using Graph = vector<vector<ll>>;
+
+vector<bool> seen;
+void dfs(const Graph &G, ll v) {
+    seen[v] = true;
+
+    for (auto next : G[v]) {
+        if (seen[next]) {
+            continue;
+        }
+        dfs(G, next);
+    }
+}
 
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, K;
-    cin >> N >> K;
+    ll N, M;
+    cin >> N >> M;
 
-    ll ans = 1;
-    while(N > 0) {
-        if (ans+K > ans*2) {
-            ans *= 2;
-        } else {
-            ans += K;
-        }
-        N--;
+    Graph G(N);
+    rep (i, M) {
+        ll a, b;
+        cin >> a >> b;
+        G[a].push_back(b);
+        G[b].push_back(a);
     }
 
-    cout << ans << endl;
+    seen.assign(N, false);
+    dfs(G, 0);
     return 0;
 }

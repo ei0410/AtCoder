@@ -24,17 +24,16 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, K;
-    cin >> N >> K;
+    string S;
+    cin >> S;
 
-    ll ans = 1;
-    while(N > 0) {
-        if (ans+K > ans*2) {
-            ans *= 2;
+    ll ans = 0;
+    rep (i, S.size()) {
+        if (S[i] == 'U') {
+            ans += i*2+(S.size()-1-i);
         } else {
-            ans += K;
+            ans += i+(S.size()-1-i)*2;
         }
-        N--;
     }
 
     cout << ans << endl;
