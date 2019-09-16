@@ -24,22 +24,32 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll N, M;
+    cin >> N >> M;
 
-    bool flag = false;
+    vector<ll> A(N);
     rep (i, N) {
-        ll a;
-        cin >> a;
-        if (a%2) {
-            flag = true;
-        }
+        cin >> A[i];
     }
 
-    if (flag) {
-        cout << "first" << endl;
-    } else {
-        cout << "second" << endl;
+    sort(A.rbegin(), A.rend());
+
+    vector<ll> cnt(N);
+    ll ans = 0;
+    rep (i, N) {
+        ll tmp = 0;
+        while (A[i] > 0) {
+            A[i] /= 2;
+            tmp++;
+        }
+        if (tmp < 0) {
+            tmp = 0;
+        }
+        cnt[i] = tmp;
+    }
+
+    rep (i, N) {
+        cout << cnt[i] << endl;
     }
     return 0;
 }

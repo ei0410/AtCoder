@@ -24,22 +24,9 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll x, y;
+    cin >> x >> y;
 
-    bool flag = false;
-    rep (i, N) {
-        ll a;
-        cin >> a;
-        if (a%2) {
-            flag = true;
-        }
-    }
-
-    if (flag) {
-        cout << "first" << endl;
-    } else {
-        cout << "second" << endl;
-    }
+    cout << y/x << endl;
     return 0;
 }

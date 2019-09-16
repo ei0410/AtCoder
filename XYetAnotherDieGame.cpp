@@ -16,6 +16,9 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
@@ -24,10 +27,10 @@ int main(int argc, char *argv[])
     ll x;
     cin >> x;
 
-    ll ans = 2 * (x / 11);
-    if (x % 11 != 0) {
+    ll ans = (x/11)*2;
+    if (x%11 != 0) {
         ans++;
-        if (x % 11 > 6) {
+        if (x%11 > 6) {
             ans++;
         }
     }

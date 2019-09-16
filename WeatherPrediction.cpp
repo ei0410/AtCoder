@@ -24,17 +24,15 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll x;
-    cin >> x;
+    string S;
+    cin >> S;
 
-    ll ans = (x/11)*2;
-    if (x%11 != 0) {
-        ans++;
-        if (x%11 > 6) {
-            ans++;
-        }
+    if (S[0] == 'S') {
+        cout << "Cloudy" << endl;
+    } else if (S[0] == 'C') {
+        cout << "Rainy" << endl;
+    } else {
+        cout << "Sunny" << endl;
     }
-
-    cout << ans << endl;
     return 0;
 }

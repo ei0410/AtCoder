@@ -24,22 +24,24 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll N, K, Q;
+    cin >> N >> K >> Q;
 
-    bool flag = false;
+    vector<ll> A(Q);
+    vector<ll> m(100010, 0);
+    rep (i, Q) {
+        cin >> A[i];
+        A[i]--;
+        m[A[i]]++;
+    }
+
     rep (i, N) {
-        ll a;
-        cin >> a;
-        if (a%2) {
-            flag = true;
+        if (m[i] > Q-K) {
+            Yes;
+        } else {
+            No;
         }
     }
 
-    if (flag) {
-        cout << "first" << endl;
-    } else {
-        cout << "second" << endl;
-    }
     return 0;
 }

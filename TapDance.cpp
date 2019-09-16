@@ -24,22 +24,32 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    string S;
+    cin >> S;
 
     bool flag = false;
-    rep (i, N) {
-        ll a;
-        cin >> a;
-        if (a%2) {
-            flag = true;
+    rep (i, S.size()) {
+        if (i%2 == 0) {
+            if (S[i] == 'R' || S[i] == 'U' || S[i] == 'D') {
+                ;
+            } else {
+                flag = true;
+                break;
+            }
+        } else {
+            if (S[i] == 'L' || S[i] == 'U' || S[i] == 'D') {
+                ;
+            } else {
+                flag = true;
+                break;
+            }
         }
     }
 
     if (flag) {
-        cout << "first" << endl;
+        No;
     } else {
-        cout << "second" << endl;
+        Yes;
     }
     return 0;
 }
