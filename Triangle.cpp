@@ -24,21 +24,14 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N, M;
-    cin >> N >> M;
+    ll S;
+    cin >> S;
 
-    vector<Pll> p;
-    rep (i, M) {
-        ll a, b;
-        cin >> a >> b;
-        p.push_back(make_pair(b, a));
-    }
+    const ll v = 1000000000;
 
-    sort(p.begin(), p.end());
+    ll x = (v-S%v)%v;
+    ll y = (S+x)/v;
 
-    rep (i, M) {
-        cout << p[i].first << " " << p[i].second << endl;
-    }
-
+    cout << "0 0 1000000000 1 " << x << " " << y << endl;
     return 0;
 }

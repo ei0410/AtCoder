@@ -16,7 +16,8 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 int main(int argc, char *argv[])
 {
@@ -32,20 +33,20 @@ int main(int argc, char *argv[])
     }
 
     vector<ll> s(N+1, 0);
-    map<ll, ll> nums;
+    map<ll, ll> m;
     rep (i, N) {
         s[i+1] = s[i] + A[i];
     }
+
     rep (i, N+1) {
-        nums[s[i]]++;
+        m[s[i]]++;
     }
 
-    ll res = 0;
-    for (auto it : nums) {
-        ll num = it.second;
-        res += num * (num-1) / 2;
+    ll ans = 0;
+    for (auto it : m) {
+        ans += it.second*(it.second-1)/2;
     }
 
-    cout << res << endl;
+    cout << ans << endl;
     return 0;
 }
