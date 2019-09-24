@@ -19,38 +19,42 @@ using Pll = pair<ll, ll>;
 #define rep(i, n) for (ll i = 0; i < (n); i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
-#define MAX_N 210
-
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
     ll N;
-    vector<vector<ll>> d(MAX_N, vector<ll>(N, INF));
+    cin >> N;
+
+    vector<ll> A(N);
+    rep (i, N) {
+        cin >> A[i];
+    }
+
+    sort(A.begin(), A.end());
+
+    vector<ll> p(N);
+    rep (i, N-1) {
+        if (i%2) {
+            p[i]--;
+            p[i+1]++;
+        } else {
+            p[i]++;
+            p[i+1]--;
+        }
+    }
+
+    sort(p.begin(), p.end());
+
+    ll sum1 = 0;
+    ll sum2 = 0;
 
     rep (i, N) {
-        ll from, to, cost;
-        cin >> from >> to >> cost;
-        if (d[from][to] > cost) {
-            d[from][to] = cost;
-            //d[to][from] = cost;
-        }
+        sum1 += p[i]*A[i];
+        sum2 -= p[i]*A[N-(i+1)];
     }
 
-    rep (k, N) {
-        rep (i, N) {
-            rep (j, N) {
-                d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
-            }
-        }
-    }
-
-    rep (i, N) {
-        rep (j, N) {
-            cout << d[i][j] << " ";
-        }
-        cout << endl;
-    }
+    cout << max(sum1, sum2) << endl;
     return 0;
 }
