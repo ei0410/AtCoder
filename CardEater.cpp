@@ -27,20 +27,17 @@ int main(int argc, char *argv[])
     ll N;
     cin >> N;
 
-    vector<ll> A(N);
-    rep (i, N) {
-        cin >> A[i];
-    }
-
     map<ll, ll> m;
     rep (i, N) {
-        m[A[i]]++;
+        ll A;
+        cin >> A;
+        m[A]++;
     }
 
     ll cnt = 0;
     for (auto it : m) {
-        if (it.second%2 == 0) {
-            cnt++;
+        if (it.second > 1) {
+            cnt += (it.second-1);
         }
     }
 

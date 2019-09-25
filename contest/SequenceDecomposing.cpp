@@ -27,31 +27,21 @@ int main(int argc, char *argv[])
     ll N;
     cin >> N;
 
-    ll cnt = 0;
     vector<ll> A(N);
     rep (i, N) {
         cin >> A[i];
-        if (A[i] < 0) {
-            cnt++;
+    }
+
+    deque<ll> que;
+    rep (i, N) {
+        ll tmp = lower_bound(que.begin(), que.end(), A[i]) - que.begin();
+        if (tmp == 0) {
+            que.push_front(A[i]);
+        } else {
+            que[tmp-1] = A[i];
         }
     }
 
-    ll memo = INF;
-    rep (i, N) {
-        if (memo > abs(A[i])) {
-            memo = abs(A[i]);
-        }
-    }
-
-    ll ans = 0;
-    rep (i, N) {
-        ans += abs(A[i]);
-    }
-
-    if (cnt%2) {
-        ans -= memo*2;
-    }
-
-    cout << ans << endl;
+    cout << que.size() << endl;
     return 0;
 }

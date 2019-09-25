@@ -33,15 +33,16 @@ int main(int argc, char *argv[])
     }
 
     ll ans = 0;
-    ll tmp = 0;
+    ll cnt = 0;
     rep (i, N-1) {
-        if (H[i] < H[i+1]) {
-            tmp = 0;
+        if (H[i] >= H[i+1]) {
+            cnt++;
+            ans = max(ans, cnt);
         } else {
-            tmp++;
+            cnt = 0;
         }
-        ans = max(tmp, ans);
     }
+    ans = max(ans, cnt);
 
     cout << ans << endl;
     return 0;

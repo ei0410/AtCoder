@@ -24,34 +24,29 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    string S;
+    cin >> S;
 
-    ll cnt = 0;
-    vector<ll> A(N);
-    rep (i, N) {
-        cin >> A[i];
-        if (A[i] < 0) {
-            cnt++;
+    ll n = 3;
+    for (ll bit = 0; bit < (1<<n); bit++) {
+        ll tmp = S[0]-'0';
+        string ans = "";
+        ans += S[0];
+        for (ll i = 0; i < n; i++) {
+            if (bit & (1<<i)) {
+                tmp += (S[i+1]-'0');
+                ans += "+";
+            } else {
+                tmp -= (S[i+1]-'0');
+                ans += "-";
+            }
+            ans += S[i+1];
+        }
+
+        if (tmp == 7) {
+            cout << ans + "=7" << endl;
+            return 0;
         }
     }
-
-    ll memo = INF;
-    rep (i, N) {
-        if (memo > abs(A[i])) {
-            memo = abs(A[i]);
-        }
-    }
-
-    ll ans = 0;
-    rep (i, N) {
-        ans += abs(A[i]);
-    }
-
-    if (cnt%2) {
-        ans -= memo*2;
-    }
-
-    cout << ans << endl;
     return 0;
 }
