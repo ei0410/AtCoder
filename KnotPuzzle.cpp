@@ -24,34 +24,33 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    ll N, L;
+    cin >> N >> L;
 
-    vector<ll> A1(N);
-    vector<ll> A2(N);
+    vector<ll> a(N);
     rep (i, N) {
-        cin >> A1[i];
-    }
-    rep (i, N) {
-        cin >> A2[i];
+        cin >> a[i];
     }
 
-    if (N == 1) {
-        cout << A1[0]+A2[0] << endl;
-        return 0;
-    }
-
-    ll sum = A1[0];
-    rep (i, N) {
-        sum += A2[i];
-    }
-
-    ll ans = 0;
+    bool flag = false;
+    ll index = 0;
     rep (i, N-1) {
-        ans = max(ans, sum);
-        sum += (A1[i+1]-A2[i]);
+        if (a[i]+a[i+1] >= L) {
+            flag = true;
+            index = i;
+        }
     }
 
-    cout << ans << endl;
+    if (flag) {
+        cout << "Possible" << endl;
+        rep (i, index) {
+            cout << i+1 << endl;
+        }
+        for (ll i = N-1; i > index; i--) {
+            cout << i << endl;
+        }
+    } else {
+        cout << "Impossible" << endl;
+    }
     return 0;
 }

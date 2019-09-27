@@ -24,32 +24,23 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll N;
-    cin >> N;
+    string s;
+    cin >> s;
 
-    vector<ll> A1(N);
-    vector<ll> A2(N);
-    rep (i, N) {
-        cin >> A1[i];
-    }
-    rep (i, N) {
-        cin >> A2[i];
-    }
-
-    if (N == 1) {
-        cout << A1[0]+A2[0] << endl;
-        return 0;
-    }
-
-    ll sum = A1[0];
-    rep (i, N) {
-        sum += A2[i];
-    }
-
+    ll cnt = 0;
     ll ans = 0;
-    rep (i, N-1) {
-        ans = max(ans, sum);
-        sum += (A1[i+1]-A2[i]);
+    rep (i, s.size()) {
+        if (!cnt) {
+            if (s[i] == 'p') {
+                ans--;
+            }
+            cnt++;
+        } else {
+            if (s[i] == 'g') {
+                ans++;
+            }
+            cnt--;
+        }
     }
 
     cout << ans << endl;

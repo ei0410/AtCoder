@@ -32,16 +32,16 @@ int main(int argc, char *argv[])
         cin >> A[i];
     }
 
-    deque<ll> que;
+    deque<ll> dq;
     rep (i, N) {
-        ll tmp = lower_bound(que.begin(), que.end(), A[i]) - que.begin();
+        ll tmp = lower_bound(dq.begin(), dq.end(), A[i]) - dq.begin();
         if (tmp == 0) {
-            que.push_front(A[i]);
+            dq.push_front(A[i]);
         } else {
-            que[tmp-1] = A[i];
+            dq[tmp-1] = A[i];
         }
     }
 
-    cout << que.size() << endl;
+    cout << dq.size() << endl;
     return 0;
 }
