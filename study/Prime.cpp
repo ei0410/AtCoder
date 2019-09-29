@@ -19,7 +19,28 @@ using Pll = pair<ll, ll>;
 #define rep(i, n) for (ll i = 0; i < n; i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
-#define MAX_N 100010
+#define MAX_N 100100
+
+ll GCD(ll a, ll b) {
+    if (a <= 0 || b <= 0) {
+        return -1;
+    }
+    if (a > b) {
+        if (a % b == 0) {
+            return b;
+        } else {
+            GCD(b, a % b);
+        }
+    } else if (a < b) {
+        if (b % a == 0) {
+            return a;
+        } else {
+            GCD(a, b % a);
+        }
+    } else {
+        return a;
+    }
+}
 
 bool IsPrime(int n) {
     for (ll i = 2; i*i <= n; i++) {
@@ -63,7 +84,8 @@ vector<ll> Divisor(int n) {
     return res;
 }
 
-map<ll, ll> PrimeFactor(int n) {
+/*
+map<ll, ll> mPrimeFactor(int n) {
     map<ll, ll> res;
     for (ll i = 2; i*i <= n; i++) {
         while (n%i == 0) {
@@ -76,6 +98,25 @@ map<ll, ll> PrimeFactor(int n) {
     } else {
         return res;
     }
+}
+*/
+
+vector<Pll> PrimeFactor(ll n) {
+    vector<Pll> res;
+    for (ll i = 2; i*i <= n; i++) {
+        if (n%i) {
+            continue;
+        }
+        res.emplace_back(i, 0);
+        while (n%i == 0) {
+            n /= i;
+            res.back().second++;
+        }
+    }
+    if (n != 1) {
+        res.emplace_back(n, 1);
+    }
+    return res;
 }
 
 int main(int argc, char *argv[])
@@ -99,9 +140,16 @@ int main(int argc, char *argv[])
     }
     cout << endl;
 
-    map<ll, ll> m = PrimeFactor(N);
+    /*
+    map<ll, ll> m = mPrimeFactor(N);
     for (auto it : m) {
         cout << it.first << " " << it.second << endl;
+    }
+    */
+
+    vector<Pll> v = PrimeFactor(N);
+    rep (i, v.size()) {
+        cout << v[i].first << " " << v[i].second << endl;
     }
     return 0;
 }
