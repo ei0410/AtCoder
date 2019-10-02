@@ -35,16 +35,46 @@ template<class T> inline bool chmax(T& a, T b) {
     return false;
 }
 
+#define MAX_H 1100
+#define MAX_W 1100
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
     // input values
+    ll H, W;
+    cin >> H >> W;
+
+    vector<vector<char>> a(H, vector<char>(W, '0'));
+    rep (i, H) {
+        rep (j, W) {
+            cin >> a[i][j];
+        }
+    }
+
     // dp table
     // init dp table
-    // init condition
-    // loop
+    vector<vector<ll>> dp(MAX_H, vector<ll>(MAX_W, 0));
 
+    // init condition
+    dp[0][0] = 1;
+
+    // loop
+    rep (i, H) {
+        rep (j, W) {
+            if (i+1 < H && a[i+1][j] == '.') {
+                dp[i+1][j] += dp[i][j];
+                dp[i+1][j] %= MOD;
+            }
+            if (j+1 < W && a[i][j+1] == '.') {
+                dp[i][j+1] += dp[i][j];
+                dp[i][j+1] %= MOD;
+            }
+        }
+    }
+
+    cout << dp[H-1][W-1] << endl;
     return 0;
 }
