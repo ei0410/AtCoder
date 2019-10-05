@@ -16,25 +16,32 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
-template<class T> inline bool chmin(T& a, T b) {
-    if (a > b) {
-        a = b;
-        return true;
+ll pow_mod(ll n, ll k, ll m) {
+    if (k == 0) {
+        return 1;
+    } else if (k%2) {
+        return pow_mod(n, k-1, m) * n % m;
+    } else {
+        ll t = pow_mod(n, k/2, m);
+        return t*t%m;
     }
-    return false;
-}
-template<class T> inline bool chmax(T& a, T b) {
-    if (a < b) {
-        a = b;
-        return true;
-    }
-    return false;
 }
 
-#define MAX_W 100010
-#define MAX_H 100010
+ll comb(ll n, ll r) {
+    ll ans = 1;
+
+    for (ll i = n; i > n-r; i--) {
+        ans = ans*i%MOD;
+    }
+    for (ll i = 1; i < r+1; i++) {
+        ans = ans*pow_mod(i, MOD-2, MOD) % MOD;
+    }
+
+    return ans%MOD;
+}
 
 int main(int argc, char *argv[])
 {
@@ -43,17 +50,15 @@ int main(int argc, char *argv[])
 
     ll W, H;
     cin >> W >> H;
+    W--;
+    H--;
 
-    vector<vector<ll>> dp(MAX_W, vector<ll>(MAX_H, 1));
-
-    rep (i, W) {
-        rep (j, H) {
-            dp[i+1][j] %= MOD;
-            dp[i][j+1] %= MOD;
-            chmax(dp[i+1][j+1], dp[i+1][j]+dp[i][j+1]);
-        }
+    if (W < H) {
+        swap(W, H);
     }
 
-    cout << dp[W-1][H-1] << endl;
+    W += H;
+
+    cout << comb(W, H) << endl;
     return 0;
 }

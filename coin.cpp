@@ -24,21 +24,34 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    string w;
-    cin >> w;
+    ll N;
+    cin >> N;
 
-    map<ll, ll> m;
-    rep (i, w.size()) {
-        m[w[i]-'0']++;
+    vector<ll> a(N);
+    rep (i, N) {
+        cin >> a[i];
     }
 
-    for (auto it : m) {
-        if(it.second%2 == 1) {
-            No;
-            return 0;
+    double ans = 0;
+    rep (i, N) {
+        ll cnt = 0;
+        rep (j, N) {
+            if (i == j) {
+                continue;
+            }
+            if (a[i]%a[j] == 0) {
+                cnt++;
+            }
+        }
+        if (cnt == 0) {
+            ans++;
+        } else if (cnt%2 == 0) {
+            ans += (cnt + 2.0)/(2.0*cnt + 2.0);
+        } else {
+            ans += 1.0/2.0;
         }
     }
 
-    Yes;
+    cout << fixed << setprecision(12) << ans << endl;
     return 0;
 }
