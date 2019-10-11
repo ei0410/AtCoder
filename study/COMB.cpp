@@ -43,22 +43,19 @@ ll comb(ll n, ll r) {
     return ans%MOD;
 }
 
+ll dcomb(ll n, ll r) {
+    return comb(n+r-1, r);
+}
+
 int main(int argc, char *argv[])
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll W, H;
-    cin >> W >> H;
-    W--;
-    H--;
+    ll N, R;
+    cin >> N >> R;
 
-    if (W < H) {
-        swap(W, H);
-    }
-
-    W += H;
-
-    cout << comb(W, H) << endl;
+    cout << comb(N, R) << endl;
+    cout << dcomb(N, R) << endl;
     return 0;
 }

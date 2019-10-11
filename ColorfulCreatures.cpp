@@ -24,33 +24,25 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll c[3][3];
-    rep (i, 3) {
-        rep (j, 3) {
-            cin >> c[i][j];
+    ll N;
+    cin >> N;
+
+    vector<ll> A(N);
+    rep (i, N) {
+        cin >> A[i];
+    }
+
+    sort(A.begin(), A.end());
+
+    ll index = -1;
+    ll sum = 0;
+    rep (i, N-1) {
+        sum += A[i];
+        if (A[i+1] > 2*sum) {
+            index = i;
         }
     }
 
-    ll a[3], b[3];
-    rep (i, 3) {
-        b[i] = c[0][i];
-        a[i] = c[i][0]-b[0];
-    }
-
-    bool flag = true;
-    rep (i, 3) {
-        rep (j, 3) {
-            if (a[i]+b[j] != c[i][j]) {
-                flag = false;
-                break;
-            }
-        }
-    }
-
-    if (flag) {
-        Yes;
-    } else {
-        No;
-    }
+    cout << N-index-1 << endl;
     return 0;
 }

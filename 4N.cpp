@@ -24,33 +24,20 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll c[3][3];
-    rep (i, 3) {
-        rep (j, 3) {
-            cin >> c[i][j];
-        }
-    }
+    ll N;
+    cin >> N;
 
-    ll a[3], b[3];
-    rep (i, 3) {
-        b[i] = c[0][i];
-        a[i] = c[i][0]-b[0];
-    }
-
-    bool flag = true;
-    rep (i, 3) {
-        rep (j, 3) {
-            if (a[i]+b[j] != c[i][j]) {
-                flag = false;
-                break;
+    for (ll i = 1; i <= 3500; i++) {
+        for (ll j = 1; j <= 3500; j++) {
+            if (4*i*j-N*i-N*j == 0) {
+                continue;
+            }
+            double k = double(N*i*j)/double(4*i*j-N*i-N*j);
+            if (k > 0 && ceil(k) == floor(k)) {
+                cout << i << " " << j << " " << ll(k) << endl;
+                return 0;
             }
         }
-    }
-
-    if (flag) {
-        Yes;
-    } else {
-        No;
     }
     return 0;
 }
