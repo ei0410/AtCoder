@@ -24,38 +24,43 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int n;
-    cin >> n;
+    ll T;
+    cin >> T;
 
-    vector<string> S(n);
-    rep (i, n) {
-        cin >> S[i];
+    ll N;
+    cin >> N;
+    
+    queue<ll> A;
+    rep (i, N) {
+        ll a;
+        cin >> a;
+        A.push(a);
     }
 
-    vector<int> v(26);
-    rep (i, S[0].size()) {
-        v[S[0][i]-'a']++;
-    }
+    ll M;
+    cin >> M;
+    
+    rep (i, M) {
+        ll B;
+        cin >> B;
 
-    for (int i = 1; i < n; i++) {
-        vector<int> tmp(26);
-        rep (j, S[i].size()) {
-            tmp[S[i][j]-'a']++;
-        }
-        rep (j, 26) {
-            v[j] = min(v[j], tmp[j]);
-        }
-    }
+        bool flag = true;
+        while (!A.empty()) {
+            ll tmp = A.front();
+            A.pop();
 
-    string ans = "";
-    rep (i, 26) {
-        if (v[i] > 0) {
-            rep (j, v[i]) {
-                ans += (i+'a');
+            if (tmp <= B && B <= tmp + T) {
+                flag = false;
+                break;
             }
         }
+
+        if (flag) {
+            cout << "no" << endl;
+            return 0;
+        }
     }
 
-    cout << ans << endl;
+    cout << "yes" << endl;
     return 0;
 }

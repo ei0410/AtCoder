@@ -24,38 +24,33 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int n;
-    cin >> n;
+    ll n, m;
+    cin >> n >> m;
 
-    vector<string> S(n);
+    vector<ll> x(n);
     rep (i, n) {
-        cin >> S[i];
+        cin >> x[i];
     }
 
-    vector<int> v(26);
-    rep (i, S[0].size()) {
-        v[S[0][i]-'a']++;
+    vector<ll> y(m);
+    rep (i, m) {
+        cin >> y[i];
     }
 
-    for (int i = 1; i < n; i++) {
-        vector<int> tmp(26);
-        rep (j, S[i].size()) {
-            tmp[S[i][j]-'a']++;
-        }
-        rep (j, 26) {
-            v[j] = min(v[j], tmp[j]);
-        }
+    ll xsum = 0;
+    rep (i, n-1) {
+        ll j = i+1;
+        xsum += (x[j]-x[i])%MOD*(i+1)%MOD*(n-j)%MOD;
+        xsum %= MOD;
     }
 
-    string ans = "";
-    rep (i, 26) {
-        if (v[i] > 0) {
-            rep (j, v[i]) {
-                ans += (i+'a');
-            }
-        }
+    ll ysum = 0;
+    rep (i, m-1) {
+        ll j = i+1;
+        ysum += (y[j]-y[i])%MOD*(i+1)%MOD*(m-j)%MOD;
+        ysum %= MOD;
     }
 
-    cout << ans << endl;
+    cout << xsum%MOD*ysum%MOD << endl;
     return 0;
 }

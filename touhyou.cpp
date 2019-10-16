@@ -24,35 +24,22 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int n;
-    cin >> n;
+    ll N;
+    cin >> N;
 
-    vector<string> S(n);
-    rep (i, n) {
-        cin >> S[i];
+    map<string, ll> m;
+    rep (i, N) {
+        string S;
+        cin >> S;
+        m[S]++;
     }
 
-    vector<int> v(26);
-    rep (i, S[0].size()) {
-        v[S[0][i]-'a']++;
-    }
-
-    for (int i = 1; i < n; i++) {
-        vector<int> tmp(26);
-        rep (j, S[i].size()) {
-            tmp[S[i][j]-'a']++;
-        }
-        rep (j, 26) {
-            v[j] = min(v[j], tmp[j]);
-        }
-    }
-
+    ll tmp = 0;
     string ans = "";
-    rep (i, 26) {
-        if (v[i] > 0) {
-            rep (j, v[i]) {
-                ans += (i+'a');
-            }
+    for (auto it : m) {
+        if (tmp < it.second) {
+            ans = it.first;
+            tmp = it.second;
         }
     }
 
