@@ -24,27 +24,28 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    double a, b, x;
-    cin >> a >> b >> x;
+    ll X, Y;
+    cin >> X >> Y;
 
-    double num = 100;
-    ll memo = 0;
-    for (double i = 0; i <= b; i += 0.000001) {
-        double tmp = a*a*(b+i)/2.0;
-        if (abs(tmp-x) < num) {
-            num = i;
-            memo = 1;
+    ll ans = 0;
+    if (X == 1 && Y == 1) {
+        cout << 1000000 << endl;
+    } else {
+        if (X == 1) {
+            ans += 300000;
+        } else if (X == 2) {
+            ans += 200000;
+        } else if (X == 3) {
+            ans += 100000;
         }
-    }
-
-    for (double i = 0; i <= a; i += 0.000001) {
-        double tmp = a*b*i/2.0;
-        if (abs(tmp-x) < num) {
-            num = i;
-            memo = -1;
+        if (Y == 1) {
+            ans += 300000;
+        } else if (Y == 2) {
+            ans += 200000;
+        } else if (Y == 3) {
+            ans += 100000;
         }
+        cout << ans << endl;
     }
-    
-    cout << memo << " " << num << endl;
     return 0;
 }
