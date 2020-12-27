@@ -18,7 +18,11 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
 
+<<<<<<< HEAD
 int main(void)
+=======
+int main(int argc, char *argv[])
+>>>>>>> origin/master
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

@@ -70,7 +70,11 @@ ll sieve(ll n) {
     return p;
 }
 
+<<<<<<< HEAD
 vector<ll> Divisor(ll n) {
+=======
+vector<ll> Divisor(int n) {
+>>>>>>> origin/master
     vector<ll> res;
     for (ll i = 1; i*i <= n; i++) {
         if (n%i == 0) {

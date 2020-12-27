@@ -19,7 +19,11 @@ using Pll = pair<ll, ll>;
 #define rep(i, n) for (ll i = 0; i < (n); i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
+<<<<<<< HEAD
 #define MAX_N 310
+=======
+#define MAX_N 210
+>>>>>>> origin/master
 
 int main(int argc, char *argv[])
 {

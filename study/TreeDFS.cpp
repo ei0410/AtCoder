@@ -20,9 +20,15 @@ using Pll = pair<ll, ll>;
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 using Graph = vector<vector<ll>>;
+<<<<<<< HEAD
 vector<ll> depth;
 vector<ll> subtree_size;
 
+=======
+
+vector<ll> depth;
+vector<ll> subtree_size;
+>>>>>>> origin/master
 void dfs(const Graph &G, ll v, ll p, ll d) {
     depth[v] = d;
     for (auto next : G[v]) {
@@ -41,13 +47,20 @@ void dfs(const Graph &G, ll v, ll p, ll d) {
     }
 }
 
+<<<<<<< HEAD
 int main(void)
+=======
+int main(int argc, char *argv[])
+>>>>>>> origin/master
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
     ll N;
+<<<<<<< HEAD
     cin >> N;
+=======
+>>>>>>> origin/master
 
     Graph G(N);
     rep (i, N-1) {
@@ -61,9 +74,12 @@ int main(void)
     depth.assign(N, 0);
     subtree_size.assign(N, 0);
     dfs(G, root, -1, 0);
+<<<<<<< HEAD
 
     rep (i, N) {
         cout << i << ": depth = " << depth[i] << ", subtree_size = " << subtree_size[i] << endl;
     }
+=======
+>>>>>>> origin/master
     return 0;
 }

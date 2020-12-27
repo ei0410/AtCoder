@@ -27,7 +27,10 @@ template<class T> inline bool chmin(T& a, T b) {
     }
     return false;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 template<class T> inline bool chmax(T& a, T b) {
     if (a < b) {
         a = b;
@@ -36,7 +39,11 @@ template<class T> inline bool chmax(T& a, T b) {
     return false;
 }
 
+<<<<<<< HEAD
 int main(void)
+=======
+int main(int argc, char *argv[])
+>>>>>>> origin/master
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

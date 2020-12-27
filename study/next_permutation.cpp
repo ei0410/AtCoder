@@ -32,7 +32,10 @@ int main(int argc, char *argv[])
         cin >> v[i];
     }
 
+<<<<<<< HEAD
     sort(v.begin(), v.end());
+=======
+>>>>>>> origin/master
     do {
         rep (i, N) {
             cout << v[i] << " ";
