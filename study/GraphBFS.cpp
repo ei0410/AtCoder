@@ -21,7 +21,7 @@ using Pll = pair<ll, ll>;
 
 using Graph = vector<vector<ll>>;
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

@@ -16,35 +16,30 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
  
-int main(int argc, char *argv[])
+int main(void)
 {
     multiset<ll> ms;
 
-    // add elements
-    // s.insert("key");
     ms.insert(0);
     ms.insert(multiset<ll>::value_type(0));
     cout << ms.size() << endl;
 
-    // output value
     for (multiset<ll>::iterator it = ms.begin(), end = ms.end(); it != end; it++) {
         cout << *it << endl;
     }
 
-    cout << ms.count(0) << endl; // number of elements in a key
 
-    // search for value
+    cout << ms.count(0) << endl;
+
     multiset<ll>::iterator it = ms.find(0);
     if (it != ms.end()) {
         cout << "found:" << *it << endl;
     }
 
-    // erase 
-    cout << ms.erase(0) << endl; // erased number of elements
-    cout << ms.erase(-1) << endl; // if you pick no exist key, return value 0
+    cout << ms.erase(0) << endl;
+    cout << ms.erase(-1) << endl;
     cout << ms.size() << endl;
 
-    // clear
     ms.clear();
     cout << boolalpha << ms.empty() << endl;
     return 0;

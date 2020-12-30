@@ -18,57 +18,61 @@ using Pll = pair<ll, ll>;
 using Plll = pair<ll, pair<ll, ll>>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
  
-int main(int argc, char *argv[])
+int main(void)
 {
     vector<ll> a = {1, 3, 2};
     vector<ll> b = {5, 4, 6};
     vector<ll> c = {9, 8, 7};
     vector<Plll> p;
 
-    for (ll i = 0; i < a.size(); i++) {
+    rep (i, a.size()) {
         p.push_back(make_pair(a[i], make_pair(b[i], c[i])));
     }
 
-    for (ll i = 0; i < p.size(); i++) {
+    rep (i, p.size()) {
         cout << p[i].first << ":" << p[i].second.first << ":" << p[i].second.second << endl;
     }
 
     sort(p.begin(), p.end());
     // sort(p.rbegin(), p.rend());
-    for (ll i = 0; i < p.size(); i++) {
+
+    rep (i, p.size()) {
         cout << p[i].first << ":" << p[i].second.first << ":" << p[i].second.second << endl;
     }
 
-    for (ll i = 0; i < p.size(); i++) {
+    rep (i, p.size()) {
         ll tmp = p[i].first;
         p[i].first  = p[i].second.first;
         p[i].second.first = tmp;
     }
 
-    for (ll i = 0; i < p.size(); i++) {
+    rep (i, p.size()) {
         cout << p[i].first << ":" << p[i].second.first << ":" << p[i].second.second << endl;
     }
 
     sort(p.begin(), p.end());
     // sort(p.rbegin(), p.rend());
-    for (ll i = 0; i < p.size(); i++) {
+
+    rep (i, p.size()) {
         cout << p[i].first << ":" << p[i].second.first << ":" << p[i].second.second << endl;
     }
 
-    for (ll i = 0; i < p.size(); i++) {
+    rep (i, p.size()) {
         ll tmp = p[i].first;
         p[i].first  = p[i].second.second;
         p[i].second.second = tmp;
     }
 
-    for (ll i = 0; i < p.size(); i++) {
+    rep (i, p.size()) {
         cout << p[i].first << ":" << p[i].second.first << ":" << p[i].second.second << endl;
     }
 
     sort(p.begin(), p.end());
     // sort(p.rbegin(), p.rend());
-    for (ll i = 0; i < p.size(); i++) {
+
+    rep (i, p.size()) {
         cout << p[i].first << ":" << p[i].second.first << ":" << p[i].second.second << endl;
     }
     return 0;

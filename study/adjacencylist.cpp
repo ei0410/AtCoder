@@ -25,13 +25,13 @@ struct edge {
 
 vector<ll> G[MAX_V];
  
-int main(int argc, char *argv[])
+int main(void)
 {
     ll V, E;
     cin >> V >> E;
 
     for (ll i = 0; i < E; i++) {
-        s, t;
+        ll s, t;
         cin >> s >> t;
         G[s].push_back(t);
         G[t].push_back(s);

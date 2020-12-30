@@ -16,12 +16,12 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int N, Q;
+    ll N, Q;
     cin >> N >> Q;
 
     string s;

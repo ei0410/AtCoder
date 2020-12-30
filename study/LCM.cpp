@@ -41,10 +41,8 @@ ll LCM(ll a, ll b) {
     return a / GCD(a, b) * b;
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
-    ll a = 2;
-    ll b = 3;
-    cout << LCM(a, b) << endl;
+    cout << LCM(24, 36) << endl;
     return 0;
 }

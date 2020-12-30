@@ -17,14 +17,12 @@ using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
-
-    //ll N;
-    //cin >> N;
 
     ll N, K;
     cin >> N >> K;
@@ -37,7 +35,8 @@ int main(int argc, char *argv[])
     ll ans = 0;
     ll right = 0;
     ll cur = 0;
-    for (ll left = 0; left < N; left++) {
+
+    rep (left, N) {
         // while(right < N && check()) {
         while(right < N && cur <= K){
             cur += a[right];

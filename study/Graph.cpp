@@ -20,7 +20,7 @@ using Pll = pair<ll, ll>;
 
 #define MAX_V 100
 
-vector<int> G[MAX_V];
+vector<ll> G[MAX_V];
 
 /* // you have some attribute
 struct edge {
@@ -31,7 +31,7 @@ struct edge {
 vector<edge> G[MAX_V];
 */
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

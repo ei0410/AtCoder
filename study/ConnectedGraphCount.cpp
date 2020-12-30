@@ -32,7 +32,7 @@ void dfs(const Graph &G, ll v) {
     }
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

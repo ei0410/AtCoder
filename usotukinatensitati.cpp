@@ -1,5 +1,5 @@
 #include <bits/stdc++.h> 
- 
+
 using namespace std;
 
 #define YES cout << "YES" << endl;
@@ -8,6 +8,7 @@ using namespace std;
 #define No  cout << "No"  << endl;
  
 #define INF INT_MAX
+#define LLINF LLONG_MAX
 #define MOD 1000000007
 #define PI  acos(-1)
 
@@ -16,28 +17,40 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-#define rep(i, n) for (ll i = 0; i < (n); i++)
+#define rep(i, n) for (ll i = 0; i < n; i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
+template<class T> inline bool chmin(T& a, T b) {
+    if (a > b) {
+        a = b;
+        return true;
+    }
+    return false;
+}
+
+template<class T> inline bool chmax(T& a, T b) {
+    if (a < b) {
+        a = b;
+        return true;
+    }
+    return false;
+}
 
 struct UF {
     vector<ll> par;
     vector<ll> siz;
-    vector<ll> weight;
 
-    UF(ll N) : par(N), siz(N, 1LL), weight(N) {
+    UF(ll N) : par(N), siz(N, 1LL) {
         rep (i, N) {
             par[i] = i;
-            weight[i] = 0;
         }
     }
 
     void init(ll N) {
         par.resize(N);
         siz.assign(N, 1LL);
-        weight.resize(N);
         rep (i, N) {
             par[i] = i;
-            weight[i] = 0;
         }
     }
 
@@ -54,15 +67,11 @@ struct UF {
         if (x == y) {
             return false;
         }
-
-        if (weight[x] < weight[y]) {
-            par[x] = y;
-        } else {
-            par[y] = x;
-            if (weight[x] == weight[y]) {
-                weight[x]++;
-            }
+        if (siz[x] < siz[y]) {
+            swap(x, y);
         }
+        siz[x] += siz[y];
+        par[y] = x;
         return true;
     }
 
@@ -77,24 +86,27 @@ struct UF {
 
 int main(void)
 {
-    ll N, Q;
-    cin >> N >> Q;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+
+    ll N;
+    cin >> N;
 
     UF uf(N);
+    rep (i, N) {
+        ll A;
+        cin >> A;
+        A--;
+        uf.unite(i, A);
+    }
 
-    rep (i, Q) {
-        ll p, x, y;
-        cin >> p >> x >> y;
-
-        if (p) {
-            if (uf.same(x, y)) {
-                Yes
-            } else {
-                No
-            }
-        } else {
-            uf.unite(x, y);
+    rep (i, N) {
+        if (uf.size(i)%2) {
+            cout << -1 << endl;
+            return 0;
         }
     }
+
+    cout << N/2 << endl;
     return 0;
 }

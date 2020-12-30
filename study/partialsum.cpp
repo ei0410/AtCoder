@@ -18,25 +18,25 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int N;
+    ll N;
     cin >> N;
 
-    int a[25];
+    vector<ll> a(N);
     rep (i, N) {
         cin >> a[i];
     }
 
-    int K;
+    ll K;
     cin >> K;
 
     bool exist = false;
-    for (int bit = 0; bit < (1<<N); bit++) {
-        int sum = 0;
+    rep (bit, (1<<N)) {
+        ll sum = 0;
         rep(i, N) {
             if (bit & (1<<i)) {
                 sum += a[i];

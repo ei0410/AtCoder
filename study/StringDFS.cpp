@@ -35,7 +35,7 @@ void dfs(string s) {
     }
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

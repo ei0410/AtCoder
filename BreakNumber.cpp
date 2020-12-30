@@ -11,33 +11,25 @@ int main(int argc, char *argv[])
     int N;
     std::cin >> N;
 
-    if (N != 1) {
-        std::map<int, int> m;
-
+    int max = 0;
+    int ans = 0;
+    if (N == 1) {
+        std::cout << 1 << std::endl;
+    } else {
         for (int i = 1; i <= N; i++) {
-            int num = i;
+            int temp = i;
             int count = 0;
-            while (num % 2 == 0) {
-                num /= 2;
+            while (temp % 2 == 0) {
+                temp /= 2;
                 count++;
             }
-            m[i] = count;
-        }
-
-        int max = 0;
-        int num = 0;
-        std::map<int, int>::iterator it;
-
-        for (it = m.begin(); it != m.end(); it++) {
-            if (max < it->second) {
-                max = it->second;
-                num = it->first;
+            if (max < count) {
+                max = count;
+                ans = i;
             }
         }
 
-        std::cout << num << std::endl;
-    } else {
-        std::cout << 1 << std::endl;
+        std::cout << ans << std::endl;
     }
 
     return 0;

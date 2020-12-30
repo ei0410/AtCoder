@@ -32,7 +32,7 @@ void rec(ll v, const Graph &G, vector<bool> &seen, vector<ll> &order) {
     order.push_back(v);
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

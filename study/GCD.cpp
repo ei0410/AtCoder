@@ -37,7 +37,7 @@ ll GCD(ll a, ll b) {
     }
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     ll a = 2;
     ll b = 3;

@@ -16,14 +16,13 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-int main(int argc, char *argv[])
+int main(void)
 {
     ll N = 24;
 
     ll left = 20;
     ll right = 36; 
 
-    // check
     if (N < left || right < N) {
         cout << "error" << endl;
         return 1;

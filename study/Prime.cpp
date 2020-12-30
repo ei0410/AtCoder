@@ -19,30 +19,20 @@ using Pll = pair<ll, ll>;
 #define rep(i, n) for (ll i = 0; i < n; i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
-#define MAX_N 100100
+#define MAX_N 100000010
+
+ll prime[MAX_N];
+bool is_prime[MAX_N+1];
 
 ll GCD(ll a, ll b) {
-    if (a <= 0 || b <= 0) {
-        return -1;
-    }
-    if (a > b) {
-        if (a % b == 0) {
-            return b;
-        } else {
-            GCD(b, a % b);
-        }
-    } else if (a < b) {
-        if (b % a == 0) {
-            return a;
-        } else {
-            GCD(a, b % a);
-        }
+    if (a%b == 0) {
+        return b;
     } else {
-        return a;
+        return GCD(b, a%b);
     }
 }
 
-bool IsPrime(int n) {
+bool IsPrime(ll n) {
     for (ll i = 2; i*i <= n; i++) {
         if (n%i == 0) {
             return false;
@@ -51,14 +41,15 @@ bool IsPrime(int n) {
     return n != 1;
 }
 
-ll prime[MAX_N];
-bool is_prime[MAX_N+1];
 ll sieve(ll n) {
     ll p = 0;
+
     rep (i, n+1) {
         is_prime[i] = true;
     }
+
     is_prime[0] = is_prime[1] = false;
+
     for (ll i = 2; i <= n; i++) {
         if (is_prime[i]) {
             prime[p++] = i;
@@ -70,11 +61,7 @@ ll sieve(ll n) {
     return p;
 }
 
-<<<<<<< HEAD
 vector<ll> Divisor(ll n) {
-=======
-vector<ll> Divisor(int n) {
->>>>>>> origin/master
     vector<ll> res;
     for (ll i = 1; i*i <= n; i++) {
         if (n%i == 0) {
@@ -89,7 +76,7 @@ vector<ll> Divisor(int n) {
 }
 
 /*
-map<ll, ll> mPrimeFactor(int n) {
+map<ll, ll> mPrimeFactor(ll n) {
     map<ll, ll> res;
     for (ll i = 2; i*i <= n; i++) {
         while (n%i == 0) {
@@ -123,7 +110,7 @@ vector<Pll> PrimeFactor(ll n) {
     return res;
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
@@ -131,8 +118,18 @@ int main(int argc, char *argv[])
     ll N;
     cin >> N;
 
-    rep (i, N) {
+    rep (i, N+1) {
         cout << IsPrime(i) << " ";
+    }
+    cout << endl;
+
+    rep (i, N+1) {
+        if (i == 0) {
+            continue;
+        }
+        if (IsPrime(i)) {
+            cout << i << " ";
+        }
     }
     cout << endl;
 

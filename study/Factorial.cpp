@@ -26,7 +26,7 @@ ll fact(ll n) {
     }
 }
  
-int main(int argc, char *argv[])
+int main(void)
 {
     ll N = 10;
     cout << fact(N) << endl;

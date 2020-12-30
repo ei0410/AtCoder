@@ -38,7 +38,7 @@ void dfs(const Graph &G, ll v, ll& ptr) {
     inorder[v] = ptr++;
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

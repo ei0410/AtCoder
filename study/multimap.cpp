@@ -16,35 +16,35 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
  
-int main(int argc, char *argv[])
+int main(void)
 {
     multimap<string, ll> mm;
 
-    // add elements
-    // cannot use []
     mm.insert(multimap<string, ll>::value_type("one", 1));
     mm.insert(multimap<string, ll>::value_type("one", -1));
     cout << mm.size() << endl;
 
-    // output value
+    /*
     for (multimap<string, ll>::iterator it = mm.begin(), end = mm.end(); it != end; it++) {
         cout << it->first << ":" << it->second << endl;
     }
+    */
 
-    cout << mm.count("one") << endl; // number of element in a key
+    for (auto it : mm) {
+        cout << it.first << ":" << it.second << endl;
+    }
 
-    // search for value
+    cout << mm.count("one") << endl;
+
     multimap<string, ll>::iterator it = mm.find("one");
     if (it != mm.end()) {
         cout << "found: (" << it->first << "," << it->second << ")" << endl;
     }
 
-    // erase
-    cout << mm.erase("one") << endl; // erased number of element
-    cout << mm.erase("not_exist") << endl; // if you pick no exist key, return value 0
+    cout << mm.erase("one") << endl;
+    cout << mm.erase("not_exist") << endl;
     cout << mm.size() << endl; 
 
-    // clear
     mm.clear();
     cout << boolalpha << mm.empty() << endl;
     return 0;

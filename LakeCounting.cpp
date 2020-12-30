@@ -18,19 +18,19 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
 
-int N, M;
+ll N, M;
 cin >> N >> M;
 
 #define MAX_N 100
 #define MAX_M 100
 char field[MAX_N][MAX_M+1];
 
-void dfs(int x, int y) {
+void dfs(ll x, ll y) {
     field[x][y] = '.';
 
-    for (int dx = -1; dx <= 1; dx++) {
-        for (int dy = -1; dy <= 1; dy++) {
-            int nx = x + dx, ny = y + dy;
+    for (ll dx = -1; dx <= 1; dx++) {
+        for (ll dy = -1; dy <= 1; dy++) {
+            ll nx = x + dx, ny = y + dy;
             if (0 <= nx && nx < N && 0 <= ny && ny < M && field[nx][ny] == 'W') {
                 dfs(nx, ny);
             }
@@ -38,11 +38,11 @@ void dfs(int x, int y) {
     }
 }
  
-int main(int argc, char *argv[])
+int main(void)
 {
-    int ans = 0;
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
+    ll ans = 0;
+    rep (i, N) {
+        rep (j, M) {
             if (field[i][j] == 'W') {
                 dfs(i, j);
                 ans++;

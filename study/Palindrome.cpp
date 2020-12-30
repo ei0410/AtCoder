@@ -19,25 +19,31 @@ using Pll = pair<ll, ll>;
 #define rep(i, n) for (ll i = 0; i < (n); i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
-int main(int argc, char *argv[])
-{
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    string S;
-    cin >> S;
-
-    ll N = S.size();
+bool pali (string s) {
+    ll N = s.size();
     bool flag = false;
+
     rep (i, N/2) {
-        if (S[i] != S[N-(i+1)]) {
+        if (s[i] != s[N-(i+1)]) {
             break;
         }
         if (i == N/2-1) {
             flag = true;
         }
     }
+
+    return flag;
+}
+
+int main(void)
+{
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+
+    string S;
+    cin >> S;
     
-    if (flag) {
+    if (pali(S)) {
         Yes;
     } else {
         No;

@@ -17,28 +17,29 @@ using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
-vector<int> i2g;
-vector<vector<int>> g2i;
+vector<ll> i2g;
+vector<vector<ll>> g2i;
 
-void init(int n) {
+void init(ll n) {
     i2g.resize(n);
     g2i.resize(n);
-    for (int i = 0; i < n; i++) {
+    rep (i, n) {
         i2g[i] = i;
         g2i[i].assign(1, i);
     }
 }
 
-void merge(int ia, int ib) {
+void merge(ll ia, ll ib) {
     if (g2i[i2g[ia]].size() < g2i[i2g[ib]].size()) {
         swap(ia, ib);
     }
 
-    int ga = i2g[ia];
-    int gb = i2g[ib];
+    ll ga = i2g[ia];
+    ll gb = i2g[ib];
 
-    for (int j:g2i[gb]) {
+    for (ll j:g2i[gb]) {
         i2g[j] = ga;
     }
 
@@ -57,11 +58,11 @@ void merge_set(set<int> *&a, set<int> *&b) {
 }
 */
 
-bool is_same_group(int ia, int ib) {
+bool is_same_group(ll ia, ll ib) {
     return i2g[ia] == i2g[ib];
 }
  
-int main(int argc, char *argv[])
+int main(void)
 {
     return 0;
 }

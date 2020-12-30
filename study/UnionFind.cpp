@@ -67,7 +67,7 @@ struct UF {
     }
 };
  
-int main(int argc, char *argv[])
+int main(void)
 {
     ll N, Q;
     cin >> N >> Q;

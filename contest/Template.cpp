@@ -8,10 +8,7 @@ using namespace std;
 #define No  cout << "No"  << endl;
  
 #define INF INT_MAX
-<<<<<<< HEAD
 #define LLINF LLONG_MAX
-=======
->>>>>>> origin/master
 #define MOD 1000000007
 #define PI  acos(-1)
 
@@ -20,7 +17,6 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
-<<<<<<< HEAD
 #define rep(i, n) for (ll i = 0; i < n; i++)
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
@@ -41,12 +37,6 @@ template<class T> inline bool chmax(T& a, T b) {
 }
 
 int main(void)
-=======
-#define rep(i, n) for (ll i = 0; i < (n); i++)
-#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
-
-int main(int argc, char *argv[])
->>>>>>> origin/master
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

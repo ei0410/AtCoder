@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
 
 using namespace std;
 
@@ -17,25 +17,22 @@ using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
-int main(int argc, char *argv[])
+ll GCD(ll a, ll b) {
+    if (a%b == 0) {
+        return b;
+    } else {
+        return GCD(b, a%b);
+    }
+}
+
+ll LCM(ll a, ll b) {
+    return a / GCD(a, b) * b;
+}
+
+int main(void)
 {
-    int N;
-    cin >> N;
-    vector<int> a(N);
-
-    for (int i = 0; i < N; i++) {
-        cin >> a[i];
-    }
-
-    int res = INF;
-    for (int i = 0; i < N; i++) {
-        if (res > a[i]) {
-            res = a[i];
-        }
-    }
-
-    cout << res << endl;
-
+    cout << LCM(24, 36) << endl;
     return 0;
 }

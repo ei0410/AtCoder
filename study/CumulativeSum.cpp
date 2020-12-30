@@ -23,18 +23,18 @@ int main(int argc, char *argv[])
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int N;
+    ll N;
     cin >> N;
 
-    int left, right;
+    ll left, right;
     cin >> left >> right;
 
-    vector<int> a(N);
+    vector<ll> a(N);
     rep (i, N) {
         cin >> a[i];
     }
 
-    vector<int> s(N+1, 0);
+    vector<ll> s(N+1, 0);
     rep (i, N) {
         s[i+1] = s[i] + a[i];
     }

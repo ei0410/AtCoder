@@ -20,7 +20,6 @@ using Pll = pair<ll, ll>;
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 bool func(ll N, ll X, vector<ll> &a, vector<vector<ll>> &dp) {
-    //basecase
     if (N == 0) {
         if (X == 0) {
             return true;
@@ -60,7 +59,7 @@ int main(void)
         cin >> a[i];
     }
 
-    const int MAX_X = 100000;
+    const ll MAX_X = 100000;
     vector<vector<ll>> dp(N+1, vector<ll>(MAX_X+1, -1));
 
     if (func(N, X, a, dp)) {

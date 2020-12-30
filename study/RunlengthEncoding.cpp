@@ -25,7 +25,7 @@ vector<Pcl> RLE(string s) {
 
     ll N = s.size()-1;
     ll right = 0;
-    for (ll left = 0; left < N; left++) {
+    rep (left, N) {
         while(right < N && s[right] == s[right+1]){
             right++;
         }
@@ -41,7 +41,7 @@ vector<Pcl> RLE(string s) {
     return p;
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

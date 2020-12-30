@@ -16,25 +16,13 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
  
-int main(int argc, char *argv[])
+int main(void)
 {
     queue<ll> q;
 
     q.push(1);
     q.push(2);
     q.push(3);
-
-    /*
-    //BFS
-    while (!q.empty()) {
-        int n = q.front();
-        q.pop();
-
-        if (...) {
-            q.push(...);
-        }
-    }
-    */
 
     cout << q.size() << endl;
 

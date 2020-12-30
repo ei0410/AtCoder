@@ -6,21 +6,21 @@
 using ll  = long long;
 using ull = unsigned long long;
 
-const int SIZE = 1 << 10;
-int array[SIZE + 1];
-int BIT[SIZE + 1];
+const ll SIZE = 1 << 10;
+ll array[SIZE + 1];
+ll BIT[SIZE + 1];
 
-int sum(int a) {
-    int ans = 0;
+ll sum(ll a) {
+    ll ans = 0;
     while (a) {
         ans += BIT[a];
-        int least = a&-a;
+        ll least = a&-a;
         a -= least;
     }
     return ans;
 }
 
-int sum(int a, int b) {
+ll sum(ll a, ll b) {
     if (a > b) {
         return 0;
     }
@@ -28,15 +28,15 @@ int sum(int a, int b) {
     return sum(b) - sum(a-1);
 }
 
-void add(int a, int x) {
+void add(ll a, ll x) {
     while (a <= SIZE) {
         BIT[a] += x;
-        int least = a&-a;
+        ll least = a&-a;
         a += least;
     }
 }
  
-int main(int argc, char *argv[])
+int main(void)
 {
     for (int i = 1; i <= SIZE; i++) {
         array[i] = i;

@@ -16,14 +16,17 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
 
+#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
 #define H_MAX 500
 #define W_MAX 500
 
-int H, W;
+ll H, W;
 char c[H_MAX][W_MAX];
 bool reached[H_MAX][W_MAX];
 
-void dfs(int x, int y) {
+void dfs(ll x, ll y) {
     if ((x < 0 || H <= x || y < 0 || W <= y) || (c[x][y] == '#')) {
         return;
     }
@@ -39,12 +42,14 @@ void dfs(int x, int y) {
     dfs(x, y-1);
 }
  
-int main(int argc, char *argv[])
+int main(void)
 {
     cin >> H >> W;
-    int sx, sy, gx, gy;
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
+
+    ll sx, sy, gx, gy;
+
+    rep (i, H) {
+        rep (j, W) {
             cin >> c[i][j];
             if (c[i][j] == 's') {
                 sx = i;
@@ -58,6 +63,7 @@ int main(int argc, char *argv[])
     }
 
     dfs(sx, sy);
+
     if (reached[gx][gy]) {
         Yes
     } else {

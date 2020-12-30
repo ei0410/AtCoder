@@ -30,7 +30,7 @@ ll pow_mod(ll n, ll k, ll m) {
     }
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

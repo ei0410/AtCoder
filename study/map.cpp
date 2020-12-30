@@ -16,41 +16,37 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
  
-int main(int argc, char *argv[])
+int main(void)
 {
     map<string, ll> m;
 
-    // add elements
     // m["key"] = value;
     m["one"] = 1;
     m["two"] = 2;
-    m.insert(map<string, ll>::value_type("two", 2)); // same mean
+    m.insert(map<string, ll>::value_type("two", 2));
     cout << m.size() << endl;
 
-    cout << m["one"] << endl; // output value
-    for (map<string, ll>::iterator it = m.begin(), end = m.end(); it != end; it++) {
-        cout << it->first << ":" << it->second << endl;
-    }
-    /*
+    cout << m["one"] << endl;
     for (auto it : m) {
         cout << it.first << ":" << it.second << endl;
     }
+    /*
+    for (map<string, ll>::iterator it = m.begin(), end = m.end(); it != end; it++) {
+        cout << it->first << ":" << it->second << endl;
+    }
     */
 
-    cout << m.count("one") << endl; // number of element in a key
+    cout << m.count("one") << endl;
 
-    // search for value
     map<string, ll>::iterator it = m.find("one");
     if (it != m.end()) {
         cout << "found: (" << it->first << "," << it->second << ")" << endl;
     }
 
-    // erase
-    cout << m.erase("one") << endl; // erased number of element
-    cout << m.erase("not_exist") << endl; // if you pick no exist key, return value 0
+    cout << m.erase("one") << endl;
+    cout << m.erase("not_exist") << endl;
     cout << m.size() << endl; 
 
-    // clear
     m.clear();
     cout << boolalpha << m.empty() << endl;
     return 0;

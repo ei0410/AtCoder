@@ -43,7 +43,7 @@ ll binary_search(ll key) {
     return ok;
 }
  
-int main(int argc, char *argv[])
+int main(void)
 {
     cout << binary_search(51) << endl;
     cout << binary_search(1) << endl;

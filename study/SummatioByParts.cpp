@@ -48,7 +48,7 @@ bool func(ll i, ll x, const vector<ll> &a, vector<vector<ll>> &dp) {
     return dp[i][x] = 0;
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

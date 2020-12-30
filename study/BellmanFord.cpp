@@ -22,18 +22,18 @@ using Pll = pair<ll, ll>;
 #define MAX_V 1000
 
 struct edge {
-    int from;
-    int to;
-    int cost;
+    ll from;
+    ll to;
+    ll cost;
 };
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    int V, side, s, g;
-    int d[MAX_V];
+    ll V, side, s, g;
+    ll d[MAX_V];
     vector<edge> edges;
 
     cin >> V >> side >> s >> g;

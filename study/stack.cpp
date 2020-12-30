@@ -16,21 +16,13 @@ using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
  
-int main(int argc, char *argv[])
+int main(void)
 {
     stack<ll> s;
 
     s.push(1);
     s.push(2);
     s.push(3);
-
-    /*
-    //DFS
-    while (!s.empty()) {
-        ll n = s.top();
-        s.pop();
-    }
-    */
 
     cout << s.size() << endl;
 

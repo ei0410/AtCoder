@@ -15,40 +15,46 @@ using ll  = long long;
 using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
  
-int main(int argc, char *argv[])
+int main(void)
 {
     vector<ll> a = {1, 3, 2};
     vector<ll> b = {5, 4, 6};
     vector<Pll> p;
-    for (ll i = 0; i < a.size(); i++) {
+
+    rep (i, a.size()) {
         p.push_back(make_pair(a[i], b[i]));
         // p.emplace_back(a[i], b[i]);
     }
 
-    for (ll i = 0; i < p.size(); i++) {
+    rep (i, p.size()) {
         cout << p[i].first << ":" << p[i].second << endl;
     }
 
     sort(p.begin(), p.end());
     // sort(p.rbegin(), p.rend());
-    for (ll i = 0; i < p.size(); i++) {
+
+    rep (i, p.size()) {
         cout << p[i].first << ":" << p[i].second << endl;
     }
 
-    for (ll i = 0; i < p.size(); i++) {
+    rep (i, p.size()) {
         ll tmp = p[i].first;
         p[i].first  = p[i].second;
         p[i].second = tmp;
     }
 
-    for (ll i = 0; i < p.size(); i++) {
+    rep (i, p.size()) {
         cout << p[i].first << ":" << p[i].second << endl;
     }
 
     sort(p.begin(), p.end());
     // sort(p.rbegin(), p.rend());
-    for (ll i = 0; i < p.size(); i++) {
+
+    rep (i, p.size()) {
         cout << p[i].first << ":" << p[i].second << endl;
     }
     return 0;

@@ -15,8 +15,11 @@ using ll  = long long;
 using ull = unsigned long long;
 using Pii = pair<int, int>;
 using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
  
-int main(int argc, char *argv[])
+int main(void)
 {
     vector<ll> v(2);
     vector<ll> v2(2, 0);
@@ -24,7 +27,7 @@ int main(int argc, char *argv[])
     v.resize(4);
     v2.resize(4, 1);
 
-    for (ll i = 0; i < v2.size(); i++) {
+    rep (i, v2.size()) {
         cout << v2[i] << endl;
     }
 
@@ -47,8 +50,32 @@ int main(int argc, char *argv[])
     vstr[2] = 'r';
     vstr[3] = '\0';
     cout << &vstr[0] << endl;
-    for (ll i = 0; i < v2.size(); i++) {
+
+    rep (i, v2.size()) {
         cout << vstr[i] << endl;
+    }
+    cout << endl;
+
+    vector<ll> vec{1, 2, 3, 2};
+    cout << count(vec.begin(), vec.end(), 1) << endl;
+    cout << count(vec.begin(), vec.end(), 2) << endl;
+    cout << endl;
+
+    vector<ll> x;
+    x.push_back(11);
+    x.push_back(7);
+    x.push_back(3);
+    x.push_back(4);
+    x.push_back(8);
+
+    vector<Pll> y;
+    rep (i, x.size()) {
+        y.push_back(Pll(x[i], i+1));
+    }
+
+    sort(y.begin(), y.end());
+    for (vector<Pll>::iterator it = y.begin(); it != y.end(); ++it){
+        cout << it->first << " " << it->second << endl;
     }
     return 0;
 }

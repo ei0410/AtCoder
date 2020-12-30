@@ -20,18 +20,16 @@ using Pll = pair<ll, ll>;
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 ll rec(ll n) {
-    //basecase
     if (n == 0) {
         return 0;
     } else if (n == 1) {
         return 1;
     }
 
-    //rec();
     return rec(n-2) + rec(n-1);
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

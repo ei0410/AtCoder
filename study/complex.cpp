@@ -18,7 +18,7 @@ using Pll = pair<ll, ll>;
 
 #define rep(i, n) for (ll i = 0; i < n; i++)
  
-int main(int argc, char *argv[])
+int main(void)
 {
     complex<double> a, b, c;
     a = complex<double>(3, 2);

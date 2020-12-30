@@ -1,13 +1,26 @@
 #include <bits/stdc++.h> 
+
+using namespace std;
+
+#define YES cout << "YES" << endl;
+#define NO  cout << "NO"  << endl;
+#define Yes cout << "Yes" << endl;
+#define No  cout << "No"  << endl;
  
-#define INF (1<<31)//INT_MAX/2
+#define INF INT_MAX
 #define MOD 1000000007
- 
+#define PI  acos(-1)
+
 using ll  = long long;
 using ull = unsigned long long;
- 
-const ll SIZE=1<<10;
-ll array[SIZE+1];
+using Pii = pair<int, int>;
+using Pll = pair<ll, ll>;
+
+#define rep(i, n) for (ll i = 0; i < n; i++)
+#define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
+
+const ll SIZE = 1<<10;
+ll arr[SIZE+1];
 ll cumsum[SIZE+1];
 
 ll sum(ll a, ll b) {
@@ -23,14 +36,14 @@ void add (ll a, ll x) {
     }
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     for (ll i = 1; i <= SIZE; i++) {
-        array[i] = i;
+        arr[i] = i;
     }
 
     for (ll i = 1; i <= SIZE; i++) {
-        cumsum[i] = cumsum[i - 1] + array[i];
+        cumsum[i] = cumsum[i - 1] + arr[i];
     }
 
     return 0;

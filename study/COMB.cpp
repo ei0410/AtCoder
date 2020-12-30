@@ -47,7 +47,7 @@ ll dcomb(ll n, ll r) {
     return comb(n+r-1, r);
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     cin.tie(0);
     ios::sync_with_stdio(false);

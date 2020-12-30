@@ -20,7 +20,6 @@ using Pll = pair<ll, ll>;
 #define rrep(i, n) for (ll i = (n)-1; i >= 0; i--)
 
 ll func(ll n, vector<ll> &dp) {
-    //basecase
     if (n == 0) {
         return 0;
     }
@@ -28,12 +27,10 @@ ll func(ll n, vector<ll> &dp) {
         return 1;
     }
 
-    //check
     if (dp[n] != -1) {
         return dp[n];
     }
 
-    //memo, rec
     return dp[n] = func(n-2, dp) + func(n-1, dp);
 }
 

@@ -34,7 +34,7 @@ vector<string> split(string s, string delim) {
     return res;
 }
  
-int main(int argc, char *argv[])
+int main(void)
 {
     string s = "a b c d e f g";
     string d = " ";
