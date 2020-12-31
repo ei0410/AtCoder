@@ -38,8 +38,8 @@ int main(void)
     rep (i, M) {
         ll from, to, cost;
         cin >> from >> to >> cost;
-        //from--;
-        //to--;
+        from--;
+        to--;
         G[from].push_back((edge){to, cost});
     }
 
