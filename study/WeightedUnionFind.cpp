@@ -24,7 +24,7 @@ struct UF {
     vector<ll> siz;
     vector<ll> rank;
 
-    UF (ll N) : par(N), siz(N, 1LL), rank(N) {
+    UF(ll N) : par(N), siz(N, 1LL), rank(N) {
         rep (i, N) {
             par[i] = i;
             rank[i] = 0;
@@ -50,7 +50,7 @@ struct UF {
         }
     }
 
-    bool unite(ll x, ll y) {
+    bool unite(ll x, ll y, ll z) {
         x = root(x);
         y = root(y);
         if (x == y) {
@@ -62,7 +62,7 @@ struct UF {
         } else {
             par[y] = x;
             if (rank[x] == rank[y]) {
-                rank[x]++;
+                rank[x] += z;
             }
         }
         return true;
@@ -75,30 +75,36 @@ struct UF {
     ll size(ll x) {
         return siz[root(x)];
     }
+
+    ll diff(ll x, ll y) {
+        return rank[y]-rank[x];
+    }
 };
+
 
 int main(void)
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    ll N, Q;
-    cin >> N >> Q;
+    ll n, q;
+    cin >> n >> q;
 
-    UF uf(N);
+    UF uf(n);
 
-    rep (i, Q) {
-        ll p, x, y;
-        cin >> p >> x >> y;
-
-        if (p) {
+    rep (i, q) {
+        ll f, x, y, z;
+        cin >> f;
+        if (f) {
+            cin >> x >> y;
             if (uf.same(x, y)) {
-                Yes;
+                cout << uf.diff(x, y) << endl;
             } else {
-                No;
+                cout << '?' << endl;
             }
         } else {
-            uf.unite(x, y);
+            cin >> x >> y >> z;
+            uf.unite(x, y, z);
         }
     }
     return 0;

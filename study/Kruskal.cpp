@@ -21,10 +21,9 @@ using Pll = pair<ll, ll>;
 
 struct UF {
     vector<ll> par;
-    vector<ll> siz;
     vector<ll> rank;
 
-    UF (ll N) : par(N), siz(N, 1LL), rank(N) {
+    UF (ll N) : par(N), rank(N) {
         rep (i, N) {
             par[i] = i;
             rank[i] = 0;
@@ -33,7 +32,6 @@ struct UF {
 
     void init(ll N) {
         par.resize(N);
-        siz.assign(N, 1LL);
         rank.resize(N);
 
         rep (i, N) {
@@ -71,35 +69,48 @@ struct UF {
     bool same(ll x, ll y) {
         return root(x) == root(y);
     }
-
-    ll size(ll x) {
-        return siz[root(x)];
-    }
 };
+
+struct Edge {
+    ll u;
+    ll v;
+    ll cost;
+};
+
+bool comp (const Edge &e1, const Edge &e2) {
+    return e1.cost < e2.cost;
+}
+
+ll Kruskal (ll V, vector<Edge>& edges) {
+    UF uf(V);
+    ll sum = 0;
+
+    sort(edges.begin(), edges.end(), comp);
+    for (auto e : edges) {
+        if (!uf.same(e.u, e.v)) {
+            uf.unite(e.u, e.v);
+            sum += e.cost;
+        }
+    }
+    return sum;
+}
 
 int main(void)
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    ll N, Q;
-    cin >> N >> Q;
+    ll V, E;
+    cin >> V >> E;
 
-    UF uf(N);
-
-    rep (i, Q) {
-        ll p, x, y;
-        cin >> p >> x >> y;
-
-        if (p) {
-            if (uf.same(x, y)) {
-                Yes;
-            } else {
-                No;
-            }
-        } else {
-            uf.unite(x, y);
-        }
+    vector<Edge> edges(E);
+    rep (i, E) {
+        ll s, t, w;
+        cin >> s >> t >> w;
+        Edge e = {s, t, w};
+        edges[i] = e;
     }
+
+    cout << Kruskal(V, edges) << endl;
     return 0;
 }
