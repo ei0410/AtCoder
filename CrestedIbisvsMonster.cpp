@@ -41,8 +41,24 @@ int main(void)
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll K;
-    cin >> K;
+    ll H, N;
+    cin >> H >> N;
 
+    vector<ll> A(N), B(N);
+    rep (i, N) {
+        cin >> A[i] >> B[i];
+    }
+
+    vector<ll> dp(H+1, INF);
+    dp[0] = 0;
+
+    rep (i, N) {
+        rep (j, H+1) {
+            ll tmp = min(j+A[i], H);
+            dp[tmp] = min(dp[tmp], dp[j]+B[i]);
+        }
+    }
+
+    cout << dp[H] << endl;
     return 0;
 }

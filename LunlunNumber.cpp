@@ -41,12 +41,29 @@ int main(void)
     cin.tie(0);
     ios::sync_with_stdio(false);
 
-    ll H, N;
-    cin >> H >> N;
+    ll K;
+    cin >> K;
 
-    vector<ll> A(N), B(N);
-    rep (i, N) {
-        cin >> A[i] >> B[i];
+    queue<ll> q;
+    for (ll i = 1; i <= 9; i++) {
+        q.push(i);
     }
+
+    rep (i, K-1) {
+        ll num = q.front();
+        q.pop();
+
+        if (num%10 != 0) {
+            q.push(10*num+(num%10)-1);
+        }
+
+        q.push(10*num+(num%10));
+
+        if (num%10 != 9) {
+            q.push(10*num+(num%10)+1);
+        }
+    }
+
+    cout << q.front() << endl;
     return 0;
 }
